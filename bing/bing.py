@@ -4,6 +4,7 @@ import json
 import discord
 from discord.ext import commands
 from py_bing_search import PyBingImageSearch
+from random import randint
         
 class bing:
     """Fetches search results from Bing"""
