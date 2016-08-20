@@ -12,14 +12,14 @@ class bing:
 
     def __init__(self, bot):
         self.bot = bot
-        api_key = 'WdlwygeDRR0NsUzUZEF4Yql4OLomvvZfp3moFgLl9Zg'
+        self.api_key = 'WdlwygeDRR0NsUzUZEF4Yql4OLomvvZfp3moFgLl9Zg'
 
     @commands.command()
     async def bing(self, *, text):
         """Fetches an image from Bing, with a moderate SafeSearch setting"""
 
         #Your code will go here
-        bing_image = PyBingImageSearch(api_key, text, custom_params="&Adult='Strict'")
+        bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Strict'")
         if text.split(' ', 1)[0].lower() == 'random':
                 result= bing_image.search(limit=100, format='json')
                 num=randint(0,99)
@@ -37,7 +37,7 @@ class bing:
         """Fetches a search result from Bing"""
 
         #Your code will go here
-        bing_web = PyBingWebSearch(api_key, text, web_only=False)
+        bing_web = PyBingWebSearch(self.api_key, text, web_only=False)
         result= bing_web.search(limit=1, format='json')
         num=0
         try:
