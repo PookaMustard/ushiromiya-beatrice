@@ -3,8 +3,9 @@ import time
 import json
 import discord
 from discord.ext import commands
-from py_bing_search import PyBingImageSearch
 from random import randint
+from py_bing_search import PyBingImageSearch
+from py_bing_search import PyBingWebSearch
         
 class bing:
     """Fetches search results from Bing"""
@@ -27,7 +28,21 @@ class bing:
         try:
                 bottext = result[num].media_url
         except IndexError:
-                bottext = "Cannot find any search results. Try using %bingadult to disable Bing Safe Search"
+                bottext = "Cannot find any search results. Try using %bingadult to disable Bing Safe Search."
+        await self.bot.say(bottext)
+        
+    @commands.command()
+    async def bingsearch(self, *, text):
+        """Fetches a search result from Bing"""
+
+        #Your code will go here
+        bing_web = PyBingWebSearch('WdlwygeDRR0NsUzUZEF4Yql4OLomvvZfp3moFgLl9Zg', text, web_only=False)
+        result= bing_web.search(limit=1, format='json')
+        num=0
+        try:
+                bottext = result[num].url + "\n" + result[num].title + "\n" + result[num].description
+        except IndexError:
+                bottext = "Cannot find any search results. Try another search."
         await self.bot.say(bottext)
 
 def setup(bot):
