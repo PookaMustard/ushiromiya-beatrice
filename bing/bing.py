@@ -12,7 +12,7 @@ class bing:
         self.bot = bot
 
     @commands.command()
-    async def bing(self, *text):
+    async def bing(self, *, text):
         """Fetches an image from Bing, with a moderate SafeSearch setting"""
 
         #Your code will go here
