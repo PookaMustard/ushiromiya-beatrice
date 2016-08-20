@@ -20,11 +20,14 @@ class bing:
         """Fetches an image from Bing, with a moderate SafeSearch setting"""
 
         #Your code will go here
-        bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Strict'")
+        
         if text.split(' ', 1)[0].lower() == 'random':
+                text = text.replace('random ', '', 1)
+                bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Strict'")
                 result= bing_image.search(limit=50, format='json')
                 num=randint(0,49)
         else:
+                bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Strict'")
                 result= bing_image.search(limit=1, format='json')
                 num=0
         try:
