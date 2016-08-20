@@ -16,7 +16,7 @@ class bing:
         """Fetches an image from Bing, with a moderate SafeSearch setting"""
 
         #Your code will go here
-        bing_image = PyBingImageSearch('WdlwygeDRR0NsUzUZEF4Yql4OLomvvZfp3moFgLl9Zg', '"+text+"', custom_params="&Adult='Strict'")
+        bing_image = PyBingImageSearch('WdlwygeDRR0NsUzUZEF4Yql4OLomvvZfp3moFgLl9Zg', text, custom_params="&Adult='Strict'")
         result= bing_image.search(limit=1, format='json')
         bottext = result[0].media_url
         await self.bot.say(bottext)
