@@ -6,6 +6,7 @@ from discord.ext import commands
 from random import randint
 from py_bing_search import PyBingImageSearch
 from py_bing_search import PyBingWebSearch
+from py_bing_search import PyBingVideoSearch
         
 class bing:
     """Fetches search results from Bing"""
@@ -44,6 +45,24 @@ class bing:
                 bottext = result[num].url + "\n" + result[num].title + "\n" + result[num].description
         except IndexError:
                 bottext = "Cannot find any search results. Try another search."
+        await self.bot.say(bottext)
+        
+    @commands.command()
+    async def bingvideo(self, *, text):
+        """Fetches a video from Bing"""
+
+        #Your code will go here
+        bing_video = PyBingVideoSearch(self.api_key, text)
+        if text.split(' ', 1)[0].lower() == 'random':
+                result= bing_video.search(limit=100, format='json')
+                num=randint(0,99)
+        else:
+                result= bing_video.search(limit=1, format='json')
+                num=0
+        try:
+                bottext = result[num].media_url
+        except IndexError:
+                bottext = "Cannot find any search results. Try another search result."
         await self.bot.say(bottext)
 
 def setup(bot):
