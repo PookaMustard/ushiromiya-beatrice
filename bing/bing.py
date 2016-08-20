@@ -17,9 +17,14 @@ class bing:
 
         #Your code will go here
         bing_image = PyBingImageSearch('WdlwygeDRR0NsUzUZEF4Yql4OLomvvZfp3moFgLl9Zg', text, custom_params="&Adult='Strict'")
-        result= bing_image.search(limit=1, format='json')
+        if text.lower() === 'random':
+                result= bing_image.search(limit=100, format='json')
+                num=randint(0,99)
+        else:
+                result= bing_image.search(limit=1, format='json')
+                num=0
         try:
-                bottext = result[0].media_url
+                bottext = result[num].media_url
         except IndexError:
                 bottext = "Cannot find any search results. Try using %bingadult to disable Bing Safe Search"
         await self.bot.say(bottext)
