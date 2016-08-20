@@ -17,7 +17,7 @@ class bing:
 
         #Your code will go here
         text = " ".join(text)
-        bing_image = PyBingImageSearch('WdlwygeDRR0NsUzUZEF4Yql4OLomvvZfp3moFgLl9Zg', text, custom_params="&Adult='Strict'")
+        bing_image = PyBingImageSearch('WdlwygeDRR0NsUzUZEF4Yql4OLomvvZfp3moFgLl9Zg', '"+text+"', custom_params="&Adult='Strict'")
         result= bing_image.search(limit=1, format='json')
         bottext = result[0].media_url
         return self.bot.say(bottext)
