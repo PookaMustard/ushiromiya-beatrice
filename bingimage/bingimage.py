@@ -360,4 +360,4 @@ class bingimagebot:
         return self.bot.say(bottext)
 
 def setup(bot):
-    bot.add_cog(echo(bot))
+    bot.add_cog(bingimage(bot))
