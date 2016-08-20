@@ -7,9 +7,12 @@ from random import randint
 from py_bing_search import PyBingImageSearch
 from py_bing_search import PyBingWebSearch
 from py_bing_search import PyBingVideoSearch
+from py_bing_search import PyBingNewsSearch
         
 class bing:
-    """Fetches search results from Bing"""
+    """Fetches search results from Bing.
+    
+    Uses the Python module py_bing_search as a frontend for Red"""
 
     def __init__(self, bot):
         self.bot = bot
@@ -66,6 +69,26 @@ class bing:
                 num=0
         try:
                 bottext = result[num].media_url
+        except IndexError:
+                bottext = "Cannot find any search results. Try another search result."
+        await self.bot.say(bottext)
+        
+    @commands.command()
+    async def bingnews(self, *, text):
+        """Fetches a news article from Bing"""
+
+        #Your code will go here
+        if text.split(' ', 1)[0].lower() == 'random':
+                text = text.replace('random ', '', 1)
+                bing_news = PyBingNewsSearch(self.api_key, text)
+                result= bing_news.search(limit=50, format='json')
+                num=randint(0,49)
+        else:
+                bing_news = PyBingNewsSearch(self.api_key, text)
+                result= bing_news.search(limit=1, format='json')
+                num=0
+        try:
+                bottext = result[num].title + "\n" + result[num].url + "\n" + result[num].date + "\n" + result[num].description
         except IndexError:
                 bottext = "Cannot find any search results. Try another search result."
         await self.bot.say(bottext)
