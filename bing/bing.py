@@ -55,9 +55,15 @@ class bing:
         """Fetches a video from Bing"""
 
         #Your code will go here
-        bing_video = PyBingVideoSearch(self.api_key, text)
-        result= bing_video.search(limit=1, format='json')
-        num=0
+        if text.split(' ', 1)[0].lower() == 'random':
+                text = text.replace('random ', '', 1)
+                bing_video = PyBingVideoSearch(self.api_key, text)
+                result= bing_video.search(limit=50, format='json')
+                num=randint(0,49)
+        else:
+                bing_video = PyBingVideoSearch(self.api_key, text)
+                result= bing_video.search(limit=1, format='json')
+                num=0
         try:
                 bottext = result[num].media_url
         except IndexError:
