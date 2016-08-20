@@ -19,13 +19,12 @@ class bing:
     async def bing(self, *, text):
         """Fetches an image from Bing, with a moderate SafeSearch setting"""
 
+        #Your code will go here
+        bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Strict'")
         if text.split(' ', 1)[0].lower() == 'random':
-                text = text.replace('random ','',1)
-                bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Strict'")
                 result= bing_image.search(limit=100, format='json')
                 num=randint(0,99)
         else:
-                bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Strict'")
                 result= bing_image.search(limit=1, format='json')
                 num=0
         try:
@@ -38,6 +37,7 @@ class bing:
     async def bingsearch(self, *, text):
         """Fetches a search result from Bing"""
 
+        #Your code will go here
         bing_web = PyBingWebSearch(self.api_key, text, web_only=False)
         result= bing_web.search(limit=1, format='json')
         num=0
@@ -51,15 +51,10 @@ class bing:
     async def bingvideo(self, *, text):
         """Fetches a video from Bing"""
 
-        if text.split(' ', 1)[0].lower() == 'random':
-                text = text.replace('random ','',1)
-                bing_video = PyBingVideoSearch(self.api_key, text)
-                result= bing_video.search(limit=100, format='json')
-                num=randint(0,99)
-        else:
-                bing_video = PyBingVideoSearch(self.api_key, text)
-                result= bing_video.search(limit=1, format='json')
-                num=0
+        #Your code will go here
+        bing_video = PyBingVideoSearch(self.api_key, text)
+        result= bing_video.search(limit=1, format='json')
+        num=0
         try:
                 bottext = result[num].media_url
         except IndexError:
