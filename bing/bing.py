@@ -22,8 +22,8 @@ class bing:
         #Your code will go here
         bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Strict'")
         if text.split(' ', 1)[0].lower() == 'random':
-                result= bing_image.search(limit=100, format='json')
-                num=randint(0,99)
+                result= bing_image.search(limit=50, format='json')
+                num=randint(0,49)
         else:
                 result= bing_image.search(limit=1, format='json')
                 num=0
