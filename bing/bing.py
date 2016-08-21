@@ -34,6 +34,20 @@ class bing:
                 self.api_key = self.settings["api_key"]
         self.PREFIXES = bot_settings.prefixes 
 
+    def setadultserver(self, server, status):
+        if adult not in self.settings:
+               self.settings['adult'] = {}
+        if server not in self.settings['adult']:
+                self.settings['adult'][server.id] = 'blank'
+        self.settings['adult'][server.id] = status
+        fileIO(SETTINGS, "save", settings)
+        self.settings = fileIO(SETTINGS, "load")
+        
+    def getadultserver(self):
+        if server not in self.settings['adult'] or adult not in self.settings:
+                return False
+        return self.settings['adult'][server.id]```
+
     @commands.command()
     async def bing(self, *, text):
         """Fetches an image from Bing, with a moderate SafeSearch setting"""
@@ -64,6 +78,26 @@ class bing:
         else:
                 bottext = result[randint(0, limit - 1)].media_url
         await self.bot.say(bottext)
+        
+    @commands.command(pass_context=True)
+    @checks.admin_or_permissions(manage_server=True)
+    async def bingadultsets(self, ctx):
+        """Sets %bingadult for entire server"""
+            
+        server = ctx.message.server
+        message = ctx.message
+        await self.bot.say("`Do you want to enable %bingadult for this server?` (y/n)")
+        response = await self.bot.wait_for_message(author=message.author)
+        if response.content.lower().strip() == "y":
+                setadultserver(server.id, True)
+                await self.bot.say("`Saving server settings now.`")
+                strat = getadultserver()
+                await self.bot.say(strat)
+        else:
+                setadultserver(server.id, False)
+                await self.bot.say("`Cancelling server settings now.`")
+                strat = getadultserver()
+                await self.bot.say(strat)
         
     @commands.command()
     async def bingsearch(self, *, text):
