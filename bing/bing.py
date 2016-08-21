@@ -70,7 +70,7 @@ class bing:
         check=''
         if text.split(' ', 1)[0].lower() == 'random':
                 text = text.replace('random ', '', 1)
-                text = text + "%20-site%3Astore.steampowered.com%20-site%3Asteamcommunity.com%20-site%3Aign.com%27"
+                text = text + " -site:store.steampowered.com -site:steamcommunity.com -site:ign.com"
                 await self.bot.say(text)
                 bing_video = PyBingVideoSearch(self.api_key, text)
                 result= bing_video.search(limit=99, format='json')
