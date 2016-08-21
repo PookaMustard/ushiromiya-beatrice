@@ -102,7 +102,10 @@ class bing:
             
         server = ctx.message.server
         message = ctx.message
-        await self.bot.say("`Do you want to enable %bingadult for this server?` (y/n)")
+        await self.bot.say("`Do you want to enable %bingadult for this server? This will enable your server to use " +
+                        "the %bingadult command, which image searches Bing with Safe Search turned off. Do note that " +
+                        "this setting will be overriden per channel if a channel is set to accept usage of %bingadult. " +
+                        "ARE YOU SURE YOU WANT TO ENABLE %adultbing? (y/n)`")
         response = await self.bot.wait_for_message(author=message.author)
         if response.content.lower().strip() == "y":
                 self.setadultserver(server, True)
@@ -118,23 +121,34 @@ class bing:
     @commands.command(pass_context=True)
     @checks.admin_or_permissions(manage_server=True)
     async def bingadultsetc(self, ctx):
-        """Sets %bingadult for entire server"""
+        """Sets %bingadult for the current channel"""
             
         server = ctx.message.server
         message = ctx.message
         channel = ctx.message.channel
-        await self.bot.say("`Do you want to enable %bingadult for this channel?` (y/n)")
+        await self.bot.say("`Do you want to enable %bingadult for this channel? This will enable this channel to use " +
+                        "the %bingadult command, which image searches Bing with Safe Search turned off. Do note that " +
+                        "this setting will override the global server setting and thus will allow %bingadult in this " +
+                        "channel even if the global server setting is off." +
+                        "ARE YOU SURE YOU WANT TO ENABLE %adultbing? (y/n)`")
         response = await self.bot.wait_for_message(author=message.author)
         if response.content.lower().strip() == "y":
                 self.setadultchannel(channel, True)
                 await self.bot.say("`Saving channel settings now.`")
                 strat = self.getadultchannel(channel)
-                await self.bot.say(strat)
+                if strat == 'True':
+                        await self.bot.say("`Settings saved. %bingadult enabled for this channel.`")
+                else:
+                        await self.bot.say("`Settings not saved. Please contact a bot admin.`")
         else:
                 self.setadultchannel(channel, False)
-                await self.bot.say("`Cancelling channel settings now.`")
+                await self.bot.say("`Saving channel settings now.`")
                 strat = self.getadultchannel(channel)
-                await self.bot.say(strat)
+                strat = self.getadultchannel(channel)
+                if strat == 'False':
+                        await self.bot.say("`Settings saved. %bingadult disabled for this channel.`")
+                else:
+                        await self.bot.say("`Settings not saved. Please contact a bot admin.`")
         
     @commands.command()
     async def bingsearch(self, *, text):
