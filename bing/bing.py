@@ -66,21 +66,19 @@ class bing:
     async def bingvideo(self, *, text):
         """Fetches a video from Bing"""
 
+        #Your code will go here
         retries = 0
+        attempts = 0
         check=''
         if text.split(' ', 1)[0].lower() == 'random':
                 text = text.replace('random ', '', 1)
-                text = text + " -site:store.steampowered.com -site:steamcommunity.com -site:ign.com"
-                await self.bot.say(text)
                 bing_video = PyBingVideoSearch(self.api_key, text)
                 result= bing_video.search(limit=99, format='json')
                 limit=99
-                factlimit=1
         else:
                 bing_video = PyBingVideoSearch(self.api_key, text)
                 result= bing_video.search(limit=1, format='json')
                 limit=0
-                factlimit=0
         while retries <= limit:
                 try:
                         check = result[retries].media_url
@@ -90,34 +88,32 @@ class bing:
                         limit = retries
                         break
         if retries == 0:
-                bottext = "Cannot find any search results."
+                bottext = "Cannot find any search results.."
         else:
-                if factlimit == 0:
-                        bottext = result[0].media_url
-                else:
-                        bottext = result[randint(0, limit - 1)].media_url
-                # The following code removes any non-video pages, such as Steam and IGN pages which do not even
-                # embed any video into Discord.
-        await self.bot.say('limit = ' + str(limit) + '...retries = ' + str(retries) + '...factlimit = ' + str(factlimit))
+                bottext = result[randint(0, limit - 1)].media_url
+        while "http://store.steampowered.com/" in bottext or "ign.com" in bottext:
+                bottext = result[randint(0, limit - 1)].media_url
+                attempts = attempts + 1
+                if attempts <= 5:
+                        bottext = "Try this search again."
+        await self.bot.say(bottext)
         
     @commands.command()
     async def bingnews(self, *, text):
         """Fetches a news article from Bing"""
 
-        retries = 0
-        check=''
+        #Your code will go here
         if text.split(' ', 1)[0].lower() == 'random':
                 text = text.replace('random ', '', 1)
                 bing_news = PyBingNewsSearch(self.api_key, text)
-                result= bing_news.search(limit=99, format='json')
-                limit=99
+                result= bing_news.search(limit=50, format='json')
+                num=randint(0,49)
         else:
                 bing_news = PyBingNewsSearch(self.api_key, text)
                 result= bing_news.search(limit=1, format='json')
                 num=0
         try:
-                bottext = result[num].title + "\n" + result[num].url + "\n" + \
-                result[num].date + "\n" + result[num].description
+                bottext = result[num].title + "\n" + result[num].url + "\n" + result[num].date + "\n" + result[num].description
         except IndexError:
                 bottext = "Cannot find any search results. Try another search result."
         await self.bot.say(bottext)
