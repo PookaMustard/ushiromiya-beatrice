@@ -70,6 +70,7 @@ class bing:
         check=''
         if text.split(' ', 1)[0].lower() == 'random':
                 text = text.replace('random ', '', 1)
+                text = text + "%20-site%3Astore.steampowered.com%20-site%3Asteamcommunity.com%20-site%3Aign.com%27"
                 bing_video = PyBingVideoSearch(self.api_key, text)
                 result= bing_video.search(limit=99, format='json')
                 limit=99
@@ -96,10 +97,6 @@ class bing:
                         bottext = result[randint(0, limit - 1)].media_url
                 # The following code removes any non-video pages, such as Steam and IGN pages which do not even
                 # embed any video into Discord.
-        while (bottext.find("http://store.steampowered.com/app/") == 1) or \
-                      (bottext.find("http://www.ign.com/articles/") == 1):
-                        bottext = result[randint(0, limit - 1)].media_url
-        await self.bot.say(bottext)
         await self.bot.say('limit = ' + str(limit) + '...retries = ' + str(retries) + '...factlimit = ' + str(factlimit))
         
     @commands.command()
