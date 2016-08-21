@@ -41,12 +41,24 @@ class bing:
 #                self.settings['adult'][server.id] = 'blank'
         self.settings['adult'][server.id] = status
         fileIO(SETTINGS, "save", self.settings)
-        self.settings = fileIO(SETTINGS, "load")
+        
+    def setadultchannel(self, channel, status):
+        if 'adult' not in self.settings:
+               self.settings['adult'] = {}
+#        if 'server' not in self.settings['adult']:
+#                self.settings['adult'][server.id] = 'blank'
+        self.settings['adult'][channel.id] = status
+        fileIO(SETTINGS, "save", self.settings)
         
     def getadultserver(self, server):
         if 'adult' not in self.settings or server.id not in self.settings['adult']:
                 return False
         return self.settings['adult'][server.id]
+        
+    def getadultchannel(self, server):
+        if 'adult' not in self.settings or channel.id not in self.settings['adult']:
+                return False
+        return self.settings['adult'][channel.id]
 
     @commands.command()
     async def bing(self, *, text):
@@ -97,6 +109,26 @@ class bing:
                 self.setadultserver(server, False)
                 await self.bot.say("`Cancelling server settings now.`")
                 strat = self.getadultserver(server)
+                await self.bot.say(strat)
+                
+    @commands.command(pass_context=True)
+    @checks.admin_or_permissions(manage_server=True)
+    async def bingadultsetc(self, ctx):
+        """Sets %bingadult for entire server"""
+            
+        server = ctx.message.server
+        message = ctx.message
+        await self.bot.say("`Do you want to enable %bingadult for this channel?` (y/n)")
+        response = await self.bot.wait_for_message(author=message.author)
+        if response.content.lower().strip() == "y":
+                self.setadultchannel(channel, True)
+                await self.bot.say("`Saving channel settings now.`")
+                strat = self.getadultchannel(channel)
+                await self.bot.say(strat)
+        else:
+                self.setadultchannel(channel, False)
+                await self.bot.say("`Cancelling channel settings now.`")
+                strat = self.getadultchannel(channel)
                 await self.bot.say(strat)
         
     @commands.command()
