@@ -46,7 +46,7 @@ class bing:
     def getadultserver(self):
         if server not in self.settings['adult'] or adult not in self.settings:
                 return False
-        return self.settings['adult'][server.id]```
+        return self.settings['adult'][server.id]
 
     @commands.command()
     async def bing(self, *, text):
