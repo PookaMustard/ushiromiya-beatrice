@@ -43,7 +43,7 @@ class bing:
         fileIO(SETTINGS, "save", self.settings)
         self.settings = fileIO(SETTINGS, "load")
         
-    def getadultserver(self):
+    def getadultserver(self, server):
         if 'server' not in self.settings['adult'] or adult not in self.settings:
                 return False
         return self.settings['adult'][server.id]
@@ -91,12 +91,12 @@ class bing:
         if response.content.lower().strip() == "y":
                 self.setadultserver(server, True)
                 await self.bot.say("`Saving server settings now.`")
-                strat = self.getadultserver()
+                strat = self.getadultserver(server)
                 await self.bot.say(strat)
         else:
                 self.setadultserver(server, False)
                 await self.bot.say("`Cancelling server settings now.`")
-                strat = self.getadultserver()
+                strat = self.getadultserver(server)
                 await self.bot.say(strat)
         
     @commands.command()
