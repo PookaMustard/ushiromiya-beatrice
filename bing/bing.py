@@ -179,10 +179,6 @@ class bing:
                 await self.bot.say("{} ` Bing API key saved...`".format(user.mention))
             else:
                 await self.bot.say("{} `Canceled API key opertation...`".format(user.mention))
-        else:
-            self.settings["api_key"] = key
-            fileIO(SETTINGS, "save", self.settings)
-            await self.bot.say("{} ` Bing API key saved...`".format(user.mention))
         self.settings = fileIO(SETTINGS, "load") 
         self.api_key = self.settings["api_key"]
 
