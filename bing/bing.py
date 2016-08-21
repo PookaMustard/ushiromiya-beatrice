@@ -89,12 +89,12 @@ class bing:
         await self.bot.say("`Do you want to enable %bingadult for this server?` (y/n)")
         response = await self.bot.wait_for_message(author=message.author)
         if response.content.lower().strip() == "y":
-                setadultserver(server, True)
+                self.setadultserver(server, True)
                 await self.bot.say("`Saving server settings now.`")
                 strat = getadultserver()
                 await self.bot.say(strat)
         else:
-                setadultserver(server.id, False)
+                self.setadultserver(server, False)
                 await self.bot.say("`Cancelling server settings now.`")
                 strat = getadultserver()
                 await self.bot.say(strat)
