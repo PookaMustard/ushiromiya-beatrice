@@ -91,7 +91,7 @@ class bing:
                 bottext = result[randint(0, limit - 1)].media_url
         await self.bot.say(bottext)
         
-    @commands.command(pass_context=True)
+    @commands.command(pass_context=True,no_pm=True)
     @checks.admin_or_permissions(manage_server=True)
     async def bingadultsets(self, ctx):
         """Sets %bingadult for entire server"""
@@ -120,7 +120,7 @@ class bing:
                 else:
                         await self.bot.say("`Settings not saved. Please contact a bot admin.`")
                 
-    @commands.command(pass_context=True)
+    @commands.command(pass_context=True,no_pm=True)
     @checks.admin_or_permissions(manage_server=True)
     async def bingadultsetc(self, ctx):
         """Sets %bingadult for the current channel"""
