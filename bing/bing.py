@@ -55,12 +55,12 @@ class bing:
         fileIO(SETTINGS, "save", self.settings)
         
     def getadultserver(self, server):
-        if 'adult' not in self.settings or server.id not in self.settings['adult']:
+        if 'adult' not in self.settings or 'servers' not in self.settings['adult'] or if server.id not in self.settings['adult']['servers']:
                 return False
         return self.settings['adult']['servers'][server.id]
         
     def getadultchannel(self, channel):
-        if 'adult' not in self.settings or channel.id not in self.settings['adult']:
+        if 'adult' not in self.settings or 'channels' not in self.settings['adult'] or if channel.id not in self.settings['adult']['channels']:
                 return False
         return self.settings['adult']['channels'][channel.id]
 
