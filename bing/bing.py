@@ -55,7 +55,7 @@ class bing:
                 return False
         return self.settings['adult'][server.id]
         
-    def getadultchannel(self, server):
+    def getadultchannel(self, channel):
         if 'adult' not in self.settings or channel.id not in self.settings['adult']:
                 return False
         return self.settings['adult'][channel.id]
