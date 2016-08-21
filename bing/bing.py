@@ -126,9 +126,10 @@ class bing:
                 bottext = "Cannot find any search results."
         else:
                 num = randint(0, limit - 1)
-                time = result.[num].date
-                time = time.replace('T', ' ')
-                time = time.replace('Z', ' ')
+                time = result[num].date
+                time = "Date: " + time
+                time = time.replace('T', '\nTime: ')
+                time = time.replace('Z', '')
                 bottext = result[num].title + "\n" + result[num].url + "\n" + result[num].date + "\n" + result[num].description
         await self.bot.say(bottext)
 
