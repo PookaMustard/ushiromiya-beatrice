@@ -44,7 +44,7 @@ class bing:
         self.settings = fileIO(SETTINGS, "load")
         
     def getadultserver(self, server):
-        if 'server' not in self.settings['adult'] or adult not in self.settings:
+        if 'adult' not in self.settings or server.id not in self.settings['adult']:
                 return False
         return self.settings['adult'][server.id]
 
