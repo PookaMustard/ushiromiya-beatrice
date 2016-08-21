@@ -30,7 +30,7 @@ class bing:
         self.bot = bot
         self.settings = fileIO(SETTINGS, "load")
         if self.settings["api_key"] == "":
-            print("Cog error: imdb, No API key found, please configure me!")
+            print("Cog error: bing, No API key found, please configure me!")
         else:
                 self.api_key = self.settings["api_key"]
         self.PREFIXES = bot_settings.prefixes 
@@ -41,6 +41,9 @@ class bing:
 
         retries = 0
         check=''
+        if self.settings["api_key"] == "":
+                await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.)
+        return
         if text.split(' ', 1)[0].lower() == 'random':
                 text = text.replace('random ', '', 1)
                 bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Strict'")
@@ -70,6 +73,10 @@ class bing:
 
         retries = 0
         check=''
+        if self.settings["api_key"] == "":
+                getKeyUrl = "http://www.myapifilms.com/token.do"
+                await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.)
+        return
         bing_web = PyBingWebSearch(self.api_key, text, web_only=False)
         result= bing_web.search(limit=1, format='json')
         num=0
@@ -87,6 +94,10 @@ class bing:
         retries = 0
         attempts = 0
         check=''
+        if self.settings["api_key"] == "":
+                getKeyUrl = "http://www.myapifilms.com/token.do"
+                await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.)
+        return
         if text.split(' ', 1)[0].lower() == 'random':
                 text = text.replace('random ', '', 1)
                 bing_video = PyBingVideoSearch(self.api_key, text)
@@ -122,6 +133,10 @@ class bing:
 
         retries = 0
         check=''
+        if self.settings["api_key"] == "":
+                getKeyUrl = "http://www.myapifilms.com/token.do"
+                await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.)
+        return
         if text.split(' ', 1)[0].lower() == 'random':
                 text = text.replace('random ', '', 1)
                 bing_news = PyBingNewsSearch(self.api_key, text)
@@ -165,7 +180,7 @@ class bing:
                 fileIO(SETTINGS, "save", self.settings)
                 await self.bot.say("{} ` Bing API key saved...`".format(user.mention))
             else:
-                await self.bot.say("{} `Cancled API key opertation...`".format(user.mention))
+                await self.bot.say("{} `Canceled API key opertation...`".format(user.mention))
         else:
             self.settings["api_key"] = key
             fileIO(SETTINGS, "save", self.settings)
