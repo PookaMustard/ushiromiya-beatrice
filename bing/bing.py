@@ -103,13 +103,13 @@ class bing:
         safesearchserver = self.getadultserver(server)
         safesearchchannel = self.getadultchannel(channel)
         if safesearchchannel == False and safesearchserver == False:
-                return self.bot.say("You cannot use this command on this server.")
+                return await self.bot.say("You cannot use this command on this server.")
         elif safesearchchannel == True and safesearchserver == True:
                 success = True
         elif safesearchchannel == True and safesearchserver == False:
                 success = True
         elif safesearchchannel == False and safesearchserver == True:
-                return self.bot.say("You cannot use this command on this channel.")
+                return await self.bot.say("You cannot use this command on this channel.")
         if self.settings["api_key"] == "":
                 return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
         if text.split(' ', 1)[0].lower() == 'random':
