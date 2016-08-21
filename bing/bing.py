@@ -95,28 +95,38 @@ class bing:
                 rng = randint(0, limit - 1)
                 bottext = result[rng].media_url
                 attempts = attempts + 1
-                if attempts <= 5:
-                        bottext = "Try this search again."
+                if attempts <= 20:
+                        bottext = "Filtering error. Try this search again."
         await self.bot.say(bottext)
         
     @commands.command()
     async def bingnews(self, *, text):
         """Fetches a news article from Bing"""
 
-        #Your code will go here
+        retries = 0
+        check=''
         if text.split(' ', 1)[0].lower() == 'random':
                 text = text.replace('random ', '', 1)
                 bing_news = PyBingNewsSearch(self.api_key, text)
-                result= bing_news.search(limit=50, format='json')
-                num=randint(0,49)
+                result= bing_news.search(limit=9, format='json')
+                limit=99
         else:
                 bing_news = PyBingNewsSearch(self.api_key, text)
                 result= bing_news.search(limit=1, format='json')
-                num=0
-        try:
+                limit=0
+        while retries <= limit:
+                try:
+                        check = result[retries].url
+                        retries = retries + 1
+                        limit = retries
+                except IndexError:
+                        limit = retries
+                        break
+        if retries == 0:
+                bottext = "Cannot find any search results."
+        else:
+                num = randint(0, limit - 1)
                 bottext = result[num].title + "\n" + result[num].url + "\n" + result[num].date + "\n" + result[num].description
-        except IndexError:
-                bottext = "Cannot find any search results. Try another search result."
         await self.bot.say(bottext)
 
 def setup(bot):
