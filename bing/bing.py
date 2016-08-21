@@ -100,7 +100,7 @@ class bing:
                       (bottext.find("http://www.ign.com/articles/") == 1):
                         bottext = result[randint(0, limit - 1)].media_url
         await self.bot.say(bottext)
-        await self.bot.say('limit = ' + limit + '...retries = ' + retries + '...factlimit = ' + factlimit)
+        await self.bot.say('limit = ' + str(limit) + '...retries = ' + str(retries) + '...factlimit = ' + str(factlimit))
         
     @commands.command()
     async def bingnews(self, *, text):
