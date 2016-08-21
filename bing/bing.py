@@ -120,7 +120,7 @@ class bing:
                 else:
                         await self.bot.say("`Settings not saved. Please contact a bot admin.`")
                 
-    @commands.command(pass_context=True,no_pm=True)
+    @commands.command(pass_context=True)
     @checks.admin_or_permissions(manage_server=True)
     async def bingadultsetc(self, ctx):
         """Sets %bingadult for the current channel"""
