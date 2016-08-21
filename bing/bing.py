@@ -91,6 +91,50 @@ class bing:
                 bottext = result[randint(0, limit - 1)].media_url
         await self.bot.say(bottext)
         
+    @commands.command(pass_context=True)
+    async def bingadult(self, ctx, *, text):
+        """Fetches an image from Bing, with SafeSearch turned off."""
+
+        retries = 0
+        check=''
+        server = ctx.message.server
+        message = ctx.message
+        channel = ctx.message.channel
+        safesearchserver = self.getadultserver(server)
+        safesearchchannel = self.getadultchannel(channel)
+        if safesearchchannel == False and safesearchserver == False:
+                return self.bot.say("You cannot use this command on this server.")
+        elif safesearchchannel == True and safesearchserver == True:
+                success = True
+        elif safesearchchannel == True and safesearchserver == False:
+                success = True
+        elif safesearchchannel == False and safesearchserver == True:
+                return self.bot.say("You cannot use this command on this channel.")
+        if self.settings["api_key"] == "":
+                return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
+        if text.split(' ', 1)[0].lower() == 'random':
+                text = text.replace('random ', '', 1)
+                bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Off'")
+                result= bing_image.search(limit=99, format='json')
+                limit=99
+        else:
+                bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Strict'")
+                result= bing_image.search(limit=1, format='json')
+                limit=0
+        while retries <= limit:
+                try:
+                        check = result[retries].media_url
+                        retries = retries + 1
+                        limit = retries
+                except IndexError:
+                        limit = retries
+                        break
+        if retries == 0:
+                bottext = "Cannot find any search results. Try using %bingadult to disable Bing Safe Search."
+        else:
+                bottext = result[randint(0, limit - 1)].media_url
+        await self.bot.say(bottext)
+        
     @commands.command(pass_context=True,no_pm=True)
     @checks.admin_or_permissions(manage_server=True)
     async def bingadultsets(self, ctx):
