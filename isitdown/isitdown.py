@@ -29,7 +29,7 @@ class isitdown:
                     else:
                         await self.bot.say(url + " is down.")
                 except:
-                    await self.bot.say(url + "is down.")
+                    await self.bot.say(url + " is down.")
         except asyncio.TimeoutError:
             await self.bot.say(url + " is down.")
             
