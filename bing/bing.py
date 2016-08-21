@@ -40,6 +40,7 @@ class bing:
                         limit = retries
                 except IndexError:
                         limit = retries
+                        break
         if retries == 0:
                 bottext = "Cannot find any search results. Try using %bingadult to disable Bing Safe Search."
         else:
