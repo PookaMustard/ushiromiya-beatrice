@@ -28,7 +28,7 @@ class isitdown:
                         await self.bot.say(url + " is up and running.")
                     else:
                         await self.bot.say(url + " is down.")
-                except ClientOSError:
+                except:
                     await self.bot.say(url + "is down.")
         except asyncio.TimeoutError:
             await self.bot.say(url + " is down.")
