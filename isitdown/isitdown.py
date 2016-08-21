@@ -22,11 +22,14 @@ class isitdown:
         try:
             with aiohttp.Timeout(15):
                 await self.bot.say("Testing " + url + "…")
-                response = await aiohttp.get(url, headers = { 'user_agent': headers })
-                if response.status == 200:
-                    await self.bot.say(url + " is up and running.")
-                else:
-                    await self.bot.say(url + " is down.")
+                try:
+                    response = await aiohttp.get(url, headers = { 'user_agent': headers })
+                    if response.status == 200:
+                        await self.bot.say(url + " is up and running.")
+                    else:
+                        await self.bot.say(url + " is down.")
+                except ClientOSError:
+                    await self.bot.say(url + "is down.")
         except asyncio.TimeoutError:
             await self.bot.say(url + " is down.")
             
