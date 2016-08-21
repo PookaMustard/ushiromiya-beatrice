@@ -70,6 +70,37 @@ class bing:
                 return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
         if text.split(' ', 1)[0].lower() == 'random':
                 text = text.replace('random ', '', 1)
+                bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Moderate'")
+                result= bing_image.search(limit=99, format='json')
+                limit=99
+        else:
+                bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Moderate'")
+                result= bing_image.search(limit=1, format='json')
+                limit=0
+        while retries <= limit:
+                try:
+                        check = result[retries].media_url
+                        retries = retries + 1
+                        limit = retries
+                except IndexError:
+                        limit = retries
+                        break
+        if retries == 0:
+                bottext = "Cannot find any search results. Try using %bingadult to disable Bing Safe Search."
+        else:
+                bottext = result[randint(0, limit - 1)].media_url
+        await self.bot.say(bottext)
+        
+    @commands.command()
+    async def bingstrict(self, *, text):
+        """Fetches an image from Bing, with a strict SafeSearch setting"""
+
+        retries = 0
+        check=''
+        if self.settings["api_key"] == "":
+                return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
+        if text.split(' ', 1)[0].lower() == 'random':
+                text = text.replace('random ', '', 1)
                 bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Strict'")
                 result= bing_image.search(limit=99, format='json')
                 limit=99
@@ -93,7 +124,7 @@ class bing:
         
     @commands.command(pass_context=True)
     async def bingadult(self, ctx, *, text):
-        """Fetches an image from Bing, with SafeSearch turned off."""
+        """Fetches an image from Bing, with SafeSearch turned off. Only usable if admin enabled it."""
 
         retries = 0
         check=''
@@ -307,6 +338,10 @@ class bing:
                 await self.bot.say("{} ` Bing API key saved...`".format(user.mention))
             else:
                 await self.bot.say("{} `Canceled API key opertation...`".format(user.mention))
+        else:
+            self.settings["api_key"] = key
+            fileIO(SETTINGS, "save", self.settings)
+            await self.bot.say("{} ` imdb API key saved...`".format(user.mention))
         self.settings = fileIO(SETTINGS, "load") 
         self.api_key = self.settings["api_key"]
 
