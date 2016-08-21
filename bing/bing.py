@@ -113,7 +113,7 @@ class bing:
                 
     @commands.command(pass_context=True)
     @checks.admin_or_permissions(manage_server=True)
-    async def bingadultsetc(self, ctx, * channel : discord.Channel):
+    async def bingadultsetc(self, ctx, *, channel : discord.Channel):
         """Sets %bingadult for entire server"""
             
         server = ctx.message.server
