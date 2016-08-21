@@ -67,6 +67,8 @@ class bing:
         """Fetches a video from Bing"""
 
         #Your code will go here
+        retries = 0
+        check=''
         if text.split(' ', 1)[0].lower() == 'random':
                 text = text.replace('random ', '', 1)
                 bing_video = PyBingVideoSearch(self.api_key, text)
