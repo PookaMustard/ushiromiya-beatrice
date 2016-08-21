@@ -47,7 +47,7 @@ class bing:
     def setadultchannel(self, channel, status):
         if 'adult' not in self.settings:
                self.settings['adult'] = {}
-        if 'channels' not in self.settings['adult'] = {}:
+        if 'channels' not in self.settings['adult']:
                self.settings['adult']['channels'] = {}
 #        if 'server' not in self.settings['adult']:
 #                self.settings['adult'][server.id] = 'blank'
