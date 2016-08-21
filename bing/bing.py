@@ -77,6 +77,7 @@ class bing:
                 bing_video = PyBingVideoSearch(self.api_key, text)
                 result= bing_video.search(limit=1, format='json')
                 limit=0
+                factlimit=0
         while retries <= limit:
                 try:
                         check = result[retries].media_url
@@ -88,15 +89,15 @@ class bing:
         if retries == 0:
                 bottext = "Cannot find any search results."
         else:
-                if limit == 0:
+                if factlimit == 0:
                         bottext = result[0].media_url
                 else:
                         bottext = result[randint(0, limit - 1)].media_url
-                        # The following code removes any non-video pages, such as Steam and IGN pages which do not even
-                        # embed any video into Discord.
-                        while (bottext.find("http://store.steampowered.com/app/") == 1) or \
-                              (bottext.find("http://www.ign.com/articles/") == 1):
-                                bottext = result[randint(0, limit - 1)].media_url
+                # The following code removes any non-video pages, such as Steam and IGN pages which do not even
+                # embed any video into Discord.
+                while (bottext.find("http://store.steampowered.com/app/") == 1) or \
+                      (bottext.find("http://www.ign.com/articles/") == 1):
+                        bottext = result[randint(0, limit - 1)].media_url
         await self.bot.say(bottext)
         
     @commands.command()
