@@ -133,6 +133,8 @@ class bing:
         channel = ctx.message.channel
         safesearchserver = self.getadultserver(server)
         safesearchchannel = self.getadultchannel(channel)
+        if self.settings["api_key"] == "":
+                return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
         if safesearchchannel == False and safesearchserver == False:
                 return await self.bot.say("You cannot use this command on this server.")
         elif safesearchchannel == True and safesearchserver == True:
@@ -244,15 +246,29 @@ class bing:
         retries = 0
         check=''
         if self.settings["api_key"] == "":
-                getKeyUrl = "http://www.myapifilms.com/token.do"
                 return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
-        bing_web = PyBingWebSearch(self.api_key, text, web_only=False)
-        result= bing_web.search(limit=1, format='json')
-        num=0
-        try:
-                bottext = result[num].url + "\n" + result[num].title + "\n" + result[num].description
-        except IndexError:
-                bottext = "Cannot find any search results. Try another search."
+        if text.split(' ', 1)[0].lower() == 'random':
+                text = text.replace('random ', '', 1)
+                bing_web = PyBingWebSearch(self.api_key, text, web_only=False)
+                result= bing_web.search(limit=99, format='json')
+                limit=99
+        else:
+                bing_web = PyBingWebSearch(self.api_key, text, web_only=False)
+                result= bing_web.search(limit=1, format='json')
+                limit=0
+        while retries <= limit:
+                try:
+                        check = result[retries].url
+                        retries = retries + 1
+                        limit = retries
+                except IndexError:
+                        limit = retries
+                        break
+        if retries == 0:
+                bottext = "Cannot find any search results. Try using %bingadult to disable Bing Safe Search."
+        else:
+                RNG = randint(0, limit-1)
+               bottext = result[RNG].url + "\n" + result[RNG].title + "\n" + result[RNG].description
         await self.bot.say(bottext)
         
     @commands.command()
@@ -264,7 +280,6 @@ class bing:
         attempts = 0
         check=''
         if self.settings["api_key"] == "":
-                getKeyUrl = "http://www.myapifilms.com/token.do"
                 await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
                 return
         if text.split(' ', 1)[0].lower() == 'random':
@@ -303,7 +318,6 @@ class bing:
         retries = 0
         check=''
         if self.settings["api_key"] == "":
-                getKeyUrl = "http://www.myapifilms.com/token.do"
                 return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
         if text.split(' ', 1)[0].lower() == 'random':
                 text = text.replace('random ', '', 1)
