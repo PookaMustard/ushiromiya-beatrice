@@ -184,6 +184,7 @@ class bing:
             fileIO(SETTINGS, "save", self.settings)
             await self.bot.say("{} ` Bing API key saved...`".format(user.mention))
         self.settings = fileIO(SETTINGS, "load") 
+        self.api_key = self.settings["api_key"]
 
 def check_folders():
     if not os.path.exists(DIR_DATA):
