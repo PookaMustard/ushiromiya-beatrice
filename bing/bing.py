@@ -45,6 +45,10 @@ class bing:
                 bottext = "Cannot find any search results. Try using %bingadult to disable Bing Safe Search."
         else:
                 bottext = result[randint(0, limit - 1)].media_url
+                # The following code removes any non-video pages, such as Steam pages which do not even
+                # embed any video into Discord.
+                while "http://store.steampowered.com/app/" in bottext:
+                        bottext = result[randint(0, limit - 1)].media_url
         await self.bot.say(bottext)
         
     @commands.command()
