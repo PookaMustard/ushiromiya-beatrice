@@ -69,16 +69,24 @@ class bing:
         if text.split(' ', 1)[0].lower() == 'random':
                 text = text.replace('random ', '', 1)
                 bing_video = PyBingVideoSearch(self.api_key, text)
-                result= bing_video.search(limit=50, format='json')
-                num=randint(0,49)
+                result= bing_video.search(limit=99, format='json')
+                limit=99
         else:
                 bing_video = PyBingVideoSearch(self.api_key, text)
                 result= bing_video.search(limit=1, format='json')
-                num=0
-        try:
-                bottext = result[num].media_url
-        except IndexError:
-                bottext = "Cannot find any search results. Try another search result."
+                limit=0
+        while retries <= limit:
+                try:
+                        check = result[retries].media_url
+                        retries = retries + 1
+                        limit = retries
+                except IndexError:
+                        limit = retries
+                        break
+        if retries == 0:
+                bottext = "Cannot find any search results.."
+        else:
+                bottext = result[randint(0, limit - 1)].media_url
         await self.bot.say(bottext)
         
     @commands.command()
