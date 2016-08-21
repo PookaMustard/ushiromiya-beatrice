@@ -118,7 +118,7 @@ class bing:
                 result= bing_image.search(limit=99, format='json')
                 limit=99
         else:
-                bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Strict'")
+                bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Off'")
                 result= bing_image.search(limit=1, format='json')
                 limit=0
         while retries <= limit:
