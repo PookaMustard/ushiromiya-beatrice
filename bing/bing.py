@@ -39,8 +39,6 @@ class bing:
                self.settings['adult'] = {}
         if 'servers' not in self.settings['adult']:
                self.settings['adult']['servers'] = {}
-#        if 'server' not in self.settings['adult']:
-#                self.settings['adult'][server.id] = 'blank'
         self.settings['adult']['servers'][server.id] = status
         fileIO(SETTINGS, "save", self.settings)
         
@@ -49,8 +47,6 @@ class bing:
                self.settings['adult'] = {}
         if 'channels' not in self.settings['adult']:
                self.settings['adult']['channels'] = {}
-#        if 'server' not in self.settings['adult']:
-#                self.settings['adult'][server.id] = 'blank'
         self.settings['adult']['channels'][channel.id] = status
         fileIO(SETTINGS, "save", self.settings)
         
@@ -136,6 +132,7 @@ class bing:
                 self.setadultchannel(channel, True)
                 await self.bot.say("`Saving channel settings now.`")
                 strat = self.getadultchannel(channel)
+                await self.bot.say(strat)
                 if strat == 'True':
                         await self.bot.say("`Settings saved. %bingadult enabled for this channel.`")
                 else:
