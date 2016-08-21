@@ -35,16 +35,16 @@ class bing:
         self.PREFIXES = bot_settings.prefixes 
 
     def setadultserver(self, server, status):
-        if adult not in self.settings:
+        if 'adult' not in self.settings:
                self.settings['adult'] = {}
-        if server not in self.settings['adult']:
+        if 'server' not in self.settings['adult']:
                 self.settings['adult'][server.id] = 'blank'
         self.settings['adult'][server.id] = status
         fileIO(SETTINGS, "save", settings)
         self.settings = fileIO(SETTINGS, "load")
         
     def getadultserver(self):
-        if server not in self.settings['adult'] or adult not in self.settings:
+        if 'server' not in self.settings['adult'] or adult not in self.settings:
                 return False
         return self.settings['adult'][server.id]
 
