@@ -91,12 +91,12 @@ class bing:
         if response.content.lower().strip() == "y":
                 self.setadultserver(server, True)
                 await self.bot.say("`Saving server settings now.`")
-                strat = getadultserver()
+                strat = self.getadultserver()
                 await self.bot.say(strat)
         else:
                 self.setadultserver(server, False)
                 await self.bot.say("`Cancelling server settings now.`")
-                strat = getadultserver()
+                strat = self.getadultserver()
                 await self.bot.say(strat)
         
     @commands.command()
