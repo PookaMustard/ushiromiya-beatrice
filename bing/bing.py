@@ -133,7 +133,7 @@ class bing:
                 await self.bot.say("`Saving channel settings now.`")
                 strat = self.getadultchannel(channel)
                 await self.bot.say(strat)
-                if strat == 'True':
+                if strat == True:
                         await self.bot.say("`Settings saved. %bingadult enabled for this channel.`")
                 else:
                         await self.bot.say("`Settings not saved. Please contact a bot admin.`")
@@ -142,7 +142,7 @@ class bing:
                 await self.bot.say("`Saving channel settings now.`")
                 strat = self.getadultchannel(channel)
                 strat = self.getadultchannel(channel)
-                if strat == 'False':
+                if strat == False:
                         await self.bot.say("`Settings saved. %bingadult disabled for this channel.`")
                 else:
                         await self.bot.say("`Settings not saved. Please contact a bot admin.`")
