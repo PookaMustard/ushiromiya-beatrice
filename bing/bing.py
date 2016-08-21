@@ -37,28 +37,32 @@ class bing:
     def setadultserver(self, server, status):
         if 'adult' not in self.settings:
                self.settings['adult'] = {}
+        if 'servers' not in self.settings['adult']:
+               self.settings['adult']['servers'] = {}
 #        if 'server' not in self.settings['adult']:
 #                self.settings['adult'][server.id] = 'blank'
-        self.settings['adult'][server.id] = status
+        self.settings['adult']['servers'][server.id] = status
         fileIO(SETTINGS, "save", self.settings)
         
     def setadultchannel(self, channel, status):
         if 'adult' not in self.settings:
                self.settings['adult'] = {}
+        if 'channels' not in self.settings['adult'] = {}:
+               self.settings['adult']['channels'] = {}
 #        if 'server' not in self.settings['adult']:
 #                self.settings['adult'][server.id] = 'blank'
-        self.settings['adult'][channel.id] = status
+        self.settings['adult']['channels'][channel.id] = status
         fileIO(SETTINGS, "save", self.settings)
         
     def getadultserver(self, server):
         if 'adult' not in self.settings or server.id not in self.settings['adult']:
                 return False
-        return self.settings['adult'][server.id]
+        return self.settings['adult']['servers'][server.id]
         
     def getadultchannel(self, channel):
         if 'adult' not in self.settings or channel.id not in self.settings['adult']:
                 return False
-        return self.settings['adult'][channel.id]
+        return self.settings['adult']['channels'][channel.id]
 
     @commands.command()
     async def bing(self, *, text):
