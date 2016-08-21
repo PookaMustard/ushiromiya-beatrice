@@ -88,7 +88,7 @@ class bing:
         if retries == 0:
                 bottext = "Cannot find any search results."
         else:
-                if limit=0:
+                if limit == 0:
                         bottext = result[0].media_url
                 else:
                         bottext = result[randint(0, limit - 1)].media_url
