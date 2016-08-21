@@ -1,4 +1,3 @@
-
 from .utils.dataIO import fileIO
 from .utils import checks
 from __main__ import send_cmd_help
@@ -42,8 +41,7 @@ class bing:
         retries = 0
         check=''
         if self.settings["api_key"] == "":
-                await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
-        return
+                return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
         if text.split(' ', 1)[0].lower() == 'random':
                 text = text.replace('random ', '', 1)
                 bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Strict'")
