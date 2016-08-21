@@ -42,7 +42,7 @@ class bing:
         retries = 0
         check=''
         if self.settings["api_key"] == "":
-                await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.)
+                await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
         return
         if text.split(' ', 1)[0].lower() == 'random':
                 text = text.replace('random ', '', 1)
@@ -75,7 +75,7 @@ class bing:
         check=''
         if self.settings["api_key"] == "":
                 getKeyUrl = "http://www.myapifilms.com/token.do"
-                await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.)
+                await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
         return
         bing_web = PyBingWebSearch(self.api_key, text, web_only=False)
         result= bing_web.search(limit=1, format='json')
@@ -96,7 +96,7 @@ class bing:
         check=''
         if self.settings["api_key"] == "":
                 getKeyUrl = "http://www.myapifilms.com/token.do"
-                await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.)
+                await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
         return
         if text.split(' ', 1)[0].lower() == 'random':
                 text = text.replace('random ', '', 1)
@@ -135,7 +135,7 @@ class bing:
         check=''
         if self.settings["api_key"] == "":
                 getKeyUrl = "http://www.myapifilms.com/token.do"
-                await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.)
+                await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
         return
         if text.split(' ', 1)[0].lower() == 'random':
                 text = text.replace('random ', '', 1)
