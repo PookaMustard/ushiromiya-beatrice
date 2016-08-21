@@ -40,7 +40,7 @@ class bing:
                         limit = retries
                 except IndexError:
                         limit = retries
-        if retries = 0:
+        if retries == 0:
                 bottext = "Cannot find any search results. Try using %bingadult to disable Bing Safe Search."
         else:
                 bottext = result[randint(0, limit - 1)].media_url
