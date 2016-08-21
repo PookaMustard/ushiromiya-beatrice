@@ -22,21 +22,28 @@ class bing:
     async def bing(self, *, text):
         """Fetches an image from Bing, with a moderate SafeSearch setting"""
 
-        #Your code will go here
-        
+        retries = 0
+        check=''
         if text.split(' ', 1)[0].lower() == 'random':
                 text = text.replace('random ', '', 1)
                 bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Strict'")
-                result= bing_image.search(limit=50, format='json')
-                num=randint(0,49)
+                result= bing_image.search(limit=99, format='json')
+                limit=99
         else:
                 bing_image = PyBingImageSearch(self.api_key, text, custom_params="&Adult='Strict'")
                 result= bing_image.search(limit=1, format='json')
-                num=0
-        try:
-                bottext = result[num].media_url
-        except IndexError:
+                limit=0
+        while retries <= limit:
+                try:
+                        check = result[retries].media_url
+                        retries = retries + 1
+                        limit = retries
+                except IndexError:
+                        limit = retries
+        if retries = 0:
                 bottext = "Cannot find any search results. Try using %bingadult to disable Bing Safe Search."
+        else:
+                bottext = result[randint(0, limit - 1)].media_url
         await self.bot.say(bottext)
         
     @commands.command()
