@@ -73,6 +73,7 @@ class bing:
                 bing_video = PyBingVideoSearch(self.api_key, text)
                 result= bing_video.search(limit=99, format='json')
                 limit=99
+                factlimit=1
         else:
                 bing_video = PyBingVideoSearch(self.api_key, text)
                 result= bing_video.search(limit=1, format='json')
