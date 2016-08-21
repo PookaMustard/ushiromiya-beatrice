@@ -92,7 +92,8 @@ class bing:
         else:
                 bottext = result[randint(0, limit - 1)].media_url
         while "http://store.steampowered.com/" in bottext or "ign.com" in bottext:
-                bottext = result[0].media_url
+                rng = randint(0, limit - 1)
+                bottext = result[rng].media_url
                 attempts = attempts + 1
                 if attempts <= 5:
                         bottext = "Try this search again."
