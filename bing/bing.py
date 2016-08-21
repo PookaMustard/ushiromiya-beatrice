@@ -1,6 +1,14 @@
+
+from .utils.dataIO import fileIO
+from .utils import checks
+from __main__ import send_cmd_help
+from __main__ import settings as bot_settings
 import requests, requests.utils
 import time
 import json
+import aiohttp
+import asyncio
+import os
 import discord
 from discord.ext import commands
 from random import randint
@@ -8,6 +16,10 @@ from py_bing_search import PyBingImageSearch
 from py_bing_search import PyBingWebSearch
 from py_bing_search import PyBingVideoSearch
 from py_bing_search import PyBingNewsSearch
+
+
+DIR_DATA = "data/bing"
+SETTINGS = DIR_DATA+"/settings.json"
         
 class bing:
     """Fetches search results from Bing.
@@ -16,7 +28,12 @@ class bing:
 
     def __init__(self, bot):
         self.bot = bot
-        self.api_key = 'WdlwygeDRR0NsUzUZEF4Yql4OLomvvZfp3moFgLl9Zg'
+        self.settings = fileIO(SETTINGS, "load")
+        if self.settings["api_key"] == "":
+            print("Cog error: imdb, No API key found, please configure me!")
+        else:
+                self.api_key = self.settings["api_key"]
+        self.PREFIXES = bot_settings.prefixes 
 
     @commands.command()
     async def bing(self, *, text):
@@ -132,6 +149,43 @@ class bing:
                 time = time.replace('Z', '')
                 bottext = result[num].title + "\n" + result[num].url + "\n" + time + "\n" + result[num].description
         await self.bot.say(bottext)
+        
+    @commands.command(pass_context=True, no_pm=False)
+    @checks.admin_or_permissions(manage_server=True)
+    async def apikey_bing(self, ctx, key):
+        """Set the Bing API key.
+        
+        Code copied from Mash's IMDB apikey_imdb command"""
+        user = ctx.message.author
+        if self.settings["api_key"] != "":
+            await self.bot.say("{} ` Bing API key found, overwrite it? y/n`".format(user.mention))
+            response = await self.bot.wait_for_message(author=ctx.message.author)
+            if response.content.lower().strip() == "y":
+                self.settings["api_key"] = key
+                fileIO(SETTINGS, "save", self.settings)
+                await self.bot.say("{} ` Bing API key saved...`".format(user.mention))
+            else:
+                await self.bot.say("{} `Cancled API key opertation...`".format(user.mention))
+        else:
+            self.settings["api_key"] = key
+            fileIO(SETTINGS, "save", self.settings)
+            await self.bot.say("{} ` Bing API key saved...`".format(user.mention))
+        self.settings = fileIO(SETTINGS, "load") 
+
+def check_folders():
+    if not os.path.exists(DIR_DATA):
+        print("Creating data/bing folder...")
+        os.makedirs(DIR_DATA)
+
+def check_files():
+    settings = {"api_key": ""}
+
+    if not fileIO(SETTINGS, "check"):
+        print("Creating settings.json")
+        fileIO(SETTINGS, "save", settings)
 
 def setup(bot):
-    bot.add_cog(bing(bot))
+    check_folders()
+    check_files()
+    n = bing(bot)
+    bot.add_cog(n)
