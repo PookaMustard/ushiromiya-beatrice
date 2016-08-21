@@ -51,7 +51,8 @@ class bing:
     async def bingsearch(self, *, text):
         """Fetches a search result from Bing"""
 
-        #Your code will go here
+        retries = 0
+        check=''
         bing_web = PyBingWebSearch(self.api_key, text, web_only=False)
         result= bing_web.search(limit=1, format='json')
         num=0
