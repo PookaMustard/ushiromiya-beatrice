@@ -130,7 +130,7 @@ class bing:
                 time = "Date: " + time
                 time = time.replace('T', '\nTime: ')
                 time = time.replace('Z', '')
-                bottext = result[num].title + "\n" + result[num].url + "\n" + result[num].date + "\n" + result[num].description
+                bottext = result[num].title + "\n" + result[num].url + "\n" + time + "\n" + result[num].description
         await self.bot.say(bottext)
 
 def setup(bot):
