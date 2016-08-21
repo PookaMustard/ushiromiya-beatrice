@@ -118,6 +118,7 @@ class bing:
             
         server = ctx.message.server
         message = ctx.message
+        channel = discord.Channel
         await self.bot.say("`Do you want to enable %bingadult for this channel?` (y/n)")
         response = await self.bot.wait_for_message(author=message.author)
         if response.content.lower().strip() == "y":
