@@ -92,7 +92,8 @@ class bing:
                 bottext = result[randint(0, limit - 1)].media_url
                 # The following code removes any non-video pages, such as Steam and IGN pages which do not even
                 # embed any video into Discord.
-                while (bottext.find("http://store.steampowered.com/app/") == 1) or (bottext.find("http://www.ign.com/articles/") == 1:
+                while (bottext.find("http://store.steampowered.com/app/") == 1) or \
+                        (bottext.find("http://www.ign.com/articles/") == 1:
                         bottext = result[randint(0, limit - 1)].media_url
         await self.bot.say(bottext)
         
@@ -111,7 +112,8 @@ class bing:
                 result= bing_news.search(limit=1, format='json')
                 num=0
         try:
-                bottext = result[num].title + "\n" + result[num].url + "\n" + result[num].date + "\n" + result[num].description
+                bottext = result[num].title + "\n" + result[num].url + "\n" + \
+                result[num].date + "\n" + result[num].description
         except IndexError:
                 bottext = "Cannot find any search results. Try another search result."
         await self.bot.say(bottext)
