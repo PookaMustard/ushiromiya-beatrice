@@ -173,10 +173,15 @@ class bing:
             
         server = ctx.message.server
         message = ctx.message
+        strat = self.getadultserver(server)
+        if strat == True:
+                await self.bot.say("```This server has %bingadult enabled.```")
+        else:
+                await self.bot.say("```This server has %bingadult disabled.```")
         await self.bot.say("```Do you want to enable %bingadult for this server? This will enable your server to use " +
                         "the %bingadult command, which image searches Bing with Safe Search turned off. Do note that " +
                         "this setting will be overriden per channel if a channel is set to accept usage of %bingadult. " +
-                        "ARE YOU SURE YOU WANT TO TOGGLE %bingadult? (y/n)```")
+                        "ARE YOU SURE YOU WANT TO TOGGLE %bingadult?\n(y/n)```")
         response = await self.bot.wait_for_message(author=message.author)
         if response.content.lower().strip() == "y":
                 self.setadultserver(server, True)
@@ -203,11 +208,17 @@ class bing:
         server = ctx.message.server
         message = ctx.message
         channel = ctx.message.channel
+        strat = self.getadultchannel(channel)
+        if strat == True:
+                await self.bot.say("```This channel has %bingadult enabled.```")
+        else:
+                await self.bot.say("```This channel has %bingadult disabled.```")
         await self.bot.say("```Do you want to enable %bingadult for this channel? This will enable this channel to use " +
                         "the %bingadult command, which image searches Bing with Safe Search turned off. Do note that " +
                         "this setting will override the global server setting and thus will allow %bingadult in this " +
                         "channel even if the global server setting is off. " +
-                        "ARE YOU SURE YOU WANT TO TOGGLE %bingadult? (y/n)```")
+                        "ARE YOU SURE YOU WANT TO TOGGLE %bingadult?\n(y/n)```")
+        
         response = await self.bot.wait_for_message(author=message.author)
         if response.content.lower().strip() == "y":
                 self.setadultchannel(channel, True)
