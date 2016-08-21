@@ -268,7 +268,7 @@ class bing:
                 bottext = "Cannot find any search results. Try using %bingadult to disable Bing Safe Search."
         else:
                 RNG = randint(0, limit-1)
-               bottext = result[RNG].url + "\n" + result[RNG].title + "\n" + result[RNG].description
+                bottext = result[RNG].url + "\n" + result[RNG].title + "\n" + result[RNG].description
         await self.bot.say(bottext)
         
     @commands.command()
