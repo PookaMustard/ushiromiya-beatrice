@@ -93,7 +93,7 @@ class bing:
                 # The following code removes any non-video pages, such as Steam and IGN pages which do not even
                 # embed any video into Discord.
                 while (bottext.find("http://store.steampowered.com/app/") == 1) or \
-                      (bottext.find("http://www.ign.com/articles/") == 1:
+                      (bottext.find("http://www.ign.com/articles/") == 1):
                         bottext = result[randint(0, limit - 1)].media_url
         await self.bot.say(bottext)
         
