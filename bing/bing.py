@@ -40,7 +40,7 @@ class bing:
         if 'server' not in self.settings['adult']:
                 self.settings['adult'][server.id] = 'blank'
         self.settings['adult'][server.id] = status
-        fileIO(SETTINGS, "save", settings)
+        fileIO(SETTINGS, "save", self.settings)
         self.settings = fileIO(SETTINGS, "load")
         
     def getadultserver(self):
