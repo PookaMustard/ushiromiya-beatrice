@@ -17,7 +17,7 @@ class MyAnimeListSearch:
             results = spice.search(text, spice.get_medium(medium), self.creds)
         except TypeError:
             checktext = "Search failed."
-            maxnum = -1
+            maxnum = 99
             return checktext, maxnum
         retries = 0
         maxnum =0
@@ -39,7 +39,7 @@ class MyAnimeListSearch:
         #Your code will go here
         message = ctx.message
         checktext, maxnum = self.getsearch(text, 'anime')
-        if maxnum == -1:
+        if maxnum == 99:
             return await self.bot.say(checktext)
         await self.bot.say("Found the following anime on MyAnimeList:\n" + checktext + +"\nPlease type the number of the game you want, then send.")
         response = await self.bot.wait_for_message(author=message.author)
