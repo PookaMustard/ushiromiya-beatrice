@@ -34,7 +34,6 @@ class MyAnimeListSearch:
         
     def selectsearch(self, response, results, maxnum, medium):
         bottext = ''
-        debug = response.content + '\n' + str(maxnum)
         try:
             if maxnum != 0:
                 num = int(response.content) - 1
@@ -50,7 +49,6 @@ class MyAnimeListSearch:
             bottext = bottext + "Title: " + results[num].title + "\n" + "URL: http://myanimelist.net/anime/" + results[num].id + "\n" + "Episodes: " + results[num].episodes + "\n" + "Status: " + results[num].status + "\n" + "MAL Score: " + results[num].score
         elif medium == 'manga':
             bottext = bottext + "Title: " + results[num].title + "\n" + "URL: http://myanimelist.net/manga/" + results[num].id + "\n" + "Volumes: " + results[num].volumes + "\n" + "Chapters: " + results[num].chapters + "\n" + "Status: " + results[num].status + "\n" + "MAL Score: " + results[num].score
-        bottext = bottext + '\n' + debug
         return bottext
 
     @commands.command(pass_context=True)
