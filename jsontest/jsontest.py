@@ -21,6 +21,14 @@ class jsontest:
         with open(SETTINGS, 'r') as f:
             login = json.load(f)
         return await self.bot.say(login['login'] + login['password'])
+        
+    @commands.command()
+    async def testsave(self, login, password):
+        """Tests this command."""
+        login = {'login' : login, 'password' : password)
+        with open(SETTINGS, 'w') as f:
+            json.dump(login, f)
+        return await self.bot.say('Saved.')
 
 
 def check_folders():
