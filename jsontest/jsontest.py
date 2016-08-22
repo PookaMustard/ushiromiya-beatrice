@@ -25,7 +25,7 @@ class jsontest:
     @commands.command()
     async def testsave(self, login, password):
         """Tests this command."""
-        login = {'login' : login, 'password' : password)
+        login = {'login' : login, 'password' : password}
         with open(SETTINGS, 'w') as f:
             json.dump(login, f)
         return await self.bot.say('Saved.')
