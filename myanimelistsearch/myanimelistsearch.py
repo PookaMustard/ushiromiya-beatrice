@@ -38,7 +38,7 @@ class MyAnimeListSearch:
 
         #Your code will go here
         message = ctx.message
-        checktext, maxnum, errorcheck = self.getsearch(text, 'anime')
+        checktext, maxnum = self.getsearch(text, 'anime')
         if maxnum == -1:
             return await self.bot.say(checktext)
         await self.bot.say("Found the following anime on MyAnimeList:\n" + checktext + +"\nPlease type the number of the game you want, then send.")
