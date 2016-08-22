@@ -17,10 +17,8 @@ class jsontest:
     @commands.command()
     async def test(self):
         """Tests this command."""
-        login = {}
-        with open(SETTINGS, 'r') as f:
-            login = json.load(f)
-        return await self.bot.say(login['login'] + login['password'])
+        login, password = self.loadauth()
+        return await self.bot.say(login + password)
         
     @commands.command()
     async def testsave(self, login, password):
@@ -30,6 +28,13 @@ class jsontest:
             json.dump(login, f)
         return await self.bot.say('Saved.')
 
+def loadauth():
+    login = {}
+    with open(SETTINGS, 'r') as f:
+        login = json.load(f)
+    login = login['login']
+    password = login['password']
+    return login, password
 
 def check_folders():
     if not os.path.exists(DATADIR):
