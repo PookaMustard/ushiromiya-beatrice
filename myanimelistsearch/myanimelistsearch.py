@@ -18,6 +18,7 @@ class MyAnimeListSearch:
         except TypeError:
             checktext = "Search failed."
             maxnum = 99
+            results = ''
             return checktext, maxnum, results
         retries = 0
         maxnum =0
