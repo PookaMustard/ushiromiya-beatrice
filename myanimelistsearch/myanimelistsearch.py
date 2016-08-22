@@ -13,7 +13,13 @@ class MyAnimeListSearch:
         self.creds = spice.init_auth('Beatrice-BOT', 'Beato-2MR_0')
         
     def getsearch(self, text, medium):
-        results = spice.search(text, spice.get_medium(medium), self.creds)
+        try:
+            results = spice.search(text, spice.get_medium(medium), self.creds)
+        except TypeError:
+            checktext = "Search failed."
+            errorcheck = 1
+            maxnum = -1
+            return checktext, maxnum, errorcheck
         retries = 0
         maxnum =0
         checktext=''
@@ -25,17 +31,20 @@ class MyAnimeListSearch:
             except IndexError:
                 maxnum = retries
                 retries = 10
-        return checktext, maxnum
+                errorcheck = 0
+        return checktext, maxnum, errorcheck
 
-    @commands.command()
-    async def anime(self, *text):
+    @commands.command(pass_context=True)
+    async def anime(self, ctx, *, text):
         """Returns MAL anime search result using anime name"""
 
         #Your code will go here
-        text = " ".join(text)
-        query=text.replace(" ", "%20")
-        checktext, maxnum = self.getsearch(text, 'anime')
-        await self.bot.say("Found the following anime on MyAnimeList:\n" + checktext)
+        message = ctx.message
+        checktext, maxnum, errorcheck = self.getsearch(text, 'anime')
+        if errorcheck = 1:
+            return await self.bot.say(checktext)
+        await self.bot.say("Found the following anime on MyAnimeList:\n" + checktext + +"\nPlease type the number of the game you want, then send.")
+        response = await self.bot.wait_for_message(author=message.author)
 
     @commands.command()
     async def manga(self, text):
