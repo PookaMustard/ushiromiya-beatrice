@@ -27,8 +27,8 @@ class MyAnimeListSearch:
                 context = retries + 1
                 checktext = checktext + str(context) + ") " + results[retries].title + "\n"
                 retries = retries + 1
+                maxnum = maxnum + 1
             except IndexError:
-                maxnum = retries
                 retries = 10
         return checktext, maxnum, results
         
