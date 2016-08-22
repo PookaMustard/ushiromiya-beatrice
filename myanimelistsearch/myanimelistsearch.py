@@ -15,13 +15,14 @@ class MyAnimeListSearch:
     def getsearch(self, text, medium):
         results = spice.search(text, spice.get_medium(medium), self.creds)
         retries = 0
+        context = 1
         maxnum =0
         checktext=''
         while retries <= 9:
             try:
-                context = retries + 1
                 checktext = checktext + str(context) + ") " + results[retries].title + "\n"
                 retries = retries + 1
+                context = retries + 1
             except IndexError:
                 maxnum = retries
                 retries = 10
