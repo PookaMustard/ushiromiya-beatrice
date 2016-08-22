@@ -30,7 +30,13 @@ class MyAnimeListSearch:
         
     def getsearch(self, text, medium):
         try:
-            results = spice.search(text, spice.get_medium(medium), self.creds)
+            try:
+                results = spice.search(text, spice.get_medium(medium), self.creds)
+            except ValueError:
+                checktext = "Search failed. Did you set your login credntials?"
+                maxnum = 99
+                results = ''
+                return checktext, maxnum, results
         except TypeError:
             checktext = "Search failed."
             maxnum = 99
