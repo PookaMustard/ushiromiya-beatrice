@@ -14,6 +14,7 @@ class MyAnimeListSearch:
         
     def getsearch(self, text, medium):
         try:
+            errorcheck = 0
             results = spice.search(text, spice.get_medium(medium), self.creds)
         except TypeError:
             checktext = "Search failed."
