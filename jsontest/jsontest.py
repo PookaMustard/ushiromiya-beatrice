@@ -32,8 +32,8 @@ def loadauth():
     login = {}
     with open(SETTINGS, 'r') as f:
         login = json.load(f)
-    login = login['login']
-    password = login['password']
+    login = str(login['login'])
+    password = str(login['password'])
     return login, password
 
 def check_folders():
