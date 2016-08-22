@@ -30,7 +30,20 @@ class MyAnimeListSearch:
             except IndexError:
                 maxnum = retries
                 retries = 10
-        return checktext, maxnum
+        return checktext, maxnum, results
+        
+    def selectsearch(self, response, results, maxnum, medium):
+        try:
+            num = int(response.content) - 1
+            if (num >= maxnum) or (num < 0):
+                bottext = "Chosen number invalid. Assuming first search result.\n\n"
+                num=0
+            except:
+                bottext = "Cannot accept strings for choosing search results. Assuming first search result.\n\n"
+                num=0
+        if medium == 'anime':
+            bottext = bottext + results[num].title +"\n"
+        return bottext
 
     @commands.command(pass_context=True)
     async def anime(self, ctx, *, text):
@@ -38,11 +51,18 @@ class MyAnimeListSearch:
 
         #Your code will go here
         message = ctx.message
-        checktext, maxnum = self.getsearch(text, 'anime')
+        checktext, maxnum, results = self.getsearch(text, 'anime')
         if maxnum == 99:
             return await self.bot.say(checktext)
-        await self.bot.say("Found the following anime on MyAnimeList:\n" + checktext + "\nPlease type the number of the game you want, then send.")
-        response = await self.bot.wait_for_message(author=message.author)
+        elif maxnum != 1:
+            await self.bot.say("Found the following anime on MyAnimeList:\n" + checktext + "\nPlease type the number of the game you want, then send.")
+            response = await self.bot.wait_for_message(author=message.author)
+        else:
+            response = 1
+        bottext = self.selectsearch(response, results, maxnum, 'anime')
+        return await self.bot.say(bottext)
+
+        
 
     @commands.command()
     async def manga(self, text):
