@@ -17,7 +17,7 @@ class jsontest:
     @commands.command()
     async def test(self):
         """Tests this command."""
-        login, password = self.loadauth()
+        login, password = loadauth()
         return await self.bot.say(login + password)
         
     @commands.command()
