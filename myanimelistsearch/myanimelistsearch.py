@@ -34,7 +34,7 @@ class MyAnimeListSearch:
         
     def selectsearch(self, response, results, maxnum, medium):
         bottext = ''
-        debug = response.content + '\n' + maxnum
+        debug = response.content + '\n' + str(maxnum)
         try:
             if maxnum != 0:
                 num = int(response.content) - 1
