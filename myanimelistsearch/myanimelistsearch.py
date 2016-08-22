@@ -32,7 +32,7 @@ class MyAnimeListSearch:
         try:
             try:
                 results = spice.search(text, spice.get_medium(medium), self.creds)
-            except ValueError:
+            except AttributeError:
                 checktext = "Search failed. Did you set your login credntials?"
                 maxnum = 99
                 results = ''
