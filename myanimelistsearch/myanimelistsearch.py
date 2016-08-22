@@ -15,10 +15,10 @@ class MyAnimeListSearch:
     def getsearch(self, text, medium):
         try:
             results = spice.search(text, spice.get_medium(medium), self.creds)
-        except TypeError, ValueError:
+        except TypeError:
             checktext = "Search failed."
             maxnum = 99
-            return checktext, maxnum
+            return checktext, maxnum, results
         retries = 0
         maxnum =0
         checktext=''
