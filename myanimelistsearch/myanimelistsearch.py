@@ -26,7 +26,7 @@ class MyAnimeListSearch:
                 maxnum = retries
                 retries = 10
         if maxnum != 1:
-            await self.bot.say("Found the following anime on MyAnimeList:\n" + checktext + "\nPlease type the number of the anime you want, then send.")
+            self.bot.say("Found the following anime on MyAnimeList:\n" + checktext + "\nPlease type the number of the anime you want, then send.")
             response = await self.bot.wait_for_message(author=message.author)
             try:
                 num = int(response.content) - 1
@@ -34,7 +34,7 @@ class MyAnimeListSearch:
                     await self.bot.say("Chosen number invalid. Assuming first search result.")
                     num=0
             except:
-                await self.bot.say("Cannot accept strings for choosing search results. Assuming first search result.")
+                self.bot.say("Cannot accept strings for choosing search results. Assuming first search result.")
                 num=0
         else:
             num = 0
