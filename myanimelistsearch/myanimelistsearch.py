@@ -172,11 +172,11 @@ class MyAnimeListSearch:
             else:
                 await self.bot.say("{} `Canceled API key opertation...`".format(user.mention))
         else:
-                usernamecheck = username
-                usernamepassword = password
-                self.creds = spice.init_auth(usernamecheck, usernamepassword)
-                self.settings["username"] = usernamecheck
-                self.settings["password"] = usernamepassword
+            usernamecheck = username
+            usernamepassword = password
+            self.creds = spice.init_auth(usernamecheck, usernamepassword)
+            self.settings["username"] = usernamecheck
+            self.settings["password"] = usernamepassword
             fileIO(SETTINGS, "save", self.settings)
             await self.bot.say("{} ` MAL Login saved...`".format(user.mention))
         self.settings = fileIO(SETTINGS, "load")
