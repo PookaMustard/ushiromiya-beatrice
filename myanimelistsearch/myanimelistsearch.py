@@ -162,21 +162,21 @@ class MyAnimeListSearch:
             await self.bot.say("{} ` MAL Login found, overwrite it? y/n`".format(user.mention))
             response = await self.bot.wait_for_message(author=ctx.message.author)
             if response.content.lower().strip() == "y":
-                self.settings["username"] = username
-                self.settings["password"] = password
-                self.username = self.settings["username"]
-                self.password = self.settings["password"]
-                self.creds = spice.init_auth(self.username, self.password)
+                usernamecheck = username
+                usernamepassword = password
+                self.creds = spice.init_auth(usernamecheck, usernamepassword)
+                self.settings["username"] = usernamecheck
+                self.settings["password"] = usernamepassword
                 fileIO(SETTINGS, "save", self.settings)
                 await self.bot.say("{} ` MAL Login saved...`".format(user.mention))
             else:
                 await self.bot.say("{} `Canceled API key opertation...`".format(user.mention))
         else:
-            self.settings["username"] = username
-            self.settings["password"] = password
-            self.username = self.settings["username"]
-            self.password = self.settings["password"]
-            self.creds = spice.init_auth(self.username, self.password)
+                usernamecheck = username
+                usernamepassword = password
+                self.creds = spice.init_auth(usernamecheck, usernamepassword)
+                self.settings["username"] = usernamecheck
+                self.settings["password"] = usernamepassword
             fileIO(SETTINGS, "save", self.settings)
             await self.bot.say("{} ` MAL Login saved...`".format(user.mention))
         self.settings = fileIO(SETTINGS, "load")
