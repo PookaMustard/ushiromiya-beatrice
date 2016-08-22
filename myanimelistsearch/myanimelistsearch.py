@@ -35,7 +35,7 @@ class MyAnimeListSearch:
     def selectsearch(self, response, results, maxnum, medium):
         bottext = ''
         try:
-            num = int(response.content) - 1
+            num = response - 1
             if (num >= maxnum) or (num < 0):
                 bottext = "Chosen number invalid. Assuming first search result.\n\n"
                 num=0
@@ -45,7 +45,7 @@ class MyAnimeListSearch:
         if medium == 'anime':
             bottext = bottext + "Title: " + results[num].title + "\n" + "URL: http://myanimelist.net/anime/" + results[num].id + "\n" + "Episodes: " + results[num].episodes + "\n" + "Status: " + results[num].status + "\n" + "MAL Score: " + results[num].score
         elif medium == 'manga':
-            bottext = bottext + "Title: " + results[num].title + "\n" + "URL: http://myanimelist.net/anime/" + results[num].id + "\n" + "Volumes: " + results[num].volumes + "\n" + "Chapters: " + results[num].chapters + "\n" + "Status: " + results[num].status + "\n" + "MAL Score: " + results[num].score
+            bottext = bottext + "Title: " + results[num].title + "\n" + "URL: http://myanimelist.net/manga/" + results[num].id + "\n" + "Volumes: " + results[num].volumes + "\n" + "Chapters: " + results[num].chapters + "\n" + "Status: " + results[num].status + "\n" + "MAL Score: " + results[num].score
         return bottext
 
     @commands.command(pass_context=True)
@@ -60,8 +60,9 @@ class MyAnimeListSearch:
         elif maxnum != 1:
             await self.bot.say("Found the following anime on MyAnimeList:\n" + checktext + "\nPlease type the number of the anime you want, then send.")
             response = await self.bot.wait_for_message(author=message.author)
+            response = int(response.content)
         else:
-            response = '1'
+            response = 1
         bottext = self.selectsearch(response, results, maxnum, 'anime')
         return await self.bot.say(bottext)
 
@@ -77,6 +78,7 @@ class MyAnimeListSearch:
         elif maxnum != 1:
             await self.bot.say("Found the following manga on MyAnimeList:\n" + checktext + "\nPlease type the number of the manga you want, then send.")
             response = await self.bot.wait_for_message(author=message.author)
+            response = int(response.content)
         else:
             response = 1
         bottext = self.selectsearch(response, results, maxnum, 'manga')
