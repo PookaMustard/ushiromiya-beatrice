@@ -20,7 +20,7 @@ class MyAnimeListSearch:
         checktext=''
         while retries <= 9:
             try:
-                checktext = checktext + str(context) + ") " + results[retries].title + "\n"
+                checktext = checktext + ") " + results[retries].title + "\n"
                 retries = retries + 1
                 context = retries + 1
             except IndexError:
