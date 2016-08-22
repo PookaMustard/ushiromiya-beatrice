@@ -49,7 +49,7 @@ class MyAnimeListSearch:
         text = " ".join(text)
         query=text.replace(" ", "%20")
         results, num = self.getsearch(text, 'anime', message)
-        await self.bot.say (results[num].title))
+        self.bot.say (results[num].title))
             
             
     @commands.command()
