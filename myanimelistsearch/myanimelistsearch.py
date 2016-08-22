@@ -31,7 +31,7 @@ class MyAnimeListSearch:
             try:
                 num = int(response.content) - 1
                 if (num >= maxnum) or (num < 0):
-                    await self.bot.say("Chosen number invalid. Assuming first search result.")
+                    self.bot.say("Chosen number invalid. Assuming first search result.")
                     num=0
             except:
                 self.bot.say("Cannot accept strings for choosing search results. Assuming first search result.")
