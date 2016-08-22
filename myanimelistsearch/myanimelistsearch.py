@@ -38,7 +38,7 @@ class MyAnimeListSearch:
             if maxnum != 0:
                 num = int(response.content) - 1
             else:
-                num = response - 1
+                num = int(response) - 1
             if (num >= maxnum) or (num < 0):
                 bottext = "Chosen number invalid. Assuming first search result.\n\n"
                 num=0
