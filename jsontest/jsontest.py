@@ -32,9 +32,9 @@ def loadauth():
     login = {}
     with open(SETTINGS, 'r') as f:
         login = json.load(f)
-    login = str(login['login'])
-    password = str(login['password'])
-    return login, password
+    login = login['login']
+    password = login['password']
+    return str(login), str(password)
 
 def check_folders():
     if not os.path.exists(DATADIR):
