@@ -13,14 +13,8 @@ class MyAnimeListSearch:
         self.creds = spice.init_auth('Beatrice-BOT', 'Beato-2MR_0')
         
     def getsearch(self, text, medium):
-        try:
-            errorcheck = 0
-            results = spice.search(text, spice.get_medium(medium), self.creds)
-        except TypeError:
-            checktext = "Search failed."
-            errorcheck = 1
-            maxnum = -1
-            return checktext, maxnum, errorcheck
+        errorcheck = 0
+        results = spice.search(text, spice.get_medium(medium), self.creds)
         retries = 0
         maxnum =0
         checktext=''
