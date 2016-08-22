@@ -33,6 +33,6 @@ def check_files():
             json.dump(emptydict, f)
 
 def setup(bot):
-    check_files()
     check_folders()
+    check_files()
     bot.add_cog(jsontest)
