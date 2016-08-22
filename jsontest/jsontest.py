@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from .utils.dataIO import dataIO
+from .utils.dataIO import fileIO
 import json
 import os
 
@@ -25,12 +26,11 @@ class jsontest:
 def check_folders():
     if not os.path.exists(DATADIR):
         os.mkdir(DATADIR)
-
+            
 def check_files():
-    if not dataIO.is_valid_json(SETTINGS):
+    if not fileIO(SETTINGS, "check"):
         emptydict = {'login' : 'blank', 'password' : 'blank'}
-        with open (SETTINGS, 'w') as f:
-            json.dump(emptydict, f)
+        fileIO(SETTINGS, "save", emptydict)
 
 def setup(bot):
     check_folders()
