@@ -35,4 +35,4 @@ def check_files():
 def setup(bot):
     check_folders()
     check_files()
-    bot.add_cog(jsontest)
+    bot.add_cog(jsontest(bot))
