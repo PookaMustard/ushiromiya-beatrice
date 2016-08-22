@@ -12,6 +12,10 @@ class MyAnimeListSearch:
         self.bot = bot
         self.creds = spice.init_auth('Beatrice-BOT', 'Beato-2MR_0')
         
+    ###
+    ### Functions: getsearch, selectsearch
+    ###
+        
     def getsearch(self, text, medium):
         try:
             results = spice.search(text, spice.get_medium(medium), self.creds)
@@ -47,10 +51,19 @@ class MyAnimeListSearch:
             bottext = "Cannot accept strings for choosing search results. Assuming first search result.\n\n"
             num=0
         if medium == 'anime':
-            bottext = bottext + "Title: " + results[num].title + "\n" + "URL: http://myanimelist.net/anime/" + results[num].id + "\n" + "Episodes: " + results[num].episodes + "\n" + "Status: " + results[num].status + "\n" + "MAL Score: " + results[num].score
+            bottext = bottext + "Title: " + results[num].title + "\n" + "URL: http://myanimelist.net/anime/" + \
+                results[num].id + "\n" + "Episodes: " + results[num].episodes + "\n" + "Status: " + \
+                results[num].status + "\n" + "MAL Score: " + results[num].score
         elif medium == 'manga':
-            bottext = bottext + "Title: " + results[num].title + "\n" + "URL: http://myanimelist.net/manga/" + results[num].id + "\n" + "Volumes: " + results[num].volumes + "\n" + "Chapters: " + results[num].chapters + "\n" + "Status: " + results[num].status + "\n" + "MAL Score: " + results[num].score
+            bottext = bottext + "Title: " + results[num].title + "\n" + "URL: http://myanimelist.net/manga/" + \
+            results[num].id + "\n" + "Volumes: " + results[num].volumes + "\n" + "Chapters: " + \
+            results[num].chapters + "\n" + "Status: " + results[num].status + "\n" + "MAL Score: " + \
+            results[num].score
         return bottext
+
+    ###
+    ### Actual bot commands
+    ###
 
     @commands.command(pass_context=True)
     async def anime(self, ctx, *, text):
@@ -62,7 +75,8 @@ class MyAnimeListSearch:
         if maxnum == 99:
             return await self.bot.say(checktext)
         elif maxnum != 1:
-            await self.bot.say("Found the following anime on MyAnimeList:\n" + checktext + "\nPlease type the number of the anime you want, then send.")
+            await self.bot.say("Found the following anime on MyAnimeList:\n" + checktext + \
+            "\nPlease type the number of the anime you want, then send.")
             response = await self.bot.wait_for_message(author=message.author)
         else:
             response = 1
@@ -79,7 +93,8 @@ class MyAnimeListSearch:
         if maxnum == 99:
             return await self.bot.say(checktext)
         elif maxnum != 1:
-            await self.bot.say("Found the following manga on MyAnimeList:\n" + checktext + "\nPlease type the number of the manga you want, then send.")
+            await self.bot.say("Found the following manga on MyAnimeList:\n" + checktext + \
+            "\nPlease type the number of the manga you want, then send.")
             response = await self.bot.wait_for_message(author=message.author)
         else:
             response = 1
