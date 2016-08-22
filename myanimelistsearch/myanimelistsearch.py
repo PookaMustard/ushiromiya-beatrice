@@ -34,7 +34,7 @@ class MyAnimeListSearch:
         #Your code will go here
         text = " ".join(text)
         query=text.replace(" ", "%20")
-        checktext, maxnum = getsearch(text, 'anime')
+        checktext, maxnum = self.getsearch(text, 'anime')
         await self.bot.say("Found the following anime on MyAnimeList:\n" + checktext)
 
     @commands.command()
