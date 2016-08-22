@@ -12,7 +12,7 @@ class MyAnimeListSearch:
         self.bot = bot
         self.creds = spice.init_auth('Beatrice-BOT', 'Beato-2MR_0')
         
-    def getsearch(self, text, medium, message):
+    def getsearch(self, text, medium):
         results = spice.search(text, spice.get_medium(medium), self.creds)
         retries = 0
         maxnum =0
@@ -25,33 +25,18 @@ class MyAnimeListSearch:
             except IndexError:
                 maxnum = retries
                 retries = 10
-        if maxnum != 1:
-            self.bot.say("Found the following anime on MyAnimeList:\n" + checktext + "\nPlease type the number of the anime you want, then send.")
-            response = self.bot.wait_for_message(author=message.author)
-            try:
-                num = int(response.content) - 1
-                if (num >= maxnum) or (num < 0):
-                    self.bot.say("Chosen number invalid. Assuming first search result.")
-                    num=0
-            except:
-                self.bot.say("Cannot accept strings for choosing search results. Assuming first search result.")
-                num=0
-        else:
-            num = 0
-        return results, num
+        return checktext, maxnum
 
-    @commands.command(pass_context=True)
-    async def anime(self, ctx, *, text):
+    @commands.command()
+    async def anime(self, *text):
         """Returns MAL anime search result using anime name"""
 
         #Your code will go here
-        message = ctx.message
         text = " ".join(text)
         query=text.replace(" ", "%20")
-        results, num = self.getsearch(text, 'anime', message)
-        self.bot.say (results[num].title))
-            
-            
+        checktext, maxnum = getsearch(text, 'anime')
+        await self.bot.say("Found the following anime on MyAnimeList:\n" + checktext)
+
     @commands.command()
     async def manga(self, text):
         """Returns MAL manga search result using manga name"""
