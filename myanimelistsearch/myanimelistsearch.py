@@ -24,9 +24,9 @@ class MyAnimeListSearch:
         if self.settings["username"] == "":
             print("Cog error: MyAnimeListSearch, No MAL login found, please configure me!")
         else:
-                self.username = self.settings["username"]
-                self.password = self.settings["password"]
-                self.creds = spice.init_auth(self.username, self.password)
+            self.username = self.settings["username"]
+            self.password = self.settings["password"]
+            self.creds = spice.init_auth(self.username, self.password)
         
     ###
     ### Functions: getsearch, selectsearch
