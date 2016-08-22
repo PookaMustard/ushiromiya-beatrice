@@ -20,7 +20,7 @@ class jsontest:
         login = {}
         with open(SETTINGS, 'r') as f:
             login = json.load(f)
-        return await self.bot.say(login)
+        return await self.bot.say(login + "\n" + login['login'] + "\n" + login['password'])
 
 
 def check_folders():
