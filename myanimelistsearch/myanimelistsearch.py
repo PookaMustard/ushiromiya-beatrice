@@ -51,6 +51,7 @@ class MyAnimeListSearch:
 
         #Your code will go here
         message = ctx.message
+        bottext = ''
         checktext, maxnum, results = self.getsearch(text, 'anime')
         if maxnum == 99:
             return await self.bot.say(checktext)
