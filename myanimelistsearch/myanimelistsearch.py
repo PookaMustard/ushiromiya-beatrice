@@ -38,9 +38,9 @@ class MyAnimeListSearch:
             if (num >= maxnum) or (num < 0):
                 bottext = "Chosen number invalid. Assuming first search result.\n\n"
                 num=0
-            except:
-                bottext = "Cannot accept strings for choosing search results. Assuming first search result.\n\n"
-                num=0
+        except:
+            bottext = "Cannot accept strings for choosing search results. Assuming first search result.\n\n"
+            num=0
         if medium == 'anime':
             bottext = bottext + results[num].title +"\n"
         return bottext
