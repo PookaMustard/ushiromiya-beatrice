@@ -13,8 +13,12 @@ class MyAnimeListSearch:
         self.creds = spice.init_auth('Beatrice-BOT', 'Beato-2MR_0')
         
     def getsearch(self, text, medium):
-        errorcheck = 0
-        results = spice.search(text, spice.get_medium(medium), self.creds)
+        try:
+            results = spice.search(text, spice.get_medium(medium), self.creds)
+        except TypeError:
+            checktext = "Search failed."
+            maxnum = -1
+            return checktext, maxnum
         retries = 0
         maxnum =0
         checktext=''
@@ -26,8 +30,7 @@ class MyAnimeListSearch:
             except IndexError:
                 maxnum = retries
                 retries = 10
-                errorcheck = 0
-        return checktext, maxnum, errorcheck
+        return checktext, maxnum
 
     @commands.command(pass_context=True)
     async def anime(self, ctx, *, text):
@@ -36,7 +39,7 @@ class MyAnimeListSearch:
         #Your code will go here
         message = ctx.message
         checktext, maxnum, errorcheck = self.getsearch(text, 'anime')
-        if errorcheck == 1:
+        if maxnum == -1:
             return await self.bot.say(checktext)
         await self.bot.say("Found the following anime on MyAnimeList:\n" + checktext + +"\nPlease type the number of the game you want, then send.")
         response = await self.bot.wait_for_message(author=message.author)
