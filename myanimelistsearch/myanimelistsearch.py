@@ -22,7 +22,7 @@ class MyAnimeListSearch:
         checktext=''
         text = " ".join(text)
         query=text.replace(" ", "%20")
-        results = spice.search(text, spice.get_medium('anime'), creds)
+        results = spice.search(text, spice.get_medium('anime'), self.creds)
         while retries <= 9:
             try:
                 context = retries + 1
