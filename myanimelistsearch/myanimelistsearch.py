@@ -43,7 +43,7 @@ class MyAnimeListSearch:
             bottext = "Cannot accept strings for choosing search results. Assuming first search result.\n\n"
             num=0
         if medium == 'anime':
-            bottext = bottext + "Title: " + results[num].title + "\n" + "URL: http://myanimelist.net/anime/" + results[num].id + "\n" + "Episodes: " + results[num].episodes + "\n" + "MAL Score: " + results[num].score
+            bottext = bottext + "Title: " + results[num].title + "\n" + "URL: http://myanimelist.net/anime/" + results[num].id + "\n" + "Episodes: " + results[num].episodes + "\n" + "Status: " + results[num].status + "\n" + "MAL Score: " + results[num].score
         return bottext
 
     @commands.command(pass_context=True)
