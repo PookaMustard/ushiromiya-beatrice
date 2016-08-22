@@ -172,6 +172,9 @@ class MyAnimeListSearch:
             fileIO(SETTINGS, "save", self.settings)
             await self.bot.say("{} ` MAL Login saved...`".format(user.mention))
         self.settings = fileIO(SETTINGS, "load") 
+        self.username = self.settings["username"]
+        self.password = self.settings["password"]
+        self.creds = spice.init_auth(self.username, self.password)
 
 def check_folders():
     if not os.path.exists(DIR_DATA):
