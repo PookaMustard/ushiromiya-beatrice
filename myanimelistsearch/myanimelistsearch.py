@@ -12,7 +12,7 @@ class MyAnimeListSearch:
         self.bot = bot
         self.creds = spice.init_auth('Beatrice-BOT', 'Beato-2MR_0')
         
-    def getsearch(self, text, medium):
+    def getsearch(self, text, medium, message):
         results = spice.search(text, spice.get_medium(medium), self.creds)
         retries = 0
         maxnum =0
@@ -27,7 +27,7 @@ class MyAnimeListSearch:
                 retries = 10
         if maxnum != 1:
             self.bot.say("Found the following anime on MyAnimeList:\n" + checktext + "\nPlease type the number of the anime you want, then send.")
-            response = await self.bot.wait_for_message(author=message.author)
+            response = self.bot.wait_for_message(author=message.author)
             try:
                 num = int(response.content) - 1
                 if (num >= maxnum) or (num < 0):
@@ -40,14 +40,15 @@ class MyAnimeListSearch:
             num = 0
         return results, num
 
-    @commands.command()
-    async def anime(self, *text):
+    @commands.command(pass_context=True)
+    async def anime(self, ctx, *, text):
         """Returns MAL anime search result using anime name"""
 
         #Your code will go here
+        message = ctx.message
         text = " ".join(text)
         query=text.replace(" ", "%20")
-        results, num = self.getsearch(text, 'anime')
+        results, num = self.getsearch(text, 'anime', message)
         await self.bot.say (results[num].title))
             
             
