@@ -52,29 +52,35 @@ class MyAnimeListSearch:
     async def anime(self, ctx, *, text):
         """Returns MAL anime search result using anime name"""
 
-        #Your code will go here
         message = ctx.message
         bottext = ''
         checktext, maxnum, results = self.getsearch(text, 'anime')
         if maxnum == 99:
             return await self.bot.say(checktext)
         elif maxnum != 1:
-            await self.bot.say("Found the following anime on MyAnimeList:\n" + checktext + "\nPlease type the number of the game you want, then send.")
+            await self.bot.say("Found the following anime on MyAnimeList:\n" + checktext + "\nPlease type the number of the anime you want, then send.")
             response = await self.bot.wait_for_message(author=message.author)
         else:
-            response = 1
+            response = '1'
         bottext = self.selectsearch(response, results, maxnum, 'anime')
         return await self.bot.say(bottext)
 
-        
-
-    @commands.command()
-    async def manga(self, text):
+    @commands.command(pass_context=True)
+    async def manga(self, ctx, *, text):
         """Returns MAL manga search result using manga name"""
 
-        #Your code will go here
-        query=text.replace(" ", "%20")
-        await self.bot.say("http://myanimelist.net/manga.php?q="+query)
+        message = ctx.message
+        bottext = ''
+        checktext, maxnum, results = self.getsearch(text, 'manga')
+        if maxnum == 99:
+            return await self.bot.say(checktext)
+        elif maxnum != 1:
+            await self.bot.say("Found the following manga on MyAnimeList:\n" + checktext + "\nPlease type the number of the manga you want, then send.")
+            response = await self.bot.wait_for_message(author=message.author)
+        else:
+            response = 1
+        bottext = self.selectsearch(response, results, maxnum, 'manga')
+        return await self.bot.say(bottext)
 
     @commands.command()
     async def malcharacter(self, text):
