@@ -162,6 +162,9 @@ class MyAnimeListSearch:
             if response.content.lower().strip() == "y":
                 self.settings["username"] = username
                 self.settings["password"] = password
+                self.username = self.settings["username"]
+                self.password = self.settings["password"]
+                self.creds = spice.init_auth(self.username, self.password)
                 fileIO(SETTINGS, "save", self.settings)
                 await self.bot.say("{} ` MAL Login saved...`".format(user.mention))
             else:
@@ -169,12 +172,12 @@ class MyAnimeListSearch:
         else:
             self.settings["username"] = username
             self.settings["password"] = password
+            self.username = self.settings["username"]
+            self.password = self.settings["password"]
+            self.creds = spice.init_auth(self.username, self.password)
             fileIO(SETTINGS, "save", self.settings)
             await self.bot.say("{} ` MAL Login saved...`".format(user.mention))
-        self.settings = fileIO(SETTINGS, "load") 
-        self.username = self.settings["username"]
-        self.password = self.settings["password"]
-        self.creds = spice.init_auth(self.username, self.password)
+        self.settings = fileIO(SETTINGS, "load")
 
 def check_folders():
     if not os.path.exists(DIR_DATA):
