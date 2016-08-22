@@ -3,6 +3,15 @@ from discord.ext import commands
 import spice_api as spice
 from bs4 import BeautifulSoup
 import aiohttp
+from .utils.dataIO import fileIO
+from .utils import checks
+from __main__ import send_cmd_help
+from __main__ import settings as bot_settings
+import os
+import json
+
+DIR_DATA = "data/myanimelistsearch"
+SETTINGS = DIR_DATA+"/settings.json"
 
 
 class MyAnimeListSearch:
@@ -10,7 +19,14 @@ class MyAnimeListSearch:
 
     def __init__(self, bot):
         self.bot = bot
-        self.creds = spice.init_auth('Beatrice-BOT', 'Beato-2MR_0')
+        self.bot = bot
+        self.settings = fileIO(SETTINGS, "load")
+        if self.settings["username"] == "":
+            print("Cog error: MyAnimeListSearch, No MAL login found, please configure me!")
+        else:
+                self.username = self.settings["username"]
+                self.password = self.settings["password"]
+                self.creds = spice.init_auth(self.username, self.password)
         
     ###
     ### Functions: getsearch, selectsearch
@@ -133,5 +149,44 @@ class MyAnimeListSearch:
         query=text.replace(" ", "%20")
         await self.bot.say(" http://myanimelist.net/search/all?q="+query)
 
+
+    @commands.command(pass_context=True, no_pm=False)
+    async def login_mal(self, ctx, username, password):
+        """Set the MAL login.
+        
+        Code copied from Mash's IMDB apikey_imdb command"""
+        user = ctx.message.author
+        if self.settings["username"] != "":
+            await self.bot.say("{} ` MAL Login found, overwrite it? y/n`".format(user.mention))
+            response = await self.bot.wait_for_message(author=ctx.message.author)
+            if response.content.lower().strip() == "y":
+                self.settings["username"] = username
+                self.settings["password"] = password
+                fileIO(SETTINGS, "save", self.settings)
+                await self.bot.say("{} ` MAL Login saved...`".format(user.mention))
+            else:
+                await self.bot.say("{} `Canceled API key opertation...`".format(user.mention))
+        else:
+            self.settings["username"] = username
+            self.settings["password"] = password
+            fileIO(SETTINGS, "save", self.settings)
+            await self.bot.say("{} ` MAL Login saved...`".format(user.mention))
+        self.settings = fileIO(SETTINGS, "load") 
+
+def check_folders():
+    if not os.path.exists(DIR_DATA):
+        print("Creating data/myanimelistsearch folder...")
+        os.makedirs(DIR_DATA)
+
+def check_files():
+    settings = {"username": "", "password": ""}
+
+    if not fileIO(SETTINGS, "check"):
+        print("Creating settings.json")
+        fileIO(SETTINGS, "save", settings)
+
 def setup(bot):
-    bot.add_cog(MyAnimeListSearch(bot))
+    check_folders()
+    check_files()
+    n = myanimelistsearch(bot)
+    bot.add_cog(n)
