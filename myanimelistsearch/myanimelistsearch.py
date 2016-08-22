@@ -35,7 +35,10 @@ class MyAnimeListSearch:
     def selectsearch(self, response, results, maxnum, medium):
         bottext = ''
         try:
-            num = response - 1
+            if maxnum != 0:
+                num = int(response.content) - 1
+            else:
+                num = response - 1
             if (num >= maxnum) or (num < 0):
                 bottext = "Chosen number invalid. Assuming first search result.\n\n"
                 num=0
@@ -60,10 +63,6 @@ class MyAnimeListSearch:
         elif maxnum != 1:
             await self.bot.say("Found the following anime on MyAnimeList:\n" + checktext + "\nPlease type the number of the anime you want, then send.")
             response = await self.bot.wait_for_message(author=message.author)
-            try:
-                response = int(response.content)
-            except:
-                response = 'string'
         else:
             response = 1
         bottext = self.selectsearch(response, results, maxnum, 'anime')
@@ -81,10 +80,6 @@ class MyAnimeListSearch:
         elif maxnum != 1:
             await self.bot.say("Found the following manga on MyAnimeList:\n" + checktext + "\nPlease type the number of the manga you want, then send.")
             response = await self.bot.wait_for_message(author=message.author)
-            try:
-                response = int(response.content)
-            except:
-                response = 'string'
         else:
             response = 1
         bottext = self.selectsearch(response, results, maxnum, 'manga')
