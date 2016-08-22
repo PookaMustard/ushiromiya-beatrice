@@ -26,6 +26,9 @@ class jsontest:
         saveauth(login, password)
         return await self.bot.say('Saved.')
 
+
+### GLOBAL JSON FUNCTIONS
+
 def saveauth(login, password):
     login = {'login' : login, 'password' : password}
     with open(SETTINGS, 'w') as f:
@@ -46,6 +49,8 @@ def check_files():
     if not fileIO(SETTINGS, "check"):
         emptydict = {'login' : 'blank', 'password' : 'blank'}
         fileIO(SETTINGS, "save", emptydict)
+
+### BOT SETUP
 
 def setup(bot):
     check_folders()
