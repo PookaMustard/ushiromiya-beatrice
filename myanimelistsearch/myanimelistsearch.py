@@ -1,22 +1,37 @@
 import discord
+from discord.ext import commands
+import spice_api as spice
 from bs4 import BeautifulSoup
 import aiohttp
-from discord.ext import commands
+
 
 class MyAnimeListSearch:
     """Commences a search on MyAnimeList"""
 
     def __init__(self, bot):
         self.bot = bot
+        self.creds = spice.init_auth('Beatrice-BOT', 'Beato-2MR_0')
 
     @commands.command()
     async def anime(self, *text):
         """Returns MAL anime search result using anime name"""
 
         #Your code will go here
+        retries=0
+        maxnum=0
+        checktext=''
         text = " ".join(text)
         query=text.replace(" ", "%20")
-        await self.bot.say("http://myanimelist.net/anime.php?q="+query)
+        results = spice.search(text, spice.get_medium('anime'), creds)
+        while retries <= 9:
+            try:
+                context = retries + 1
+                checktext = checktext + context + ") " results[retries].title + "\n"
+                retries = retries + 1
+            except IndexError:
+                maxnum = retries
+                retries = 10
+        await self.bot.say("Found the following anime on MyAnimeList:\n" + checktext)
 
     @commands.command()
     async def manga(self, text):
