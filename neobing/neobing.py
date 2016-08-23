@@ -39,6 +39,7 @@ class NeoBing:
 		elif operation == 'websearch':
 			return result[randint(1, maxnum) - 1].url
 		elif operation == 'newssearch':
+			num = randint(1, maxnum) - 1
 			time = result[num].date
 			time = "Date: " + time
 			time = time.replace('T', '\nTime: ').replace('Z', '')
