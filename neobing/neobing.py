@@ -103,7 +103,7 @@ class NeoBing:
 			if setting == 'channel':
 				settings = self.setadultchannel(channel, 'True')
 				return await self.bot.say("Enabled %bingadult settings for this channel.")
-			elif setting == 'server'
+			elif setting == 'server':
 				settings = self.setadultserver(server, 'True')
 				return await self.bot.say("Enabled %bingadult settings for this server.")
 		else:
