@@ -56,7 +56,7 @@ class NeoBing:
 		if settings['apikey'] == '' or settings['apikey'] == 'blank':
 			return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
 		apikey = settings['apikey']
-		text, limit = limitget(text)
+		text, limit = self.limitget(text)
 		result = self.getfrombing(apikey, text, limit, operation)
 		bottext = self.obtainresult(result, operation)
 		return await self.bot.say(bottext)
