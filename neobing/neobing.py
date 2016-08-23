@@ -25,15 +25,16 @@ class NeoBing:
 			bing_obj = PyBingImageSearch(apikey, text, custom_params="&Adult='Moderate'")
 		elif operation == 'websearch':
 			bing_obj = PyBingWebSearch(apikey, text, web_only=False)
+		elif operation == 'videosearch':
+			bing_obj = PyBingVideoSearch(self.api_key, text)
 		result = bing_obj.search(limit=limit, format='json')
 		return result
 		
 	def obtainresult(self, result, operation):
-		if operation == 'moderateimagesearch':
-			maxnum = len(result)
+		maxnum = len(result)
+		if operation == 'moderateimagesearch' or operation == 'videosearch':
 			return result[randint(1, maxnum) - 1].media_url
 		elif operation == 'websearch':
-			maxnum = len(result)
 			return result[randint(1, maxnum) - 1].url
 			
 	def limitget(self, text):
@@ -71,6 +72,19 @@ class NeoBing:
 		"""Searches Bing for web results."""
 		settings = loadauth()
 		operation = 'websearch'
+		if settings['apikey'] == '' or settings['apikey'] == 'blank':
+			return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
+		apikey = settings['apikey']
+		text, limit = self.limitget(text)
+		result = self.getfrombing(apikey, text, limit, operation)
+		bottext = self.obtainresult(result, operation)
+		return await self.bot.say(bottext)
+		
+	@commands.command()
+	async def neobingvideo(self, *, text):
+		"""Searches Bing for video results."""
+		settings = loadauth()
+		operation = 'videosearch'
 		if settings['apikey'] == '' or settings['apikey'] == 'blank':
 			return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
 		apikey = settings['apikey']
