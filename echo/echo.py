@@ -23,11 +23,11 @@ class Echo:
         A modified version of the debug command, with help from Calebj."""
 
         text = text.replace("\'", "\\\'")
-        try:
-            channelid = bot.get_channel(channelid)
-        except:
-            return self.bot.say("The channel ID is invalid.")
-        return self.bot.send_message(channelid, text)
+        channelid = bot.get_channel(channelid)
+        if channelid:
+            return self.bot.send_message(channelid, text)
+        else:
+            return self.bot.say("Error.")
 
     @commands.command(pass_context=True)
     @checks.is_owner()
