@@ -23,7 +23,7 @@ class Echo:
         A modified version of the debug command, with help from Calebj."""
 
         text = text.replace("\'", "\\\'")
-        channelid = bot.get_channel(channelid)
+        channelid = self.bot.get_channel(channelid)
         return self.bot.send_message(channelid, text)
 
     @commands.command(pass_context=True)
