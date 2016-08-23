@@ -54,6 +54,11 @@ class NeoBing:
 		else:
 			limit = 1
 		return text, limit
+		
+    	def setadultchannel(self, channel, status):
+    		settings = loadauth()
+		self.settings['adult']['channels'][channel.id] = status
+		saveauth(settings)
 			
 	@commands.command(pass_context=True)
 	@checks.admin_or_permissions(manage_server=True)
@@ -63,6 +68,25 @@ class NeoBing:
 		settings['apikey'] = key
 		saveauth(settings)
 		return await self.bot.say("Bing API key saved.")
+		
+	@commands.command(pass_context=True)
+	@checks.admin_or_permissions(manage_server=True)
+	async def neobingsetadult(self, ctx):
+		"""Sets adult status for current channel"""
+		
+		channel = ctx.message.channel
+		await self.bot.say("```Do you want to enable %bingadult for this channel? This will enable this channel to use " +
+			"the %bingadult command, which image searches Bing with Safe Search turned off. Do note that " +
+			"this setting will override the global server setting and thus will allow %bingadult in this " +
+			"channel even if the global server setting is off. " +
+			"ARE YOU SURE YOU WANT TO TOGGLE %bingadult?\n(y/n)```")
+		response = await self.bot.wait_for_message(author=message.author)
+		if response.content.lower().strip() == "y":
+			self.setadultchannel(channel, 'True')
+			return await self.bot.say("Enabled %bingadult settings for this channel.")
+		else:
+			self.setadultchannel(channel, 'False')
+			return await self.bot.say(str(settings) + "\nDisabled %bingadult settings for this channel.")
 		
 	@commands.command()
 	async def neobing(self, *, text):
