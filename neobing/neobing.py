@@ -27,6 +27,8 @@ class NeoBing:
 			bing_obj = PyBingWebSearch(apikey, text, web_only=False)
 		elif operation == 'videosearch':
 			bing_obj = PyBingVideoSearch(apikey, text)
+		elif operation == 'newssearch':
+			bing_obj = PyBingNewsSearch(apikey, text)
 		result = bing_obj.search(limit=limit, format='json')
 		return result
 		
@@ -36,6 +38,13 @@ class NeoBing:
 			return result[randint(1, maxnum) - 1].media_url
 		elif operation == 'websearch':
 			return result[randint(1, maxnum) - 1].url
+		elif operation == 'newssearch':
+			time = result[num].date
+                	time = "Date: " + time
+                	time = time.replace('T', '\nTime: ').replace('Z', '')
+			bottext = result[num].title + "\n" + result[num].url + "\n" + time + "\n" + \
+				result[num].description
+			return bottext
 			
 	def limitget(self, text):
 		if text.split(' ', 1)[0].lower() == 'random':
@@ -85,6 +94,19 @@ class NeoBing:
 		"""Searches Bing for video results."""
 		settings = loadauth()
 		operation = 'videosearch'
+		if settings['apikey'] == '' or settings['apikey'] == 'blank':
+			return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
+		apikey = settings['apikey']
+		text, limit = self.limitget(text)
+		result = self.getfrombing(apikey, text, limit, operation)
+		bottext = self.obtainresult(result, operation)
+		return await self.bot.say(bottext)
+		
+	@commands.command()
+	async def neobingnews(self, *, text):
+		"""Searches Bing for video results."""
+		settings = loadauth()
+		operation = 'newssearch'
 		if settings['apikey'] == '' or settings['apikey'] == 'blank':
 			return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
 		apikey = settings['apikey']
