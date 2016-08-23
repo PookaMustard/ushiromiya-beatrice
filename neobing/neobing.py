@@ -59,6 +59,7 @@ class NeoBing:
 		settings = loadauth()
 		settings['adult']['channels'][channel.id] = status
 		saveauth(settings)
+		return settings
 			
 	@commands.command(pass_context=True)
 	@checks.admin_or_permissions(manage_server=True)
@@ -83,10 +84,10 @@ class NeoBing:
 			"ARE YOU SURE YOU WANT TO TOGGLE %bingadult?\n(y/n)```")
 		response = await self.bot.wait_for_message(author=message.author)
 		if response.content.lower().strip() == "y":
-			self.setadultchannel(channel, 'True')
+			settings = self.setadultchannel(channel, 'True')
 			return await self.bot.say("Enabled %bingadult settings for this channel.")
 		else:
-			self.setadultchannel(channel, 'False')
+			settings = self.setadultchannel(channel, 'False')
 			return await self.bot.say(str(settings) + "\nDisabled %bingadult settings for this channel.")
 		
 	@commands.command()
