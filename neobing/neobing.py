@@ -76,9 +76,10 @@ def check_folders():
 		os.mkdir(DATADIR)
 			
 def check_files():
-	settings = { 'apikey': 'blank', 'adult' : {'servers': {}, 'channels': {}}}
-	print("Creating blank data file for Command Request cog")
-	fileIO(SETTINGS, "save", settings)
+	if not fileIO(SETTINGS, "check"):
+		settings = { 'apikey': 'blank', 'adult' : {'servers': {}, 'channels': {}}}
+		print("Creating blank data file for Command Request cog")
+		fileIO(SETTINGS, "save", settings)
 
 def setup(bot):
 	check_folders()
