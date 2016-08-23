@@ -26,7 +26,7 @@ class NeoBing:
 		elif operation == 'websearch':
 			bing_obj = PyBingWebSearch(apikey, text, web_only=False)
 		elif operation == 'videosearch':
-			bing_obj = PyBingVideoSearch(self.api_key, text)
+			bing_obj = PyBingVideoSearch(apikey, text)
 		result = bing_obj.search(limit=limit, format='json')
 		return result
 		
