@@ -68,6 +68,34 @@ class NeoBing:
 		settings['adult']['servers'][server.id] = status
 		saveauth(settings)
 		return settings
+		
+	def checkadult(self, server, channel, settings):
+		if channel.id not in settings['adult']['channels']:
+			adultchannel = 'Unknown'
+		else:
+			adultchannel = settings['adult']['channels'][channel.id]
+		if server.id not in settings['adult']['servers']:
+			adultserver = 'False'
+		else:
+			adultserver = settings['adult']['servers'][server.id]
+		#-If channel is enabled and server is enabled, allow.
+		if adultchannel == 'True' and adultserver == 'True':
+			return True
+		#-If channel is unknown and server is enabled, allow.
+		elif adultchannel == 'Unknown' and adultserver == 'True':
+			return True
+		#-if channel is disabled and server is enabled, disallow.
+		elif adultchannel == 'False' and adultserver == 'True':
+			return False
+		#-if channel is enabled and server is disabled, allow.
+		elif adultchannel == 'True' and adultserver == 'False:
+			return True
+		#-if channel is unknown and server is disabled, disallow
+		elif adultchannel == 'Unknown' and adultserver == 'False':
+			return False
+		#-if channel is disabled and server is disabled, disallow.
+		elif adultchannel == 'False' and adultserver == 'False':
+			return False
 			
 	@commands.command(pass_context=True)
 	@checks.admin_or_permissions(manage_server=True)
@@ -134,6 +162,24 @@ class NeoBing:
 		"""Searches Bing for images with a strict Safe Search."""
 		settings = loadauth()
 		operation = 'strictimagesearch'
+		if settings['apikey'] == '' or settings['apikey'] == 'blank':
+			return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
+		apikey = settings['apikey']
+		text, limit = self.limitget(text)
+		result = self.getfrombing(apikey, text, limit, operation)
+		bottext = self.obtainresult(result, operation)
+		return await self.bot.say(bottext)
+		
+	@commands.command(pass_context=True)
+	async def neobingadult(self, ctx,  *, text):
+		"""Searches Bing for images with Safe Search off."""
+		settings = loadauth()
+		channel = ctx.message.channel
+		server = ctx.message.server
+		operation = 'adultimagesearch'
+		check = self.checkadult(server, channel, settings)
+		if check == False:
+			return await self.bot.say("Usage of %bingadult is disabled in this server and/or channel.")
 		if settings['apikey'] == '' or settings['apikey'] == 'blank':
 			return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
 		apikey = settings['apikey']
