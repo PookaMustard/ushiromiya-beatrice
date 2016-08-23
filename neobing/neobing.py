@@ -13,11 +13,11 @@ DATADIR = "data/bing"
 SETTINGS = DATADIR + "/settings.json"
 
 class bing:
-    """Fetches search results from Bing.
-    Uses the Python module py_bing_search as a frontend for Red"""
-    
-    def __init__(self, bot):
-        self.bot = bot
+	"""Fetches search results from Bing.
+	Uses the Python module py_bing_search as a frontend for Red"""
+	
+	def __init__(self, bot):
+		self.bot = bot
 		self.PREFIXES = bot_settings.prefixes 
 		
 	def getfrombing(self, apikey, text, limit, operation):
@@ -31,17 +31,17 @@ class bing:
 			maxnum = len(result)
 			return result[randint(1, maxnum)].mediaurl
 			
-    @commands.command(pass_context=True)
-    @checks.admin_or_permissions(manage_server=True)
-    async def apikey_neobing(self, ctx, key):
-        """Set the Bing API key."""
+	@commands.command(pass_context=True)
+	@checks.admin_or_permissions(manage_server=True)
+	async def apikey_neobing(self, ctx, key):
+		"""Set the Bing API key."""
 		settings = loadauth()
 		settings['apikey'] = key
 		saveauth(settings)
 		return await self.bot.say("Bing API key saved.")
 		
-    @commands.command()
-    async def neobing(self, *, text):
+	@commands.command()
+	async def neobing(self, *, text):
 		"""Searches Bing for images."""
 		settings = loadauth()
 		operation = 'moderateimagesearch'
@@ -59,29 +59,28 @@ class bing:
 
 
 def saveauth(settings):
-    settings = settings
-    with open(SETTINGS, 'w') as f:
-        json.dump(settings, f)
-    return
+	settings = settings
+	with open(SETTINGS, 'w') as f:
+		json.dump(settings, f)
+	return
 
 def loadauth():
-    settings = {}
-    with open(SETTINGS, 'r') as f:
-        settings = json.load(f)
-    return settings
+	settings = {}
+	with open(SETTINGS, 'r') as f:
+		settings = json.load(f)
+	return settings
 
 def check_folders():
-    if not os.path.exists(DATADIR):
-        print("Creating data directory for Command Request cog")
-        os.mkdir(DATADIR)
-            
+	if not os.path.exists(DATADIR):
+		print("Creating data directory for Command Request cog")
+		os.mkdir(DATADIR)
+			
 def check_files():
-    if not fileIO(SETTINGS, "check"):
-        settings = { 'apikey': 'blank', 'adult' : {'servers': {}, 'channels': {}}}
-        print("Creating blank data file for Command Request cog")
-        fileIO(SETTINGS, "save", settings)
+   settings = { 'apikey': 'blank', 'adult' : {'servers': {}, 'channels': {}}}
+		print("Creating blank data file for Command Request cog")
+		fileIO(SETTINGS, "save", settings)
 
 def setup(bot):
-    check_folders()
-    check_files()
-    bot.add_cog(Bing(bot))
+	check_folders()
+	check_files()
+	bot.add_cog(Bing(bot))
