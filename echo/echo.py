@@ -52,24 +52,25 @@ class echo:
         A modified version of the debug command, with help from Calebj."""
 
         #Your code will go here
-        text = "".join(text)
-        text = text.replace("\'", "\\\'")
-        local_vars = locals().copy()
-        local_vars['bot'] = self.bot
-        code = "bot.send_message(bot.get_channel(serverid),'"+text+"')"
-        python = '```py\n{}\n```'
-        result = None
-
-        try:
-            result = eval(code, globals(), local_vars)
-        except Exception as e:
-            await self.bot.say(python.format(type(e).__name__ + ': ' + str(e)))
-            return
-                    
-        if asyncio.iscoroutine(result):
-            result = await result
-
-        result = python.format(result)
+#        text = "".join(text)
+         text = text.replace("\'", "\\\'")
+         return self.bot.send_message(serverid, text)
+#        local_vars = locals().copy()
+#        local_vars['bot'] = self.bot
+#        code = "bot.send_message(bot.get_channel(serverid),'"+text+"')"
+#        python = '```py\n{}\n```'
+#        result = None
+#
+#        try:
+#            result = eval(code, globals(), local_vars)
+#        except Exception as e:
+#            await self.bot.say(python.format(type(e).__name__ + ': ' + str(e)))
+#            return
+#                    
+#        if asyncio.iscoroutine(result):
+#            result = await result
+#
+#        result = python.format(result)
         
     @commands.command(pass_context=True)
     @checks.is_owner()
