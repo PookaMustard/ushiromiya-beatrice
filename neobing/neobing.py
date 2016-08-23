@@ -75,6 +75,7 @@ class NeoBing:
 		"""Sets adult status for current channel"""
 		
 		channel = ctx.message.channel
+		message = ctx.message
 		await self.bot.say("```Do you want to enable %bingadult for this channel? This will enable this channel to use " +
 			"the %bingadult command, which image searches Bing with Safe Search turned off. Do note that " +
 			"this setting will override the global server setting and thus will allow %bingadult in this " +
