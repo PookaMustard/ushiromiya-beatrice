@@ -14,7 +14,7 @@ class Echo:
         """I'll repeat what you said."""
 
         text = " ".join(text)
-        await self.bot.say(text)
+        return await self.bot.say(text)
 
     @commands.command()
     @checks.is_owner()
@@ -23,7 +23,8 @@ class Echo:
         A modified version of the debug command, with help from Calebj."""
 
         text = text.replace("\'", "\\\'")
-        return self.bot.send_message(bot.get_channel(channelid), text)
+        channelid = bot.get_channel(channelid)
+        return self.bot.send_message(channelid, text)
 
     @commands.command(pass_context=True)
     @checks.is_owner()
