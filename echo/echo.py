@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from cogs.utils import checks
 
 class Echo:
     """I'll repeat what you said."""
