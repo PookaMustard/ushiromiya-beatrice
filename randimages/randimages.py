@@ -75,7 +75,19 @@ class randimages:
             return await self.bot.say('http://i.imgur.com/Fu0P8Zk.png')
         else:
             return await self.bot.say('http://i.imgur.com/E1ZVRnh.png')
-
+            
+    @commands.command()
+    async def whatever(self):
+        """Whatever."""
+        squall = ["http://troll.me/images/squall/whatever-.jpg", "http://i.imgur.com/2EAAg.jpg",
+                  "http://67.media.tumblr.com/2a90cd0b64a12ab64ae095134defeedc/tumblr_inline_mz1gj196vo1s3hvmd.jpg",
+                  "http://i52.photobucket.com/albums/g12/Daghul/Squall-Whatever.jpg", "http://i.imgur.com/R7Azb.jpg",
+                  "http://img10.deviantart.net/ef66/i/2011/157/e/5/squall_is_not_perturbed_by_meowchee-d3i9c8x.jpg",
+                  "http://31.media.tumblr.com/20512ae88b365cc32e92ca169c523b8b/tumblr_mrj3jlIcCf1sfzmdbo2_250.gif",
+                  "http://orig01.deviantart.net/7883/f/2015/301/7/c/squall_leonhart___united_states_of_whatever_by_eddiehimselfstolemyu-d9ennsg.jpg"
+                 ]
+        return await self.bot.say(randchoice(squall))
+        
     @commands.command()
     async def chara(self):
         """Now this face is good. = )"""
