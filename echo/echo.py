@@ -23,7 +23,9 @@ class Echo:
         A modified version of the debug command, with help from Calebj."""
 
         text = text.replace("\'", "\\\'")
-        return self.bot.send_message(self.bot.get_channel(str(channelid)), text)
+        channelid = self.bot.get_channel(str(channelid))
+        await self.bot.say(type(channelid))
+        return await self.bot.send_message(channelid, text)
 
     @commands.command(pass_context=True)
     @checks.is_owner()
