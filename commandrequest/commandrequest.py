@@ -17,9 +17,9 @@ class CommandRequest:
         channelid = loadauth()
         if channelid == '':
             return await self.bot.say("You haven't set the channel ID for command requests correctly. " +
-            "Use `[p]savechannelid [your channel ID here]` to set the command request channel. Use " +
-            "Discord's Developer Mode to copy the ID of the channel you wish to set for receiving " +
-            "command requests.")
+                "Use `[p]savechannelid [your channel ID here]` to set the command request channel. Use " +
+                "Discord's Developer Mode to copy the ID of the channel you wish to set for receiving " +
+                "command requests.")
         author = ctx.message.author
         server = ctx.message.server
         command = command + " -- Command requested by " + author.name + " from " + "{}".format(server.name)
@@ -33,7 +33,8 @@ class CommandRequest:
         """Saves this channel for commandrequests."""
         saveauth(channelid)
         channelidstring = loadauth()
-        return await self.bot.say('Saved.' + channelidstring)
+        return await self.bot.say("Saved. Now using " + channelidstring + "as the channel id for " +
+            "command requests.")
         
 ### GLOBAL JSON FUNCTIONS
 
