@@ -40,8 +40,8 @@ class NeoBing:
 			return result[randint(1, maxnum) - 1].url
 		elif operation == 'newssearch':
 			time = result[num].date
-                	time = "Date: " + time
-                	time = time.replace('T', '\nTime: ').replace('Z', '')
+			time = "Date: " + time
+			time = time.replace('T', '\nTime: ').replace('Z', '')
 			bottext = result[num].title + "\n" + result[num].url + "\n" + time + "\n" + \
 				result[num].description
 			return bottext
