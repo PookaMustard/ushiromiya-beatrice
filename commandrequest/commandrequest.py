@@ -22,7 +22,7 @@ class CommandRequest:
             return await self.bot.say("You haven't set the channel ID for command requests correctly.")
         command = command.replace("\'", "\\\'")
         channelid = self.bot.get_channel(str(channelid))
-        return await self.bot.send_message(channelid, text)
+        return await self.bot.send_message(channelid, command)
         
     @commands.command()
     @checks.is_owner()
