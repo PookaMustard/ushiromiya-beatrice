@@ -23,6 +23,8 @@ class NeoBing:
 	def getfrombing(self, apikey, text, limit, operation):
 		if operation == 'moderateimagesearch':
 			bing_obj = PyBingImageSearch(apikey, text, custom_params="&Adult='Moderate'")
+		if operation == 'strictimagesearch':
+			bing_obj = PyBingImageSearch(apikey, text, custom_params="&Adult='Strict'")
 		elif operation == 'websearch':
 			bing_obj = PyBingWebSearch(apikey, text, web_only=False)
 		elif operation == 'videosearch':
@@ -34,7 +36,7 @@ class NeoBing:
 		
 	def obtainresult(self, result, operation):
 		maxnum = len(result)
-		if operation == 'moderateimagesearch' or operation == 'videosearch':
+		if operation == 'moderateimagesearch' or operation == 'videosearch' or operation == 'strictimagesearch':
 			return result[randint(1, maxnum) - 1].media_url
 		elif operation == 'websearch':
 			return result[randint(1, maxnum) - 1].url
@@ -119,6 +121,19 @@ class NeoBing:
 		"""Searches Bing for images."""
 		settings = loadauth()
 		operation = 'moderateimagesearch'
+		if settings['apikey'] == '' or settings['apikey'] == 'blank':
+			return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
+		apikey = settings['apikey']
+		text, limit = self.limitget(text)
+		result = self.getfrombing(apikey, text, limit, operation)
+		bottext = self.obtainresult(result, operation)
+		return await self.bot.say(bottext)
+		
+	@commands.command()
+	async def neobingstrict(self, *, text):
+		"""Searches Bing for images with a strict Safe Search."""
+		settings = loadauth()
+		operation = 'strictimagesearch'
 		if settings['apikey'] == '' or settings['apikey'] == 'blank':
 			return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
 		apikey = settings['apikey']
