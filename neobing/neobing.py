@@ -55,8 +55,8 @@ class NeoBing:
 			limit = 1
 		return text, limit
 		
-    	def setadultchannel(self, channel, status):
-    		settings = loadauth()
+	def setadultchannel(self, channel, status):
+		settings = loadauth()
 		self.settings['adult']['channels'][channel.id] = status
 		saveauth(settings)
 			
@@ -64,9 +64,9 @@ class NeoBing:
 	@checks.admin_or_permissions(manage_server=True)
 	async def apikey_neobing(self, ctx, key):
 		"""Set the Bing API key."""
-		settings = loadauth()
+		settings = self.loadauth()
 		settings['apikey'] = key
-		saveauth(settings)
+		self.saveauth(settings)
 		return await self.bot.say("Bing API key saved.")
 		
 	@commands.command(pass_context=True)
