@@ -24,7 +24,6 @@ class Echo:
 
         text = text.replace("\'", "\\\'")
         channelid = self.bot.get_channel(str(channelid))
-        await self.bot.say(type(channelid))
         return await self.bot.send_message(channelid, text)
 
     @commands.command(pass_context=True)
