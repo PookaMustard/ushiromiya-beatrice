@@ -26,7 +26,7 @@ class NeoBing:
 		result= bing_obj.search(limit=limit, format='json')
 		return result
 		
-	def obtainresult(result, operation):
+	def obtainresult(self, result, operation):
 		if operation == 'moderateimagesearch':
 			maxnum = len(result)
 			return result[randint(1, maxnum)].mediaurl
