@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-class thepiratebay:
+class ThePirateBay:
     """Search for files on thepiratebay.org"""
 
     def __init__(self, bot):
@@ -18,4 +18,4 @@ class thepiratebay:
         await self.bot.say("***WARNING:*** May or may not include NSFW content\nhttps://thepiratebay.org/search/" + query + "/0/99/0")
 
 def setup(bot):
-    bot.add_cog(thepiratebay(bot))
+    bot.add_cog(ThePirateBay(bot))
