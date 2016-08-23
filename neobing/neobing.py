@@ -23,13 +23,18 @@ class NeoBing:
 	def getfrombing(self, apikey, text, limit, operation):
 		if operation == 'moderateimagesearch':
 			bing_obj = PyBingImageSearch(apikey, text, custom_params="&Adult='Moderate'")
-		result= bing_obj.search(limit=limit, format='json')
+		elif operation == 'websearch':
+			bing_obj = PyBingWebSearch(apikey, text, , web_only=False)
+		result = bing_obj.search(limit=limit, format='json')
 		return result
 		
 	def obtainresult(self, result, operation):
 		if operation == 'moderateimagesearch':
 			maxnum = len(result)
 			return result[randint(1, maxnum) - 1].media_url
+		elif operation == 'websearch':
+			maxnum = len(result)
+			return result[randint(1, maxnum) - 1].url
 			
 	def limitget(self, text):
 		if text.split(' ', 1)[0].lower() == 'random':
@@ -38,6 +43,9 @@ class NeoBing:
 		else:
 			limit = 1
 		return text, limit
+		
+	def keyerrorcheck(settings):
+		
 			
 	@commands.command(pass_context=True)
 	@checks.admin_or_permissions(manage_server=True)
@@ -60,7 +68,19 @@ class NeoBing:
 		result = self.getfrombing(apikey, text, limit, operation)
 		bottext = self.obtainresult(result, operation)
 		return await self.bot.say(bottext)
-
+		
+	@commands.command()
+	async def neobingsearch(self, *, text):
+		"""Searches Bing for web results."""
+		settings = loadauth()
+		operation = 'websearch'
+		if settings['apikey'] == '' or settings['apikey'] == 'blank':
+			return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
+		apikey = settings['apikey']
+		text, limit = self.limitget(text)
+		result = self.getfrombing(apikey, text, limit, operation)
+		bottext = self.obtainresult(result, operation)
+		return await self.bot.say(bottext)
 
 def saveauth(settings):
 	settings = settings
