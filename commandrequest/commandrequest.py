@@ -79,11 +79,11 @@ class commandrequest:
         
    
    
-    @commands.command(pass_context=True, hidden=True)
-    async def channelid(self, ctx, *, channel : discord.Channel):
-        """Returns channel id"""
-        
-        await self.bot.say(channel.id)
+#    @commands.command(pass_context=True, hidden=True)
+#    async def channelid(self, ctx, *, channel : discord.Channel):
+#        """Returns channel id"""
+#        
+#        await self.bot.say(channel.id)
         
 def setup(bot):
     bot.add_cog(commandrequest(bot))
