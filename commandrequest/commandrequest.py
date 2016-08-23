@@ -32,6 +32,13 @@ class CommandRequest:
         channelidstring = loadauth()
         return await self.bot.say('Saved.' + channelidstring)
         
+    @commands.command()
+    @checks.is_owner()
+    async def clearchannelid(self, channelid):
+        """Clears current channel set for command requests."""
+        clearauth()
+        return self.bot.say("Command requests channel cleared.")
+        
 ### GLOBAL JSON FUNCTIONS
 
 def saveauth(channelid):
@@ -45,6 +52,12 @@ def loadauth():
     with open(SETTINGS, 'r') as f:
         channelid = json.load(f)
     return channelid
+    
+def clearauth():
+    channelid=''
+    with open(SETTINGS, 'w') as f:
+        json.dump(channelid, f)
+    return
 
 def check_folders():
     if not os.path.exists(DATADIR):
