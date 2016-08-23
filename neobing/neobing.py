@@ -60,6 +60,12 @@ class NeoBing:
 		settings['adult']['channels'][channel.id] = status
 		saveauth(settings)
 		return settings
+		
+	def setadultserver(self, server, status):
+		settings = loadauth()
+		settings['adult']['servers'][server.id] = status
+		saveauth(settings)
+		return settings
 			
 	@commands.command(pass_context=True)
 	@checks.admin_or_permissions(manage_server=True)
@@ -72,23 +78,41 @@ class NeoBing:
 		
 	@commands.command(pass_context=True)
 	@checks.admin_or_permissions(manage_server=True)
-	async def neobingsetadult(self, ctx):
-		"""Sets adult status for current channel"""
+	async def neobingsetadult(self, ctx, setting):
+		"""Sets %bingadult status.
+		[setting] can either be server or channel."""
 		
 		channel = ctx.message.channel
+		server = ctx.message.server
 		message = ctx.message
-		await self.bot.say("```Do you want to enable %bingadult for this channel? This will enable this channel to use " +
-			"the %bingadult command, which image searches Bing with Safe Search turned off. Do note that " +
-			"this setting will override the global server setting and thus will allow %bingadult in this " +
-			"channel even if the global server setting is off. " +
-			"ARE YOU SURE YOU WANT TO TOGGLE %bingadult?\n(y/n)```")
+		if setting = 'channel':
+			await self.bot.say("```Do you want to enable %bingadult for this channel? This will enable this  " +
+				"channel to use the %bingadult command, which image searches Bing with Safe Search " +
+				"turned off. Do note that this setting will override the global server setting and " +
+				"thus will allow %bingadult in this channel even if the global server setting is off. " +
+				"ARE YOU SURE YOU WANT TO TOGGLE %bingadult?\n(y/n)```")
+		if setting = 'server':
+			await self.bot.say("```Do you want to enable %bingadult for this server? This will enable your " +
+				"server to use the %bingadult command, which image searches Bing with Safe Search " +
+				"turned off. Do note that this setting will be overriden per channel if a channel " +
+				"is set to accept usage of %bingadult. ARE YOU SURE YOU WANT TO TOGGLE %bingadult?\n(y/n)```")
+		else:
+			return await self.bot.say("```This command accepts either server or channel. Please use it again.```")
 		response = await self.bot.wait_for_message(author=message.author)
 		if response.content.lower().strip() == "y":
-			settings = self.setadultchannel(channel, 'True')
-			return await self.bot.say("Enabled %bingadult settings for this channel.")
+			if setting == 'channel':
+				settings = self.setadultchannel(channel, 'True')
+				return await self.bot.say("Enabled %bingadult settings for this channel.")
+			elif setting == 'server'
+				settings = self.setadultserver(server, 'True')
+				return await self.bot.say("Enabled %bingadult settings for this server.")
 		else:
-			settings = self.setadultchannel(channel, 'False')
-			return await self.bot.say(str(settings) + "\nDisabled %bingadult settings for this channel.")
+			if setting  == 'channel':
+				settings = self.setadultchannel(channel, 'False')
+				return await self.bot.say("Disabled %bingadult settings for this channel.")
+			elif setting == 'server':
+				settings = self.setadultserver(server, 'False')
+				return await self.bot.say("Disabled %bingadult settings for this server.")
 		
 	@commands.command()
 	async def neobing(self, *, text):
