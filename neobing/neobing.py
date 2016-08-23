@@ -12,7 +12,7 @@ from py_bing_search import PyBingImageSearch, PyBingWebSearch, PyBingVideoSearch
 DATADIR = "data/bing"
 SETTINGS = DATADIR + "/settings.json"
 
-class bing:
+class Bing:
 	"""Fetches search results from Bing.
 	Uses the Python module py_bing_search as a frontend for Red"""
 	
