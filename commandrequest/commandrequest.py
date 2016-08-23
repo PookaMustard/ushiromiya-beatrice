@@ -17,7 +17,9 @@ class CommandRequest:
     async def commandrequest(self, ctx, *, command):
         """Sends a request for a new command.
         A modified version of the debug command, with help from Calebj."""
-        if c
+        channelid = loadauth()
+        if channelid == '':
+            return await self.bot.say("You haven't set the channel ID for command requests correctly.")
         command = command.replace("\'", "\\\'")
         channelid = self.bot.get_channel(str(channelid))
         return await self.bot.send_message(channelid, text)
