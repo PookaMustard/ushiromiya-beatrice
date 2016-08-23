@@ -33,7 +33,7 @@ class CommandRequest:
         """Saves this channel for commandrequests."""
         saveauth(channelid)
         channelidstring = loadauth()
-        return await self.bot.say("Saved. Now using " + channelidstring + "as the channel id for " +
+        return await self.bot.say("Saved. Now using " + channelidstring + " as the channel id for " +
             "command requests.")
         
 ### GLOBAL JSON FUNCTIONS
