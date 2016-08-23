@@ -23,8 +23,10 @@ class NeoBing:
 	def getfrombing(self, apikey, text, limit, operation):
 		if operation == 'moderateimagesearch':
 			bing_obj = PyBingImageSearch(apikey, text, custom_params="&Adult='Moderate'")
-		if operation == 'strictimagesearch':
+		elif operation == 'strictimagesearch':
 			bing_obj = PyBingImageSearch(apikey, text, custom_params="&Adult='Strict'")
+		elif operation == 'adultimagesearch':
+			bing_obj = PyBingImageSearch(apikey, text, custom_params="&Adult='Off'")
 		elif operation == 'websearch':
 			bing_obj = PyBingWebSearch(apikey, text, web_only=False)
 		elif operation == 'videosearch':
@@ -36,7 +38,8 @@ class NeoBing:
 		
 	def obtainresult(self, result, operation):
 		maxnum = len(result)
-		if operation == 'moderateimagesearch' or operation == 'videosearch' or operation == 'strictimagesearch':
+		if operation == 'moderateimagesearch' or operation == 'videosearch' or \
+			operation == 'strictimagesearch' or operation == 'adultimagesearch':
 			return result[randint(1, maxnum) - 1].media_url
 		elif operation == 'websearch':
 			return result[randint(1, maxnum) - 1].url
@@ -88,7 +91,7 @@ class NeoBing:
 		elif adultchannel == 'False' and adultserver == 'True':
 			return False
 		#-if channel is enabled and server is disabled, allow.
-		elif adultchannel == 'True' and adultserver == 'False:
+		elif adultchannel == 'True' and adultserver == 'False':
 			return True
 		#-if channel is unknown and server is disabled, disallow
 		elif adultchannel == 'Unknown' and adultserver == 'False':
