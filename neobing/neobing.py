@@ -12,7 +12,7 @@ from py_bing_search import PyBingImageSearch, PyBingWebSearch, PyBingVideoSearch
 DATADIR = "data/bing"
 SETTINGS = DATADIR + "/settings.json"
 
-class Bing:
+class NeoBing:
 	"""Fetches search results from Bing.
 	Uses the Python module py_bing_search as a frontend for Red"""
 	
@@ -83,4 +83,4 @@ def check_files():
 def setup(bot):
 	check_folders()
 	check_files()
-	bot.add_cog(Bing(bot))
+	bot.add_cog(NeoBing(bot))
