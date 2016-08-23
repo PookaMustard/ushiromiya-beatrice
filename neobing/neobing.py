@@ -31,6 +31,14 @@ class NeoBing:
 			maxnum = len(result)
 			return result[randint(1, maxnum) - 1].media_url
 			
+	def limitget(self, text):
+		if text.split(' ', 1)[0].lower() == 'random':
+			text = text.replace('random ', '', 1)
+			limit = 100
+		else:
+			limit = 1
+		return text, limit
+			
 	@commands.command(pass_context=True)
 	@checks.admin_or_permissions(manage_server=True)
 	async def apikey_neobing(self, ctx, key):
@@ -48,11 +56,7 @@ class NeoBing:
 		if settings['apikey'] == '' or settings['apikey'] == 'blank':
 			return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
 		apikey = settings['apikey']
-		if text.split(' ', 1)[0].lower() == 'random':
-			text = text.replace('random ', '', 1)
-			limit = 100
-		else:
-			limit = 1
+		text, limit = limitget(text)
 		result = self.getfrombing(apikey, text, limit, operation)
 		bottext = self.obtainresult(result, operation)
 		return await self.bot.say(bottext)
