@@ -25,7 +25,7 @@ class CommandRequest:
         return await self.bot.send_message(channelid, text)
         
     @commands.command()
-    @check.is_owner()
+    @checks.is_owner()
     async def savechannelid(self, channelid):
         """Saves this channel for commandrequests."""
         saveauth(channelid)
