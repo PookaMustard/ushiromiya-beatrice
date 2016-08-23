@@ -43,9 +43,6 @@ class NeoBing:
 		else:
 			limit = 1
 		return text, limit
-		
-	def keyerrorcheck(settings):
-		
 			
 	@commands.command(pass_context=True)
 	@checks.admin_or_permissions(manage_server=True)
