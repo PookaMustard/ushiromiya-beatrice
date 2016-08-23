@@ -17,7 +17,7 @@ class bing:
     Uses the Python module py_bing_search as a frontend for Red"""
     
     def __init__(self, bot):
-    self.bot = bot
+    	self.bot = bot
 	self.PREFIXES = bot_settings.prefixes 
 		
     def getfrombing(self, apikey, text, limit, operation):
