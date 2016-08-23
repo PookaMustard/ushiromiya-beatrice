@@ -22,7 +22,7 @@ class NeoBing:
 		
 	def getfrombing(self, apikey, text, limit, operation):
 		if operation == 'moderateimagesearch':
-			bing_obj = PyBingImageSearch(api_key, text, custom_params="&Adult='Moderate'")
+			bing_obj = PyBingImageSearch(apikey, text, custom_params="&Adult='Moderate'")
 		result= bing_obj.search(limit=limit, format='json')
 		return result
 		
