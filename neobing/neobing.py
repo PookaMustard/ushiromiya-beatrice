@@ -24,7 +24,7 @@ class NeoBing:
 		if operation == 'moderateimagesearch':
 			bing_obj = PyBingImageSearch(apikey, text, custom_params="&Adult='Moderate'")
 		elif operation == 'websearch':
-			bing_obj = PyBingWebSearch(apikey, text, , web_only=False)
+			bing_obj = PyBingWebSearch(apikey, text, web_only=False)
 		result = bing_obj.search(limit=limit, format='json')
 		return result
 		
