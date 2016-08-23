@@ -2,20 +2,12 @@ from .utils.dataIO import fileIO
 from .utils import checks
 from __main__ import send_cmd_help
 from __main__ import settings as bot_settings
-import requests, requests.utils
-import time
 import json
-import aiohttp
-import asyncio
 import os
 import discord
 from discord.ext import commands
 from random import randint
-from py_bing_search import PyBingImageSearch
-from py_bing_search import PyBingWebSearch
-from py_bing_search import PyBingVideoSearch
-from py_bing_search import PyBingNewsSearch
-
+from py_bing_search import PyBingImageSearch, PyBingWebSearch, PyBingVideoSearch, PyBingNewsSearch
 
 DIR_DATA = "data/bing"
 SETTINGS = DIR_DATA+"/settings.json"
