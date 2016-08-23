@@ -57,7 +57,7 @@ class NeoBing:
 		
 	def setadultchannel(self, channel, status):
 		settings = loadauth()
-		self.settings['adult']['channels'][channel.id] = status
+		settings['adult']['channels'][channel.id] = status
 		saveauth(settings)
 			
 	@commands.command(pass_context=True)
