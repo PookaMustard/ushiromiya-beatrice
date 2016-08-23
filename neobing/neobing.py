@@ -53,8 +53,8 @@ class NeoBing:
 			limit = 100
 		else:
 			limit = 1
-		result = getfrombing(apikey, text, limit, operation)
-		bottext = obtainresult(result, operation)
+		result = self.getfrombing(apikey, text, limit, operation)
+		bottext = self.obtainresult(result, operation)
 		return await self.bot.say(bottext)
 
 
