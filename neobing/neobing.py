@@ -29,7 +29,7 @@ class NeoBing:
 	def obtainresult(self, result, operation):
 		if operation == 'moderateimagesearch':
 			maxnum = len(result)
-			return result[randint(1, maxnum)].mediaurl
+			return result[randint(1, maxnum) - 1].media_url
 			
 	@commands.command(pass_context=True)
 	@checks.admin_or_permissions(manage_server=True)
