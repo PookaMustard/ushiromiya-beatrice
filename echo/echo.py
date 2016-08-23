@@ -1,6 +1,6 @@
+from cogs.utils import checks
 import discord
 from discord.ext import commands
-from cogs.utils import checks
 
 class Echo:
     """I'll repeat what you said."""
@@ -14,7 +14,7 @@ class Echo:
         """I'll repeat what you said."""
 
         text = " ".join(text)
-        return await self.bot.say(text)
+        await self.bot.say(text)
 
     @commands.command()
     @checks.is_owner()
@@ -23,7 +23,10 @@ class Echo:
         A modified version of the debug command, with help from Calebj."""
 
         text = text.replace("\'", "\\\'")
-        channelid = self.bot.get_channel(channelid)
+        try:
+            channelid = bot.get_channel(channelid)
+        except:
+            return self.bot.say("The channel ID is invalid.")
         return self.bot.send_message(channelid, text)
 
     @commands.command(pass_context=True)
