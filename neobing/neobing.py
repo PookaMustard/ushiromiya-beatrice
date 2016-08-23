@@ -124,7 +124,7 @@ class NeoBing:
 				"turned off. Do note that this setting will override the global server setting and " +
 				"thus will allow %bingadult in this channel even if the global server setting is off. " +
 				"ARE YOU SURE YOU WANT TO TOGGLE %bingadult?\n(y/n)```")
-		if setting == 'server':
+		elif setting == 'server':
 			await self.bot.say("```Do you want to enable %bingadult for this server? This will enable your " +
 				"server to use the %bingadult command, which image searches Bing with Safe Search " +
 				"turned off. Do note that this setting will be overriden per channel if a channel " +
