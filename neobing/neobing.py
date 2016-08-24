@@ -81,23 +81,13 @@ class NeoBing:
 			adultserver = 'False'
 		else:
 			adultserver = settings['adult']['servers'][server.id]
-		#-If channel is enabled and server is enabled, allow.
-		if adultchannel == 'True' and adultserver == 'True':
-			return True
-		#-If channel is unknown and server is enabled, allow.
-		elif adultchannel == 'Unknown' and adultserver == 'True':
-			return True
-		#-if channel is disabled and server is enabled, disallow.
-		elif adultchannel == 'False' and adultserver == 'True':
+		if adultchannel == 'False':
 			return False
-		#-if channel is enabled and server is disabled, allow.
+		elif (adultchannel == 'True' or adultchannel == 'Unknown') and adultserver == 'True':
+			return True
 		elif adultchannel == 'True' and adultserver == 'False':
 			return True
-		#-if channel is unknown and server is disabled, disallow
 		elif adultchannel == 'Unknown' and adultserver == 'False':
-			return False
-		#-if channel is disabled and server is disabled, disallow.
-		elif adultchannel == 'False' and adultserver == 'False':
 			return False
 			
 	@commands.command(pass_context=True)
@@ -119,16 +109,17 @@ class NeoBing:
 		server = ctx.message.server
 		message = ctx.message
 		if setting == 'channel':
-			await self.bot.say("```Do you want to enable %bingadult for this channel? This will enable this  " +
+			await self.bot.say("Do you want to enable %bingadult for this channel? This will enable this  " +
 				"channel to use the %bingadult command, which image searches Bing with Safe Search " +
 				"turned off. Do note that this setting will override the global server setting and " +
 				"thus will allow %bingadult in this channel even if the global server setting is off. " +
-				"ARE YOU SURE YOU WANT TO TOGGLE %bingadult?\n(y/n)```")
+				"\n**ARE YOU SURE YOU WANT TO TOGGLE %bingadult?**\n(y/n)")
 		elif setting == 'server':
-			await self.bot.say("```Do you want to enable %bingadult for this server? This will enable your " +
+			await self.bot.say("Do you want to enable %bingadult for this server? This will enable your " +
 				"server to use the %bingadult command, which image searches Bing with Safe Search " +
 				"turned off. Do note that this setting will be overriden per channel if a channel " +
-				"is set to accept usage of %bingadult. ARE YOU SURE YOU WANT TO TOGGLE %bingadult?\n(y/n)```")
+				"is set to accept usage of %bingadult. **ARE YOU SURE YOU WANT TO TOGGLE %bingadult?**\n" +
+				"(y/n)")
 		else:
 			return await self.bot.say("```This command accepts either server or channel. Please use it again.```")
 		response = await self.bot.wait_for_message(author=message.author)
@@ -153,7 +144,7 @@ class NeoBing:
 		settings = loadauth()
 		operation = 'moderateimagesearch'
 		if settings['apikey'] == '' or settings['apikey'] == 'blank':
-			return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
+			return await self.bot.say("Missing or incorrect API key. Please contact the owner to add an API key.")
 		apikey = settings['apikey']
 		text, limit = self.limitget(text)
 		result = self.getfrombing(apikey, text, limit, operation)
@@ -166,7 +157,7 @@ class NeoBing:
 		settings = loadauth()
 		operation = 'strictimagesearch'
 		if settings['apikey'] == '' or settings['apikey'] == 'blank':
-			return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
+			return await self.bot.say("Missing or incorrect API key. Please contact the owner to add an API key.")
 		apikey = settings['apikey']
 		text, limit = self.limitget(text)
 		result = self.getfrombing(apikey, text, limit, operation)
@@ -184,7 +175,7 @@ class NeoBing:
 		if check == False:
 			return await self.bot.say("Usage of %bingadult is disabled in this server and/or channel.")
 		if settings['apikey'] == '' or settings['apikey'] == 'blank':
-			return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
+			return await self.bot.say("Missing or incorrect API key. Please contact the owner to add an API key.")
 		apikey = settings['apikey']
 		text, limit = self.limitget(text)
 		result = self.getfrombing(apikey, text, limit, operation)
@@ -197,7 +188,7 @@ class NeoBing:
 		settings = loadauth()
 		operation = 'websearch'
 		if settings['apikey'] == '' or settings['apikey'] == 'blank':
-			return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
+			return await self.bot.say("Missing or incorrect API key. Please contact the owner to add an API key.")
 		apikey = settings['apikey']
 		text, limit = self.limitget(text)
 		result = self.getfrombing(apikey, text, limit, operation)
@@ -210,7 +201,7 @@ class NeoBing:
 		settings = loadauth()
 		operation = 'videosearch'
 		if settings['apikey'] == '' or settings['apikey'] == 'blank':
-			return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
+			return await self.bot.say("Missing or incorrect API key. Please contact the owner to add an API key.")
 		apikey = settings['apikey']
 		text, limit = self.limitget(text)
 		result = self.getfrombing(apikey, text, limit, operation)
@@ -223,7 +214,7 @@ class NeoBing:
 		settings = loadauth()
 		operation = 'newssearch'
 		if settings['apikey'] == '' or settings['apikey'] == 'blank':
-			return await self.bot.say("` This cog wasn't configured properly. If you're the owner, add your API key.`")
+			return await self.bot.say("Missing or incorrect API key. Please contact the owner to add an API key.")
 		apikey = settings['apikey']
 		text, limit = self.limitget(text)
 		result = self.getfrombing(apikey, text, limit, operation)
