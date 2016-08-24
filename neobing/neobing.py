@@ -100,7 +100,7 @@ class NeoBing:
 			return False
 			
 	@commands.command(pass_context=True)
-	@checks.admin_or_permissions(manage_server=True)
+	@checks.is_owner()
 	async def apikey_neobing(self, ctx, key):
 		"""Set the Bing API key."""
 		settings = self.loadauth()
@@ -109,7 +109,7 @@ class NeoBing:
 		return await self.bot.say("Bing API key saved.")
 		
 	@commands.command(pass_context=True)
-	@checks.is.owner()
+	@checks.is_owner()
 	async def bing_clearsettings(self, ctx):
 		"""Clears all Bing settings, including API key and %bingadult access"""
 		message = ctx.message
