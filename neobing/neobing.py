@@ -103,9 +103,9 @@ class NeoBing:
 	@checks.is_owner()
 	async def apikey_neobing(self, ctx, key):
 		"""Set the Bing API key."""
-		settings = self.loadauth()
+		settings = loadauth()
 		settings['apikey'] = key
-		self.saveauth(settings)
+		saveauth(settings)
 		return await self.bot.say("Bing API key saved.")
 		
 	@commands.command(pass_context=True)
