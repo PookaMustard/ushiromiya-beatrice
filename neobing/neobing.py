@@ -40,12 +40,21 @@ class NeoBing:
 		maxnum = len(result)
 		if operation == 'moderateimagesearch' or operation == 'videosearch' or \
 			operation == 'strictimagesearch' or operation == 'adultimagesearch':
-			return result[randint(1, maxnum) - 1].media_url
+			try:
+				return result[randint(1, maxnum) - 1].media_url
+			except ValueError:
+				return "Search failed."
 		elif operation == 'websearch':
-			return result[randint(1, maxnum) - 1].url
+			try:
+				return result[randint(1, maxnum) - 1].url
+			except ValueError:
+				return "Search failed."
 		elif operation == 'newssearch':
 			num = randint(1, maxnum) - 1
-			time = result[num].date
+			try:
+				time = result[num].date
+			except ValueError:
+				return "Search failed."
 			time = "Date: " + time
 			time = time.replace('T', '\nTime: ').replace('Z', '')
 			bottext = result[num].title + "\n" + result[num].url + "\n" + time + "\n" + \
@@ -98,6 +107,20 @@ class NeoBing:
 		settings['apikey'] = key
 		self.saveauth(settings)
 		return await self.bot.say("Bing API key saved.")
+		
+	@commands.command(pass_context=True)
+	@checks.is.owner()
+	async def bing_clearsettings(self, ctx):
+		"""Clears all Bing settings, including API key and %bingadult access"""
+		message = ctx.message
+		await self.bot.say("Are you sure you want to delete all of the Bing cog's settings?\n(y/n)")
+		response = await self.bot.wait_for_message(author=message.author)
+		if response.content.lower().strip() == "y":
+			clearauth()
+			return await self.bot.say("Settings successfully cleared. You need to reset the API key before " +
+				"using the Bing cog again.")
+		else:
+			return await self.bot.say("Cancelled clear operation.")
 		
 	@commands.command(pass_context=True)
 	@checks.admin_or_permissions(manage_server=True)
@@ -232,6 +255,11 @@ def loadauth():
 	with open(SETTINGS, 'r') as f:
 		settings = json.load(f)
 	return settings
+	
+def clearauth():
+	settings = { 'apikey': 'blank', 'adult' : {'servers': {}, 'channels': {}}}
+	fileIO(SETTINGS, "save", settings)
+	return
 
 def check_folders():
 	if not os.path.exists(DATADIR):
