@@ -185,7 +185,10 @@ class randquotes:
         pokefan = ["```>7 houndred\nOH GOD, HE'S GOING MAXIMUM DOG, EVERYONE RUN!```\n-Pokefan",
                    "```There will be an HD remake of Sonic 3 & Knuckles where every single graphic is replaced with Knuckles.```\n-Pokefan",
                    "```I am perfectly fine with Team Mystic, as long as everyone agrees that Team Instinct is a bunch of nazis.```\n-Pokefan",
-                   "```It's like calling Ness \"Babe Ruth\" or Papyrus \"Chef Boyardee\"```\n-Pokefan"]
+                   "```It's like calling Ness \"Babe Ruth\" or Papyrus \"Chef Boyardee\"```\n-Pokefan",
+                   "```YOU HAD ONE JOB, AND THAT WAS TO GET AN IMAGE OF BINDING OF AVALICE BILL GATES YOU CHEAP PRICK```\n-Pokefan",
+                   "```Otherwise we wouldn't have dat A E S T H E T I C B A C K G R O U N D```\n-Pokefan",
+                   ]
         await self.bot.say(randchoice(pokefan)) 
         
     @commands.command()
@@ -205,6 +208,14 @@ class randquotes:
         romanlife = ["```Always ask the bot for support. ```\n-Roman", "```The bot knows best. ```\n-Roman",
                      "```When you're lonely, talk to a bot. ```\n-Roman"]
         await self.bot.say(randchoice(romanlife)) 
+
+    @commands.command()
+    async def romanquotes(self):
+        """Quotes from Roman!"""
+        romanquotes = ["```he's not gainaxed, he's climaxed```\n-Roman",
+                       "```and to hide their growing dicks```\n-Roman, answering Plom"
+                       ]
+        await self.bot.say(randchoice(romanquotes)) 
 
     @commands.command()
     async def bingo(self):
