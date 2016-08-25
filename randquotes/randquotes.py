@@ -38,7 +38,7 @@ class randquotes:
     @commands.command()
     async def am2r(self):
         """Another Metroid Encore Rem- I mean Another Metroid 2 Remake"""
-        await self.bot.say("Currently available builds:\n•Windows: 1.0\n•Linux: 1.0, 1.1\n•Mac: 1.1\nhttps://1drv.ms/f/s!Ar6sDvz1zhVkqE57a-TKs1HznzAF")
+        await self.bot.say("Currently available builds:\n•Windows: 1.0, 1.1\n•Linux: 1.0, 1.1\n•Mac: 1.1\nhttps://1drv.ms/f/s!Ar6sDvz1zhVkqE57a-TKs1HznzAF")
         
     @commands.command()
     async def pokemonuranium(self):
