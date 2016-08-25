@@ -22,6 +22,7 @@ class Dictionary:
             while counter <= count:
                 text = text + "\n• " + str(result[function][counter])
                 counter = counter + 1
+            text = text + "\n"
             return text
         except KeyError:
             text = ""
@@ -34,7 +35,6 @@ class Dictionary:
         while counter <= count:
             text = text + "\n• " + str(result[counter])
             counter = counter + 1
-        text = text + "\n"
         return text
 
     @commands.command()
