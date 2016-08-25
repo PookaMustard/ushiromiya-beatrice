@@ -201,6 +201,21 @@ class randquotes:
     async def rohan(self):
         """But it refused?"""
         await self.bot.say("```But, I refuse!```") 
+        
+    @commands.command()
+    async def fixit(self):
+        """FIX IT"""
+        await self.bot.say("```FIX IT POOKA```")
+        
+    @commands.command()
+    async def bubsy(self):
+        """Just like %gowrong"""
+        await self.bot.say("```WHAT COULD POSSIBLY GO WRONG?!```")
+
+    @commands.command()
+    async def whybing(self):
+        """For when someone forces a bing sucks joke"""
+        await self.bot.say("```Regardless...whether Bing sucks or not as a search engine, they surely outbeat Google by miles with their development APIs. To demonstrate, I was in a server with a node.js bot. The node.js bot had a Bing and Google image search. The Bing provided full-size images. The Google provided measly thumbnails. That's because the Google command wasn't even using the fullest scope of Google to begin with. Bing on the other hand? They let me extract a ton of data. So instead of having a Google search link, I instead fetch the first (or random) Bing search link and it's finished.```")
 
     @commands.command()
     async def navyseal(self):
@@ -231,7 +246,9 @@ class randquotes:
               "```BRAIN has shut down to avoid damage from stupidity. Please reboot.```\n-ElectricSparx",
               "```ERROR: Brain.dll was unable to be found.```\n-ElectricSparx",
               "```I lack the ability to even give a nanoshit about whatever the fuck you just said.```\n-ElectricSparx",
-              "```Higher quality humor than SilvaGunner rips.```\n-ElectricSparx"
+              "```Higher quality humor than SilvaGunner rips.```\n-ElectricSparx",
+              "```FRONTIER COMMUNICATIONS: BRINGING YOU LESS THAN 1 KBPS INTERNET QUALITY SINCE 2016.```\n-ElectricSparx",
+              "``I did not come here to watch a bunch of adults act like fucking children.```\n-ElectricSparx"
               ]
         if chance <= 5:
             return await self.bot.say("```Clearly, thou hast been blessed by the almighty RNGesus.```\n-ElectricSparx")
@@ -304,7 +321,11 @@ class randquotes:
         "```Stupid cat! I know you look more like a rat, but you're much bigger and stronger than me, aren't you? So that makes me the rat! And guess what? This rat has missiles! So eat missiles, you son of a bitch!```\n-Minha",
         "```I... guess I survived that?```\n-Minha",
         "```A PRINCIPAL WRESTLES A DEER```\n-Minha",
-        "```METROID 2 PC IS THE BEST 2D METROID GAME THAT EVER EXISTED```\n-Minha"
+        "```METROID 2 PC IS THE BEST 2D METROID GAME THAT EVER EXISTED```\n-Minha",
+        "```Rule" 99: Nobody cares what horse you like, so don't talk about that.```\n-Minha",
+        "```Mondatta Zenyatta Brothers!```\n-Minha",
+        "```HIITO! ZEARU!```\n-Minha",
+        "```but 2 da hed```\n-Minha"
         ]
         await self.bot.say(randchoice(minha))
         
@@ -354,7 +375,8 @@ class randquotes:
               "```there's barely any good nsfw art of the puppy, and none with big bouncies```\n-GigaLem",
               "```when doubt, pull out your -REDACTED FOR YOUNGISH AUDIENCES```\n-GigaLem",
               "```cyclone-tific progress goes boink```\n-GigaLem",
-              "```green haired blue tunic = good lemmings,  norm of the North = bad lemmings```\n-GigaLem"
+              "```green haired blue tunic = good lemmings,  norm of the North = bad lemmings```\n-GigaLem",
+              "```Why must Comcast be hired by a bunch of monkeys?```\n-GigaLem"
               ]
         await self.bot.say(randchoice(giga))
 
