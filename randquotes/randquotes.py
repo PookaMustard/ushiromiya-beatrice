@@ -357,7 +357,7 @@ class randquotes:
         "```I... guess I survived that?```\n-Minha",
         "```A PRINCIPAL WRESTLES A DEER```\n-Minha",
         "```METROID 2 PC IS THE BEST 2D METROID GAME THAT EVER EXISTED```\n-Minha",
-        "```Rule" 99: Nobody cares what horse you like, so don't talk about that.```\n-Minha",
+        "```Rule 99: Nobody cares what horse you like, so don't talk about that.```\n-Minha",
         "```Mondatta Zenyatta Brothers!```\n-Minha",
         "```HIITO! ZEARU!```\n-Minha",
         "```but 2 da hed```\n-Minha"
