@@ -96,7 +96,10 @@ class randquotes:
                    "http://i.imgur.com/byQgSDr.png","https://cdn.discordapp.com/attachments/173967012123377664/201530405877186560/did-you-mean-0686f1224818a4a6520cd99c626f74ee.png",
                    "I like my Mighty No. 9 with extra anchovies and a garlic cheese stuffed crust.","http://i1.kym-cdn.com/photos/images/newsfeed/001/147/617/a31.png",
                    "http://orig02.deviantart.net/d7cf/f/2016/147/9/f/whatever_by_rongs1234-da3z5ep.png",
-                   "```SINCE THE DAWN OF VIDEO GAMES WE HAVE BEEN UNDER A UNIVERSAL UNDERSTANDING THAT 'A' MEANS CONFIRM AND 'B' MEANS CANCEL WHAT THE HELL IS THIS TOM FUCKERY WHO APPROVED THIS```\nhttp://goo.gl/AQqcff"
+                   "```SINCE THE DAWN OF VIDEO GAMES WE HAVE BEEN UNDER A UNIVERSAL UNDERSTANDING THAT 'A' MEANS CONFIRM AND 'B' MEANS CANCEL WHAT THE HELL IS THIS TOM FUCKERY WHO APPROVED THIS```\nhttp://goo.gl/AQqcff",
+                   "Not enough pepperoni 9/10 - IGN",
+                   "Bubsy, the only game that makes you want to play MN9",
+                   "I'd rather spend a millenium playing MN9 than an hour playing Bubsy"
                    ]
             return await self.bot.say(randchoice(mn9))
 
@@ -248,7 +251,8 @@ class randquotes:
               "```I lack the ability to even give a nanoshit about whatever the fuck you just said.```\n-ElectricSparx",
               "```Higher quality humor than SilvaGunner rips.```\n-ElectricSparx",
               "```FRONTIER COMMUNICATIONS: BRINGING YOU LESS THAN 1 KBPS INTERNET QUALITY SINCE 2016.```\n-ElectricSparx",
-              "``I did not come here to watch a bunch of adults act like fucking children.```\n-ElectricSparx"
+              "```I did not come here to watch a bunch of adults act like fucking children.```\n-ElectricSparx"
+              "```I LOVE BEING WOKEN UP AT 5 IN THE MORNING TO FIX COMPUTER PROBLEMS!!```\n-ElectricSparx"
               ]
         if chance <= 5:
             return await self.bot.say("```Clearly, thou hast been blessed by the almighty RNGesus.```\n-ElectricSparx")
@@ -279,7 +283,11 @@ class randquotes:
                  "```I hope Seraphna isn't reading this quote! For no particular reason at all.```\n-Pooka",
                  "```I never knew that garnets were precious stones! Is that what happens when I take free education?```\n-Pooka",
                  "```From today onwards, if anyone DOES NOT criticize FP2, they will be kicked, and then kicked again, and while kicked, banned. Next will be ultra-banning them. Then final-banning them. Don't ask me how I can kick and ban that much.```\n-Pooka",
-                 "```Draw humans. Anthros are overtale- I mean overrated.```\n-Pooka"
+                 "```Draw humans. Anthros are overtale- I mean overrated.```\n-Pooka",
+                 "```A Metroidvania is a game where Samus fights Dracula in his castle.```\n-Pooka",
+                 "```Hi Mr. Cthulhu!!! Nice to meet you!!!```\n-Pooka",
+                 "```Why the hell would any game start with a quote from H.P. Lovecraft? Oh wait...you don't tell me...?```\n-Pooka",
+                 "```A girl that likes MLP:FiM? WHAT AN ANOMALY!!!!!```\n-Pooka"
                  ]
         await self.bot.say(randchoice(pooka))
 
@@ -360,6 +368,8 @@ class randquotes:
               "```RNG's being a butt, eh?```\n-ItalianGamer97",
               "```Yeh, ya'd better run. But come back after a few minutes, mmkay? :v```\n-ItalianGamer97",
               "```I gotta say something worthy of being made into a command...```\n-ItalianGamer97, now a command."
+              "```Damn feminists ruining everything... >: (```\n-ItalianGamer97",
+              "```50 bucks for a box? You could buy a new vidya game for about that price!```\n-ItalianGamer97"
               ]
         await self.bot.say(randchoice(ig))
 
