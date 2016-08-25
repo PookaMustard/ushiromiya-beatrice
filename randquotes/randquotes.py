@@ -197,8 +197,8 @@ class randquotes:
         plom = ["```does the break the rules?```\n-Plom510",
                 "```Screen my show```\n-Plom510",
                 "```What is the sum of 14 and 21?' I'm sorry, my brain isn't working to its fullest right now.```\n-Plom510",
-                "```Bingo dies of young age.
-                "```What if I take this cow to a strip club?
+                "```Bingo dies of young age.```\n-Plom510",
+                "```What if I take this cow to a strip club?```\n-Plom510"
                 ]
         await self.bot.say(randchoice(plom)) 
 
