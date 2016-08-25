@@ -51,6 +51,18 @@ class randquotes:
         ia = ["I would like to report this game for Indie Sexual Assault", "Spade was based off Sonic right? Then why is everyone complaining that he has a spindash?",
               "https://youtu.be/5XsLEXSyINs"]
         await self.bot.say(randchoice(ia))
+        
+    @commands.command()
+    async def ign(self): 
+        """International Games...Network?""" 
+        ign = ["```Too much fun.```\n-IGN",
+               "```Clearly all Sonic fans want is to fuck Big the Cat.```\n-IGN",
+               "```too much water not enough Donald Trump looking pokemon```\n-IGN",
+               "```The definitive example of the genre 2/10```\n-IGN",
+               "```It's good except that it's sonic 0/10```\n-IGN",
+               "`> Sonic was always bad`\n`> Sonic CD is one of our top 100 games`\n-IGN"
+               ]
+        await self.bot.say(randchoice(ign))
 
     @commands.command()
     async def fi(self): 
@@ -99,7 +111,8 @@ class randquotes:
                    "```SINCE THE DAWN OF VIDEO GAMES WE HAVE BEEN UNDER A UNIVERSAL UNDERSTANDING THAT 'A' MEANS CONFIRM AND 'B' MEANS CANCEL WHAT THE HELL IS THIS TOM FUCKERY WHO APPROVED THIS```\nhttp://goo.gl/AQqcff",
                    "Not enough pepperoni 9/10 - IGN",
                    "Bubsy, the only game that makes you want to play MN9",
-                   "I'd rather spend a millenium playing MN9 than an hour playing Bubsy"
+                   "I'd rather spend a millenium playing MN9 than an hour playing Bubsy",
+                   "I deleted this game because I'd rather have nothing."
                    ]
             return await self.bot.say(randchoice(mn9))
 
@@ -180,7 +193,10 @@ class randquotes:
         """Yes, the creator of that multiva has quotes too."""
         plom = ["```does the break the rules?```\n-Plom510",
                 "```Screen my show```\n-Plom510",
-                "```What is the sum of 14 and 21?' I'm sorry, my brain isn't working to its fullest right now.```\n-Plom510"]
+                "```What is the sum of 14 and 21?' I'm sorry, my brain isn't working to its fullest right now.```\n-Plom510",
+                "```Bingo dies of young age.
+                "```What if I take this cow to a strip club?
+                ]
         await self.bot.say(randchoice(plom)) 
 
     @commands.command()
