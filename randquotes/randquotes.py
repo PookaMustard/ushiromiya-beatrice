@@ -210,14 +210,6 @@ class randquotes:
         await self.bot.say(randchoice(romanlife)) 
 
     @commands.command()
-    async def romanquotes(self):
-        """Quotes from Roman!"""
-        romanquotes = ["```he's not gainaxed, he's climaxed```\n-Roman",
-                       "```and to hide their growing dicks```\n-Roman, answering Plom"
-                       ]
-        await self.bot.say(randchoice(romanquotes)) 
-
-    @commands.command()
     async def bingo(self):
         """What is a multiva?"""
         await self.bot.say("WHAT THE FUCK IS A MULTIVA?! ") 
