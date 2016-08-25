@@ -21,6 +21,8 @@ class Dictionary:
             text = "\n**__" + function + ":__**"
             while counter <= count:
                 text = text + "\n• " + str(result[function][counter])
+                if "(" in result[function][counter]:
+                    text = text + ")"
                 counter = counter + 1
             text = text + "\n"
             return text
