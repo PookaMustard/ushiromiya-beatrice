@@ -65,7 +65,7 @@ class Dictionary:
         word = word.lower()
         result = dictionary.synonym(word)
         try:
-            text = self.nym_textformat("synonyms", result, word)
+            text = self.nym_text_format("synonyms", result, word)
             return await self.bot.say(text)
         except TypeError:
             return await self.bot.say("No results found. Are you " +
@@ -78,7 +78,7 @@ class Dictionary:
         word = word.lower()
         result = dictionary.antonym(word)
         try:
-            text = self.nym_textformat("antonyms", result, word)
+            text = self.nym_text_format("antonyms", result, word)
             return await self.bot.say(text)
         except TypeError:
             return await self.bot.say("No results found. Are you " +
