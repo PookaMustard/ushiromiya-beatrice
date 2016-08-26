@@ -159,7 +159,10 @@ class randimages:
                #"https://cdn.discordapp.com/attachments/173965999744221185/202873953377714178/unknown.png",
                "https://cdn.discordapp.com/attachments/178922264522260480/202874208160579584/unknown.png",
                "https://cdn.discordapp.com/attachments/189198110042488832/202874464210386945/unknown.png",
-               "https://cdn.discordapp.com/attachments/173966944351944704/203594025494773770/unknown.png"]
+               "https://cdn.discordapp.com/attachments/173966944351944704/203594025494773770/unknown.png",
+               "```he's not gainaxed, he's climaxed```\n-Roman",
+               "```and to hide their growing dicks```\n-Roman, answering Plom"
+               ]
         return await self.bot.say(randchoice(roman))
         
     @commands.command()
@@ -310,7 +313,9 @@ class randimages:
                    "https://s-media-cache-ak0.pinimg.com/236x/51/0f/a8/510fa8e2a1874b4916f6ab42d3affabd.jpg",
                    "https://www.ponychan.net/site/src/1454799320298.png",
                    "http://i3.kym-cdn.com/photos/images/newsfeed/001/146/898/c9c.jpg",
-                   "http://i3.kym-cdn.com/photos/images/newsfeed/001/149/437/656.jpeg"]
+                   "http://i3.kym-cdn.com/photos/images/newsfeed/001/149/437/656.jpeg",
+                   "https://cdn.discordapp.com/attachments/205815814316752897/216534126524760074/DeleteThisMetroid.png",
+                   "https://cdn.discordapp.com/attachments/173967012123377664/218060287289327616/HowAboutADELETETHIS.PNG"]
         await self.bot.say(randchoice(delete))
         
     @commands.command()

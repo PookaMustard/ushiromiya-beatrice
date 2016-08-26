@@ -38,7 +38,7 @@ class randquotes:
     @commands.command()
     async def am2r(self):
         """Another Metroid Encore Rem- I mean Another Metroid 2 Remake"""
-        await self.bot.say("https://1drv.ms/f/s!Ar6sDvz1zhVkqE57a-TKs1HznzAF")
+        await self.bot.say("Currently available builds:\n•Windows: 1.0, 1.1\n•Linux: 1.0, 1.1\n•Mac: 1.1\nhttps://1drv.ms/f/s!Ar6sDvz1zhVkqE57a-TKs1HznzAF")
         
     @commands.command()
     async def pokemonuranium(self):
@@ -51,6 +51,18 @@ class randquotes:
         ia = ["I would like to report this game for Indie Sexual Assault", "Spade was based off Sonic right? Then why is everyone complaining that he has a spindash?",
               "https://youtu.be/5XsLEXSyINs"]
         await self.bot.say(randchoice(ia))
+        
+    @commands.command()
+    async def ign(self): 
+        """International Games...Network?""" 
+        ign = ["```Too much fun.```\n-IGN",
+               "```Clearly all Sonic fans want is to fuck Big the Cat.```\n-IGN",
+               "```too much water not enough Donald Trump looking pokemon```\n-IGN",
+               "```The definitive example of the genre 2/10```\n-IGN",
+               "```It's good except that it's sonic 0/10```\n-IGN",
+               "`> Sonic was always bad`\n`> Sonic CD is one of our top 100 games`\n-IGN"
+               ]
+        await self.bot.say(randchoice(ign))
 
     @commands.command()
     async def fi(self): 
@@ -96,7 +108,11 @@ class randquotes:
                    "http://i.imgur.com/byQgSDr.png","https://cdn.discordapp.com/attachments/173967012123377664/201530405877186560/did-you-mean-0686f1224818a4a6520cd99c626f74ee.png",
                    "I like my Mighty No. 9 with extra anchovies and a garlic cheese stuffed crust.","http://i1.kym-cdn.com/photos/images/newsfeed/001/147/617/a31.png",
                    "http://orig02.deviantart.net/d7cf/f/2016/147/9/f/whatever_by_rongs1234-da3z5ep.png",
-                   "```SINCE THE DAWN OF VIDEO GAMES WE HAVE BEEN UNDER A UNIVERSAL UNDERSTANDING THAT 'A' MEANS CONFIRM AND 'B' MEANS CANCEL WHAT THE HELL IS THIS TOM FUCKERY WHO APPROVED THIS```\nhttp://goo.gl/AQqcff"
+                   "```SINCE THE DAWN OF VIDEO GAMES WE HAVE BEEN UNDER A UNIVERSAL UNDERSTANDING THAT 'A' MEANS CONFIRM AND 'B' MEANS CANCEL WHAT THE HELL IS THIS TOM FUCKERY WHO APPROVED THIS```\nhttp://goo.gl/AQqcff",
+                   "Not enough pepperoni 9/10 - IGN",
+                   "Bubsy, the only game that makes you want to play MN9",
+                   "I'd rather spend a millenium playing MN9 than an hour playing Bubsy",
+                   "I deleted this game because I'd rather have nothing."
                    ]
             return await self.bot.say(randchoice(mn9))
 
@@ -169,7 +185,10 @@ class randquotes:
         pokefan = ["```>7 houndred\nOH GOD, HE'S GOING MAXIMUM DOG, EVERYONE RUN!```\n-Pokefan",
                    "```There will be an HD remake of Sonic 3 & Knuckles where every single graphic is replaced with Knuckles.```\n-Pokefan",
                    "```I am perfectly fine with Team Mystic, as long as everyone agrees that Team Instinct is a bunch of nazis.```\n-Pokefan",
-                   "```It's like calling Ness \"Babe Ruth\" or Papyrus \"Chef Boyardee\"```\n-Pokefan"]
+                   "```It's like calling Ness \"Babe Ruth\" or Papyrus \"Chef Boyardee\"```\n-Pokefan",
+                   "```YOU HAD ONE JOB, AND THAT WAS TO GET AN IMAGE OF BINDING OF AVALICE BILL GATES YOU CHEAP PRICK```\n-Pokefan",
+                   "```Otherwise we wouldn't have dat A E S T H E T I C B A C K G R O U N D```\n-Pokefan",
+                   ]
         await self.bot.say(randchoice(pokefan)) 
         
     @commands.command()
@@ -177,7 +196,10 @@ class randquotes:
         """Yes, the creator of that multiva has quotes too."""
         plom = ["```does the break the rules?```\n-Plom510",
                 "```Screen my show```\n-Plom510",
-                "```What is the sum of 14 and 21?' I'm sorry, my brain isn't working to its fullest right now.```\n-Plom510"]
+                "```What is the sum of 14 and 21?' I'm sorry, my brain isn't working to its fullest right now.```\n-Plom510",
+                "```Bingo dies of young age.```\n-Plom510",
+                "```What if I take this cow to a strip club?```\n-Plom510"
+                ]
         await self.bot.say(randchoice(plom)) 
 
     @commands.command()
@@ -201,6 +223,21 @@ class randquotes:
     async def rohan(self):
         """But it refused?"""
         await self.bot.say("```But, I refuse!```") 
+        
+    @commands.command()
+    async def fixit(self):
+        """FIX IT"""
+        await self.bot.say("```FIX IT POOKA```")
+        
+    @commands.command()
+    async def bubsy(self):
+        """Just like %gowrong"""
+        await self.bot.say("```WHAT COULD POSSIBLY GO WRONG?!```")
+
+    @commands.command()
+    async def whybing(self):
+        """For when someone forces a bing sucks joke"""
+        await self.bot.say("```Regardless...whether Bing sucks or not as a search engine, they surely outbeat Google by miles with their development APIs. To demonstrate, I was in a server with a node.js bot. The node.js bot had a Bing and Google image search. The Bing provided full-size images. The Google provided measly thumbnails. That's because the Google command wasn't even using the fullest scope of Google to begin with. Bing on the other hand? They let me extract a ton of data. So instead of having a Google search link, I instead fetch the first (or random) Bing search link and it's finished.```")
 
     @commands.command()
     async def navyseal(self):
@@ -231,7 +268,10 @@ class randquotes:
               "```BRAIN has shut down to avoid damage from stupidity. Please reboot.```\n-ElectricSparx",
               "```ERROR: Brain.dll was unable to be found.```\n-ElectricSparx",
               "```I lack the ability to even give a nanoshit about whatever the fuck you just said.```\n-ElectricSparx",
-              "```Higher quality humor than SilvaGunner rips.```\n-ElectricSparx"
+              "```Higher quality humor than SilvaGunner rips.```\n-ElectricSparx",
+              "```FRONTIER COMMUNICATIONS: BRINGING YOU LESS THAN 1 KBPS INTERNET QUALITY SINCE 2016.```\n-ElectricSparx",
+              "```I did not come here to watch a bunch of adults act like fucking children.```\n-ElectricSparx"
+              "```I LOVE BEING WOKEN UP AT 5 IN THE MORNING TO FIX COMPUTER PROBLEMS!!```\n-ElectricSparx"
               ]
         if chance <= 5:
             return await self.bot.say("```Clearly, thou hast been blessed by the almighty RNGesus.```\n-ElectricSparx")
@@ -262,7 +302,11 @@ class randquotes:
                  "```I hope Seraphna isn't reading this quote! For no particular reason at all.```\n-Pooka",
                  "```I never knew that garnets were precious stones! Is that what happens when I take free education?```\n-Pooka",
                  "```From today onwards, if anyone DOES NOT criticize FP2, they will be kicked, and then kicked again, and while kicked, banned. Next will be ultra-banning them. Then final-banning them. Don't ask me how I can kick and ban that much.```\n-Pooka",
-                 "```Draw humans. Anthros are overtale- I mean overrated.```\n-Pooka"
+                 "```Draw humans. Anthros are overtale- I mean overrated.```\n-Pooka",
+                 "```A Metroidvania is a game where Samus fights Dracula in his castle.```\n-Pooka",
+                 "```Hi Mr. Cthulhu!!! Nice to meet you!!!```\n-Pooka",
+                 "```Why the hell would any game start with a quote from H.P. Lovecraft? Oh wait...you don't tell me...?```\n-Pooka",
+                 "```A girl that likes MLP:FiM? WHAT AN ANOMALY!!!!!```\n-Pooka"
                  ]
         await self.bot.say(randchoice(pooka))
 
@@ -304,7 +348,11 @@ class randquotes:
         "```Stupid cat! I know you look more like a rat, but you're much bigger and stronger than me, aren't you? So that makes me the rat! And guess what? This rat has missiles! So eat missiles, you son of a bitch!```\n-Minha",
         "```I... guess I survived that?```\n-Minha",
         "```A PRINCIPAL WRESTLES A DEER```\n-Minha",
-        "```METROID 2 PC IS THE BEST 2D METROID GAME THAT EVER EXISTED```\n-Minha"
+        "```METROID 2 PC IS THE BEST 2D METROID GAME THAT EVER EXISTED```\n-Minha",
+        "```Rule 99: Nobody cares what horse you like, so don't talk about that.```\n-Minha",
+        "```Mondatta Zenyatta Brothers!```\n-Minha",
+        "```HIITO! ZEARU!```\n-Minha",
+        "```but 2 da hed```\n-Minha"
         ]
         await self.bot.say(randchoice(minha))
         
@@ -339,6 +387,8 @@ class randquotes:
               "```RNG's being a butt, eh?```\n-ItalianGamer97",
               "```Yeh, ya'd better run. But come back after a few minutes, mmkay? :v```\n-ItalianGamer97",
               "```I gotta say something worthy of being made into a command...```\n-ItalianGamer97, now a command."
+              "```Damn feminists ruining everything... >: (```\n-ItalianGamer97",
+              "```50 bucks for a box? You could buy a new vidya game for about that price!```\n-ItalianGamer97"
               ]
         await self.bot.say(randchoice(ig))
 
@@ -354,7 +404,8 @@ class randquotes:
               "```there's barely any good nsfw art of the puppy, and none with big bouncies```\n-GigaLem",
               "```when doubt, pull out your -REDACTED FOR YOUNGISH AUDIENCES```\n-GigaLem",
               "```cyclone-tific progress goes boink```\n-GigaLem",
-              "```green haired blue tunic = good lemmings,  norm of the North = bad lemmings```\n-GigaLem"
+              "```green haired blue tunic = good lemmings,  norm of the North = bad lemmings```\n-GigaLem",
+              "```Why must Comcast be hired by a bunch of monkeys?```\n-GigaLem"
               ]
         await self.bot.say(randchoice(giga))
 
