@@ -12,7 +12,7 @@ class Dictionary:
     def __init__(self, bot):
         self.bot = bot
 
-    def meaningtextformat(self, function, result):
+    def meaning_text_format(self, function, result):
         try:
             count = len(result[function]) - 1
             if count > 4:
@@ -30,7 +30,7 @@ class Dictionary:
             text = ""
             return text
 
-    def nymtextformat(self, function, result, word):
+    def nym_text_format(self, function, result, word):
         count = len(result) - 1
         counter = 0
         text = "Found the following " + function + " for **" + word + "**:"
@@ -46,10 +46,10 @@ class Dictionary:
         word = word.lower()
         try:
             result = dictionary.meaning(word)
-            nountext = self.meaningtextformat("Noun", result)
-            verbtext = self.meaningtextformat("Verb", result)
-            adjtext = self.meaningtextformat("Adjective", result)
-            advtext = self.meaningtextformat("Adverb", result)
+            nountext = self.meaning_text_format("Noun", result)
+            verbtext = self.meaning_text_format("Verb", result)
+            adjtext = self.meaning_text_format("Adjective", result)
+            advtext = self.meaning_text_format("Adverb", result)
         except TypeError:
             return await self.bot.say("No results found. Are you " +
                                       "searching for a valid word?")
@@ -65,7 +65,7 @@ class Dictionary:
         word = word.lower()
         result = dictionary.synonym(word)
         try:
-            text = self.nymtextformat("synonyms", result, word)
+            text = self.nym_textformat("synonyms", result, word)
             return await self.bot.say(text)
         except TypeError:
             return await self.bot.say("No results found. Are you " +
@@ -78,7 +78,7 @@ class Dictionary:
         word = word.lower()
         result = dictionary.antonym(word)
         try:
-            text = self.nymtextformat("antonyms", result, word)
+            text = self.nym_textformat("antonyms", result, word)
             return await self.bot.say(text)
         except TypeError:
             return await self.bot.say("No results found. Are you " +
