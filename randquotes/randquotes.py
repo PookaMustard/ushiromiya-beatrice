@@ -209,6 +209,20 @@ class randquotes:
         await self.bot.say(randchoice(plom)) 
         
     @commands.command()
+    async def epa(self):
+        """Planet Wispy."""
+        epa = ["```Next stop, Planet Wisp. This attraction is currently off-limits as it is still under construction and may not be dangerous enough for visitors yet.```",
+               "```Just a reminder: Please refrain from pushing buttons on the starship. Occasionally, one might jettison you into space. If this happens, your next of kin will be billed for the replacement hatch.```",
+               "```Attention! The muscle atrophy simulations will not be open today. We apologize for the inconvenience, but we were not able to find the strength to open it.```",
+               "```Would the owner of a white hovercar shaped like an egg please report to the front﻿ desk. Your car has been broken into. Repeat. Would the owner of a white hovercar shaped like an egg please report to the front desk. Your car has been broken in... Wait a minute, WHAT THE HECK?```",
+               "```We know they look delicious, but please refrain from licking the rides. That would be disgusting. Do you know where those rides have been? People have been sitting on those rides. With their BUTTS! Okay, go ahead. Lick them. Don’t say we didn’t warn you.```",
+               "```Attention ladies and gentlemen! Please make your way over to the main viewing area, where the Light Speed Electrical Parade is about to begi... Ohoh, and, and that concludes the Light Speed Electrical Parade.```",
+               "```Please avoid breaking the glass, as it is the only thing between you and ten million gallons of freezing wet death.```",
+               "```Every visitor to the park gets a free blue hedgehog! If you catch one, please feel free to take it home with you. Or destroy it. Our choice.```",
+               "Please beware of the spikes on the asteroid coaster, they are sharp. Really?﻿ We have to warn people about spikes? Like they won't notice the spikes, I mean, come on! The cars are nothing but spikes! Unbelievable! What... Wa... My... My what is still on?```"
+        await self.bot.say(randchoice(epa)) 
+        
+    @commands.command()
     async def jontron(self):
         """Just another guy on youtube."""
         #His videos seem to be quotes
@@ -247,6 +261,12 @@ class randquotes:
     async def ridley(self):
         """What? What?! WHAT?!"""
         await self.bot.say("IT'S A-LIVING!") 
+        
+    @commands.command()
+    async def unowen(self):
+        """Spoilers to \"And Then There Were None\""""
+        await self.bot.say("http://i.imgur.com/ZLNSBaR.jpg\n" +
+                           "Flandre has been living in the Scarlet Devil Mansion for at least 495 years, but has never been taken outside and has not seen any humans other than in cooked form. She can destroy anything she wants by crushing it, even destroying a meteor with a single hand and without touching it,which is truly a frightening ability with no real weaknesses.") 
         
     @commands.command()
     async def fp2(self):
