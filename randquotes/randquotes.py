@@ -220,6 +220,7 @@ class randquotes:
                "```Please avoid breaking the glass, as it is the only thing between you and ten million gallons of freezing wet death.```",
                "```Every visitor to the park gets a free blue hedgehog! If you catch one, please feel free to take it home with you. Or destroy it. Our choice.```",
                "Please beware of the spikes on the asteroid coaster, they are sharp. Really?﻿ We have to warn people about spikes? Like they won't notice the spikes, I mean, come on! The cars are nothing but spikes! Unbelievable! What... Wa... My... My what is still on?```"
+              ]
         await self.bot.say(randchoice(epa)) 
         
     @commands.command()
