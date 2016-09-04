@@ -504,6 +504,44 @@ class randimages:
         await self.bot.say('https://i.ytimg.com/vi/G8GVWhviw8s/hqdefault.jpg') 
         
     @commands.command()
+    async def youwin(self):
+        """A WINNER IS YOU!"""
+        await self.bot.say("http://www.glorioustrainwrecks.com/files/screens/YOU'RE%20WINNER.png") 
+        
+    @commands.command()
+    async def roystory(self):
+        """Definitely not about Roy."""
+        await self.bot.say("https://images-1.discordapp.net/.eJwFwdENhCAMANBdGIBC7WF1G4INelFLoH6Z2_3ee93TT7e63ayNFWA7RtG--WHacxVfVespuR3DF70gm-WyX3LbgEgYpjnSB1PCJSRmQIxMIU1MM8UlMDGULP7bpLrfH5tgIVc.8_YfgaQw6qDLJhNoRX81B_8lOXM.jpeg")
+        
+    @commands.command()
+    async def facebook(self):
+        """By that I mean a book to the face."""
+        await self.bot.say("http://www.meh.ro/wp-content/uploads/2012/02/meh.ro9248.png") 
+        
+    @commands.command()
+    async def uvu(self):
+        """happy"""
+        await self.bot.say("http://media.tumblr.com/tumblr_mckacmNq3G1rvydwz.png") 
+        
+    @commands.command()
+    async def genuineanger(self):
+        """This Heavy item goes for $200 on the TF2 shop"""
+        await self.bot.say("http://i3.kym-cdn.com/photos/images/facebook/001/111/746/a32.jpg") 
+        
+    @commands.command()
+    async def irony(self):
+        """It's hot."""
+        await self.bot.say("https://cdn.discordapp.com/attachments/130541134760902656/218862634630381568/Oh_The_Irony.jpg") 
+        
+    @commands.command()
+    async def sharing(self):
+        """Sharing is caring."""
+        sharing = ["https://cdn.discordapp.com/attachments/167706685715120129/218413739844698122/The.Pirate.Bay.Cartoon-small.png",
+                   "https://cdn.discordapp.com/attachments/167706685715120129/218839570492424194/sharing.jpg"
+                  ]
+        await self.bot.say(randchoice(sharing)) 
+        
+    @commands.command()
     async def tobecontinued(self):
         """Coming Soon!"""
         await self.bot.say('https://img0.etsystatic.com/059/0/10858326/il_570xN.762412812_ccx3.jpg')    
@@ -759,7 +797,7 @@ class randimages:
     @commands.command()
     async def puppy(self):
         """Mood Milla"""
-        puppy = ["http://i.imgur.com/mnI1tkU.png", "https://cdn.discordapp.com/attachments/203898055232192512/204015895519952896/unknown.png", "https://cdn.discordapp.com/attachments/174342349458112512/207727604671840257/Milla_Full-body_-_v1.0.png"]
+        puppy = ["http://i.imgur.com/mnI1tkU.png", "https://cdn.discordapp.com/attachments/203898055232192512/204015895519952896/unknown.png", "https://cdn.discordapp.com/attachments/174342349458112512/207727604671840257/Milla_Full-body_-_v1.0.png", "https://cdn.discordapp.com/attachments/192817084789424128/220363274774904832/milla_i_dont_know.png"]
         await self.bot.say(randchoice(puppy))
         
     @commands.command()
