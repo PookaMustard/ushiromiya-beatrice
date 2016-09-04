@@ -192,7 +192,8 @@ class randquotes:
                    "```I am perfectly fine with Team Mystic, as long as everyone agrees that Team Instinct is a bunch of nazis.```\n-Pokefan",
                    "```It's like calling Ness \"Babe Ruth\" or Papyrus \"Chef Boyardee\"```\n-Pokefan",
                    "```YOU HAD ONE JOB, AND THAT WAS TO GET AN IMAGE OF BINDING OF AVALICE BILL GATES YOU CHEAP PRICK```\n-Pokefan",
-                   "```Otherwise we wouldn't have dat A E S T H E T I C B A C K G R O U N D```\n-Pokefan"
+                   "```Otherwise we wouldn't have dat A E S T H E T I C B A C K G R O U N D```\n-Pokefan",
+                   "```You know the official name is Photoshop Seraphna, right?```\n-Pokefan"
                    ]
         await self.bot.say(randchoice(pokefan)) 
         
@@ -206,6 +207,29 @@ class randquotes:
                 "```What if I take this cow to a strip club?```\n-Plom510"
                 ]
         await self.bot.say(randchoice(plom)) 
+        
+    @commands.command()
+    async def jontron(self):
+        """Just another guy on youtube."""
+        #His videos seem to be quotes
+        jtron = ["https://www.youtube.com/watch?v=l5xTReubUro",
+                "https://www.youtube.com/watch?v=5phl8p3euG4",
+                "https://www.youtube.com/watch?v=2aegP8j5al0",
+                "https://www.youtube.com/watch?v=qxEwC8vLSD0",
+                "https://www.youtube.com/watch?v=uneSOPqqAFw",
+                "https://www.youtube.com/watch?v=uWy0JevgS-8",
+                "https://www.youtube.com/watch?v=BJEvhi2OlEY",
+                "https://www.youtube.com/watch?v=AXzEcwYs8Eo",
+                "https://www.youtube.com/watch?v=xrktQmttsfU",
+                "https://www.youtube.com/watch?v=-xWoo8y9t_c",
+                "https://www.youtube.com/watch?v=7gfxpDx9KZU",
+                "https://www.youtube.com/watch?v=0_DCs29xw2A",
+                "https://www.youtube.com/watch?v=P7Bl8us5ngk",
+                "https://www.youtube.com/watch?v=BpumxLulY7M",
+                "https://www.youtube.com/watch?v=r8MjZk_Dw3s",
+                "http://24.media.tumblr.com/3f98895ff432cbec39c1052462f64bec/tumblr_n510iaXH771sk0enuo1_500.gif"
+                ]
+        await self.bot.say(randchoice(jtron)) 
 
     @commands.command()
     async def romanlifeadvice(self):
@@ -223,6 +247,11 @@ class randquotes:
     async def ridley(self):
         """What? What?! WHAT?!"""
         await self.bot.say("IT'S A-LIVING!") 
+        
+    @commands.command()
+    async def fp2(self):
+        """Sonic Adventure 2"""
+        await self.bot.say("https://twitter.com/FPCommunity_txt/status/764934391500079105") 
         
     @commands.command()
     async def cod(self):
@@ -282,7 +311,8 @@ class randquotes:
               "```FRONTIER COMMUNICATIONS: BRINGING YOU LESS THAN 1 KBPS INTERNET QUALITY SINCE 2016.```\n-ElectricSparx",
               "```I did not come here to watch a bunch of adults act like fucking children.```\n-ElectricSparx",
               "```I LOVE BEING WOKEN UP AT 5 IN THE MORNING TO FIX COMPUTER PROBLEMS!!```\n-ElectricSparx",
-              "```Have you heard the good word of our lord and savior, Grand Dad?```\n-ElectricSparx"
+              "```Have you heard the good word of our lord and savior, Grand Dad?```\n-ElectricSparx",
+              "```It's your favorite thing! H I G H Q U A L I T Y R I P S```\n-ElectricSparx"
               ]
         if chance <= 5:
             return await self.bot.say("```Clearly, thou hast been blessed by the almighty RNGesus.```\n-ElectricSparx")
