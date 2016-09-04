@@ -152,7 +152,8 @@ class randquotes:
                  "```Jagex are the worst thing to ever happen to the gaming industry (with only one good game)```\n-Ultrablockstar",
                  "```I'm not good with button mashing, but I can shake an analog stick mighty fast... I'm just about five years out of practice.```\n-Ultrablockstar",
                  "```The ZXC+Arrow Keys keyboard layout is underrated.```\n-Ultrablockstar",
-                 "```The Anti-DRM God has spoken!!!```\n-Ultrablockstar"
+                 "```The Anti-DRM God has spoken!!!```\n-Ultrablockstar",
+                 "```I went pretty deep, no one different```\n-Ultrablockstar"
                  ]
         await self.bot.say(randchoice(ultra)) 
 
@@ -175,7 +176,11 @@ class randquotes:
                   "```Alright, who pissed off Sash and do I need to 'calm her down'?```\n-Sonic",
                   "```How to trigger Pooka: Mention anything FNAF.```\n-Sonic",
                   "```There's a Pooka here... damn, forgot my air pump.```\n-Sonic",
-                  "```you have no sympathy from me if you whine about that stupid pit in Mystic Cave.```\n-Sonic"
+                  "```you have no sympathy from me if you whine about that stupid pit in Mystic Cave.```\n-Sonic",
+                  "```I'll fuck you harder than Comcast fucking Giga.```\n-Sonic",
+                  "```If it isn't Sash Lilac I'm not c*mming.```\n-Sonic",
+                  "```look, I can't ass, okay?```\n-Sonic",
+                  "```and no, it doesnt have a usb port i can stick my dick into, so dont even make that joke```\n-Sonic"
                   ]
         await self.bot.say(randchoice(sonicu)) 
         
@@ -187,7 +192,7 @@ class randquotes:
                    "```I am perfectly fine with Team Mystic, as long as everyone agrees that Team Instinct is a bunch of nazis.```\n-Pokefan",
                    "```It's like calling Ness \"Babe Ruth\" or Papyrus \"Chef Boyardee\"```\n-Pokefan",
                    "```YOU HAD ONE JOB, AND THAT WAS TO GET AN IMAGE OF BINDING OF AVALICE BILL GATES YOU CHEAP PRICK```\n-Pokefan",
-                   "```Otherwise we wouldn't have dat A E S T H E T I C B A C K G R O U N D```\n-Pokefan",
+                   "```Otherwise we wouldn't have dat A E S T H E T I C B A C K G R O U N D```\n-Pokefan"
                    ]
         await self.bot.say(randchoice(pokefan)) 
         
@@ -218,6 +223,11 @@ class randquotes:
     async def ridley(self):
         """What? What?! WHAT?!"""
         await self.bot.say("IT'S A-LIVING!") 
+        
+    @commands.command()
+    async def cod(self):
+        """WARFARE"""
+        await self.bot.say("Cowl O' Doody") 
         
     @commands.command()
     async def rohan(self):
@@ -270,8 +280,9 @@ class randquotes:
               "```I lack the ability to even give a nanoshit about whatever the fuck you just said.```\n-ElectricSparx",
               "```Higher quality humor than SilvaGunner rips.```\n-ElectricSparx",
               "```FRONTIER COMMUNICATIONS: BRINGING YOU LESS THAN 1 KBPS INTERNET QUALITY SINCE 2016.```\n-ElectricSparx",
-              "```I did not come here to watch a bunch of adults act like fucking children.```\n-ElectricSparx"
-              "```I LOVE BEING WOKEN UP AT 5 IN THE MORNING TO FIX COMPUTER PROBLEMS!!```\n-ElectricSparx"
+              "```I did not come here to watch a bunch of adults act like fucking children.```\n-ElectricSparx",
+              "```I LOVE BEING WOKEN UP AT 5 IN THE MORNING TO FIX COMPUTER PROBLEMS!!```\n-ElectricSparx",
+              "```Have you heard the good word of our lord and savior, Grand Dad?```\n-ElectricSparx"
               ]
         if chance <= 5:
             return await self.bot.say("```Clearly, thou hast been blessed by the almighty RNGesus.```\n-ElectricSparx")
@@ -306,7 +317,10 @@ class randquotes:
                  "```A Metroidvania is a game where Samus fights Dracula in his castle.```\n-Pooka",
                  "```Hi Mr. Cthulhu!!! Nice to meet you!!!```\n-Pooka",
                  "```Why the hell would any game start with a quote from H.P. Lovecraft? Oh wait...you don't tell me...?```\n-Pooka",
-                 "```A girl that likes MLP:FiM? WHAT AN ANOMALY!!!!!```\n-Pooka"
+                 "```A girl that likes MLP:FiM? WHAT AN ANOMALY!!!!!```\n-Pooka",
+                 "```Couldn't they photoshop any better?```\n-Pooka",
+                 "```Must resist urge to bake breaks```\n-Pooka",
+                 "```%dictoonary irreconciliable ```\n-Pooka"
                  ]
         await self.bot.say(randchoice(pooka))
 
@@ -386,9 +400,10 @@ class randquotes:
               "```You know what I hate? Those little jumpin' shits from Sonic Triple Trouble's Atomic Destroyer Zone.```\n-ItalianGamer97",
               "```RNG's being a butt, eh?```\n-ItalianGamer97",
               "```Yeh, ya'd better run. But come back after a few minutes, mmkay? :v```\n-ItalianGamer97",
-              "```I gotta say something worthy of being made into a command...```\n-ItalianGamer97, now a command."
+              "```I gotta say something worthy of being made into a command...```\n-ItalianGamer97, now a command.",
               "```Damn feminists ruining everything... >: (```\n-ItalianGamer97",
-              "```50 bucks for a box? You could buy a new vidya game for about that price!```\n-ItalianGamer97"
+              "```50 bucks for a box? You could buy a new vidya game for about that price!```\n-ItalianGamer97",
+              "```Please excuse me while I try to juggle puppies and bombs.```\n-ItalianGamer97"
               ]
         await self.bot.say(randchoice(ig))
 
@@ -405,7 +420,11 @@ class randquotes:
               "```when doubt, pull out your -REDACTED FOR YOUNGISH AUDIENCES```\n-GigaLem",
               "```cyclone-tific progress goes boink```\n-GigaLem",
               "```green haired blue tunic = good lemmings,  norm of the North = bad lemmings```\n-GigaLem",
-              "```Why must Comcast be hired by a bunch of monkeys?```\n-GigaLem"
+              "```Why must Comcast be hired by a bunch of monkeys?```\n-GigaLem",
+              "```I'd throw Milla a bone -unzips pants-```\n-GigaLem",
+              "```If it isn't the puppy I'm not c*mming.```\n-GigaLem",
+              "```I mean that in a Google way```\n-GigaLem",
+              "```at the time of this message, I still haven't beat Super Mario Bros, and you know why? BECAUSE I FUCKING HATE LAKITUS```\n-GigaLem"
               ]
         await self.bot.say(randchoice(giga))
 
