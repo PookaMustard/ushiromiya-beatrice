@@ -1,5 +1,5 @@
-import discord
 from discord.ext import commands
+from random import choice as randchoice
 
 class randvideos:
     """Random videos!"""
@@ -36,6 +36,11 @@ class randvideos:
     async def aha(self):
         """Starring Alan Partridge."""
         await self.bot.say('https://www.youtube.com/watch?v=uuN7kOW7iwo')
+        
+    @commands.command()
+    async def bass(self):
+        """What's a TAS?"""
+        await self.bot.say('https://youtu.be/sXQcplY1zZQ?t=3m9s')
 
     @commands.command()
     async def godno(self):
@@ -85,7 +90,8 @@ class randvideos:
     @commands.command()
     async def grand(self):
         """Is this a bootleg?"""
-        await self.bot.say('https://soundcloud.com/epicrpgremixes/a-battle-of-grand-proportions')
+        grand = ['https://soundcloud.com/arlobo-loquendero/grand-dads-high-quality-rips-machine', 'https://soundcloud.com/epicrpgremixes/a-battle-of-grand-proportions']
+        await self.bot.say(randchoice(grand))
         
     @commands.command()
     async def grandestmenu(self):
