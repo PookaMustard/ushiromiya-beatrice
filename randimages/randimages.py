@@ -269,6 +269,11 @@ class randimages:
         await self.bot.say('https://cdn.discordapp.com/attachments/173967012123377664/193922258937446412/soapbox.gif')
         
     @commands.command()
+    async def draam(self):
+        """Use when drama intensify."""
+        await self.bot.say('https://cdn.discordapp.com/attachments/190590897480663040/222143396116955142/unknown.png')
+        
+    @commands.command()
     async def kidding(self):
         """Are you kidding?"""
         await self.bot.say('https://cdn.discordapp.com/attachments/173967012123377664/195207061271740417/You-Have-Got-To-Be-Kidding-Me-GIF.gif')
