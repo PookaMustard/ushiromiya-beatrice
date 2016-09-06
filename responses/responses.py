@@ -19,8 +19,9 @@ class sao:
         if 'sao' in checkmessage.split() or 'sword art online' in checkmessage or 'sword art offline' in checkmessage and message.author.id != self.bot.user.id:
             if message.channel.id not in self.timecheck or (time.time() - self.timecheck[message.channel.id]) > self.cooldown:
                 self.timecheck[message.channel.id] = time.time()
-                sao = ["SAO? Why don't you read Umineko no Naku Koro ni instead?", "I won't mute you for five minutes for mentioning SAO.",
-                    "On another server, you'd be muted for mentioning SAO. Talk about it a lot here!"]
+                sao = ["Somebody mentioned Sword Art Online! It's a harmless anime. *cackles*.", "I won't mute you for five minutes for mentioning SAO.",
+                    "On another server, you'd be muted for mentioning SAO. Talk about it a lot here!", "You could get instantly muted for five minutes on another server just for mentioning SAO. I don't do that!",
+                    "You spoke of SAO? Don't worry. Nobody will punish you for it.", "SAO isn't that bad, you know."]
                 await self.bot.send_message(message.channel, randchoice(sao))
         elif 'chara' in checkmessage.split() and message.author.id != self.bot.user.id:
             if message.channel.id not in self.timecheckchara or (time.time() - self.timecheckchara[message.channel.id]) > self.cooldown:
