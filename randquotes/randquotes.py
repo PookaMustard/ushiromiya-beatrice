@@ -153,7 +153,8 @@ class randquotes:
                  "```I'm not good with button mashing, but I can shake an analog stick mighty fast... I'm just about five years out of practice.```\n-Ultrablockstar",
                  "```The ZXC+Arrow Keys keyboard layout is underrated.```\n-Ultrablockstar",
                  "```The Anti-DRM God has spoken!!!```\n-Ultrablockstar",
-                 "```I went pretty deep, no one different```\n-Ultrablockstar"
+                 "```I went pretty deep, no one different```\n-Ultrablockstar",
+                 "```My wrists are genuinely in pain```\n-Ultrablockstar"
                  ]
         await self.bot.say(randchoice(ultra)) 
 
@@ -193,7 +194,9 @@ class randquotes:
                    "```It's like calling Ness \"Babe Ruth\" or Papyrus \"Chef Boyardee\"```\n-Pokefan",
                    "```YOU HAD ONE JOB, AND THAT WAS TO GET AN IMAGE OF BINDING OF AVALICE BILL GATES YOU CHEAP PRICK```\n-Pokefan",
                    "```Otherwise we wouldn't have dat A E S T H E T I C B A C K G R O U N D```\n-Pokefan",
-                   "```You know the official name is Photoshop Seraphna, right?```\n-Pokefan"
+                   "```You know the official name is Photoshop Seraphna, right?```\n-Pokefan",
+                   "```Geez guys, stop being such bricks to each other!```\n-Pokefan",
+                   "```It is fashionable to copulate with flying insects under the scientific classification of Anthophila```\n-Pokefan",
                    ]
         await self.bot.say(randchoice(pokefan)) 
         
@@ -204,7 +207,8 @@ class randquotes:
                 "```Screen my show```\n-Plom510",
                 "```What is the sum of 14 and 21?' I'm sorry, my brain isn't working to its fullest right now.```\n-Plom510",
                 "```Bingo dies of young age.```\n-Plom510",
-                "```What if I take this cow to a strip club?```\n-Plom510"
+                "```What if I take this cow to a strip club?```\n-Plom510",
+                "```I never knew she was a guy``` ~Alex Rivero, talking about the first time he met his girlfriend Sam.",
                 ]
         await self.bot.say(randchoice(plom)) 
         
@@ -371,7 +375,8 @@ class randquotes:
                  "```A girl that likes MLP:FiM? WHAT AN ANOMALY!!!!!```\n-Pooka",
                  "```Couldn't they photoshop any better?```\n-Pooka",
                  "```Must resist urge to bake breaks```\n-Pooka",
-                 "```%dictoonary irreconciliable ```\n-Pooka"
+                 "```%dictoonary irreconciliable ```\n-Pooka",
+                 "```Your brickfast is ready```\n-Pooka"
                  ]
         await self.bot.say(randchoice(pooka))
 
@@ -417,7 +422,8 @@ class randquotes:
         "```Rule 99: Nobody cares what horse you like, so don't talk about that.```\n-Minha",
         "```Mondatta Zenyatta Brothers!```\n-Minha",
         "```HIITO! ZEARU!```\n-Minha",
-        "```but 2 da hed```\n-Minha"
+        "```but 2 da hed```\n-Minha",
+        "```WHY IS IT ALWAYS BUSES FOR FUCK'S SAKE```\n-Minha"
         ]
         await self.bot.say(randchoice(minha))
         
@@ -475,7 +481,11 @@ class randquotes:
               "```I'd throw Milla a bone -unzips pants-```\n-GigaLem",
               "```If it isn't the puppy I'm not c*mming.```\n-GigaLem",
               "```I mean that in a Google way```\n-GigaLem",
-              "```at the time of this message, I still haven't beat Super Mario Bros, and you know why? BECAUSE I FUCKING HATE LAKITUS```\n-GigaLem"
+              "```at the time of this message, I still haven't beat Super Mario Bros, and you know why? BECAUSE I FUCKING HATE LAKITUS```\n-GigaLem",
+              "```You can suck my brick```\n-GigaLem",
+              "https://cdn.discordapp.com/attachments/219633993522348032/222174075475197953/unknown.png",
+              "https://cdn.discordapp.com/attachments/192833044049166337/222916128282902528/FP_Dude.png",
+              "https://cdn.discordapp.com/attachments/173967012123377664/224620968931229696/2016-09-11_02.55.58.png"
               ]
         await self.bot.say(randchoice(giga))
 
