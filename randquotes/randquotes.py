@@ -147,10 +147,16 @@ class randquotes:
         await self.bot.say(randchoice(mightyneed)) 
         
     @commands.command()
-    async def joel(self):
+    async def joels(self):
         """..."""
-        joel = ["WHOSE BEEN DRAWIN' DICKS?!"]
-        await self.bot.say(randchoice(joel)) 
+        joels = ["WHOSE BEEN DRAWIN' DICKS?!"]
+        await self.bot.say(randchoice(joels)) 
+        
+    @commands.command()
+    async def dicks(self):
+        """..."""
+        dicks = ["WHOSE BEEN DRAWIN' JOELS?!"]
+        await self.bot.say(randchoice(dicks)) 
         
     @commands.command()
     async def tidesofchaos(self):
@@ -414,7 +420,8 @@ class randquotes:
                  "```Couldn't they photoshop any better?```\n-Pooka",
                  "```Must resist urge to bake breaks```\n-Pooka",
                  "```%dictoonary irreconciliable ```\n-Pooka",
-                 "```Your brickfast is ready```\n-Pooka"
+                 "```Your brickfast is ready```\n-Pooka",
+                 "```It was then I realized that you asked for %dick!```\n-Pooka"
                  ]
         await self.bot.say(randchoice(pooka))
 
