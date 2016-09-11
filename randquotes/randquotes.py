@@ -112,7 +112,8 @@ class randquotes:
                    "Not enough pepperoni 9/10 - IGN",
                    "Bubsy, the only game that makes you want to play MN9",
                    "I'd rather spend a millenium playing MN9 than an hour playing Bubsy",
-                   "I deleted this game because I'd rather have nothing."
+                   "I deleted this game because I'd rather have nothing.",
+                   "Expect your delivery time to be 3 years, that'll be 4 million dollars."
                    ]
             return await self.bot.say(randchoice(mn9))
 
@@ -131,6 +132,16 @@ class randquotes:
     async def negotiations(self):
         """The negotiations..."""
         nego = ["NEGOTIATIONS HAS FAILED", "NEGOTIATIONS HAS SUCCEEDED."]
+        await self.bot.say(randchoice(nego)) 
+        
+    @commands.command()
+    async def badjoke(self):
+        """A lot of bad jokes."""
+        nego = ["```What chatting client let's you go to other worlds? No man's Skype```\n-GigaLem",
+                "```What do you call a tuckered out dragon? Crashed Lilac.```\n-GigaLem",
+                "```Sash: How do the hell do I dodge bullets?!\nSpade: When the time comes, you won't need to.\nSash: …have you been watching 'The Matrix' again?```\n-GigaLem",
+                "```The Good, The Bad, And The Ugly & Knuckles```\n-GigaLem"
+                ]
         await self.bot.say(randchoice(nego)) 
         
     @commands.command()
@@ -181,7 +192,8 @@ class randquotes:
                   "```I'll fuck you harder than Comcast fucking Giga.```\n-Sonic",
                   "```If it isn't Sash Lilac I'm not c*mming.```\n-Sonic",
                   "```look, I can't ass, okay?```\n-Sonic",
-                  "```and no, it doesnt have a usb port i can stick my dick into, so dont even make that joke```\n-Sonic"
+                  "```and no, it doesnt have a usb port i can stick my dick into, so dont even make that joke```\n-Sonic",
+                  "https://cdn.discordapp.com/attachments/172098189388808193/222172716151603204/3.jpg"
                   ]
         await self.bot.say(randchoice(sonicu)) 
         
