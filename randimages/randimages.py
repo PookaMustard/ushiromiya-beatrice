@@ -257,7 +257,37 @@ class randimages:
     async def milla(self):
         """She's a dog dog."""
         await self.bot.say('http://vignette1.wikia.nocookie.net/freedomplanet/images/9/90/Milla_Basset_Sketch_by_Stephen_DiDuro.png/revision/latest?cb=20140805001350')
-
+        
+    @commands.command()
+    async def galacticstumpy(self):
+        """I wish Freedom Planet died already."""
+        await self.bot.say('https://cdn.discordapp.com/attachments/192817084789424128/222898339648110592/GalacticStumpy.png')
+        
+    @commands.command()
+    async def captainfalcon(self):
+        """How about showing his moves?"""
+        await self.bot.say('https://media.giphy.com/media/vl2wBbQc5t4as/giphy.gif')
+        
+    @commands.command()
+    async def ontheedge(self):
+        """Off the edge."""
+        await self.bot.say('http://forums.sonicretro.org/uploads/av-4869.png')
+        
+    @commands.command()
+    async def trump(self):
+        """MAKE AMERICA GREAT AGAIN, the cool way."""
+        await self.bot.say('http://i.imgur.com/hKeuu64.jpg')
+        
+    @commands.command()
+    async def samus(self):
+        """Smooth Bounty Hunter."""
+        await self.bot.say('http://i3.photobucket.com/albums/y89/CX-Neo/samus_jackson_by_benjamin_matthews-d353ekn.gif')    
+    
+    @commands.command()
+    async def mouse(self):
+        """Mouse issues."""
+        await self.bot.say('http://static.zerochan.net/Nazrin.full.831987.jpg')
+        
     @commands.command()
     async def graphics(self):
         """The stupidity of graphics arguments"""
@@ -724,6 +754,11 @@ class randimages:
     async def rip(self):
         """Rest in Peace."""
         await self.bot.say("http://www.spokeo.com/blog/wp-content/uploads/2011/05/RIP-Spokeo-Info-Bubble.jpg")
+        
+    @commands.command()
+    async def bedtime(self):
+        """Do you want to have a bad time?"""
+        await self.bot.say("https://cdn.discordapp.com/attachments/174285836475564032/222962866230263818/unknown.png")
         
     @commands.command()
     async def undersans(self):
