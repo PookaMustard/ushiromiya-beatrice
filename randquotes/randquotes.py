@@ -135,14 +135,40 @@ class randquotes:
         await self.bot.say(randchoice(nego)) 
         
     @commands.command()
+    async def mewquotes(self):
+        """^u^"""
+        mew = ["```I wrote it all in one shit, while high on caffeine and on boredom.```\n-Mew"]
+        await self.bot.say(randchoice(mew))
+        
+    @commands.command()
+    async def mightyneed(self):
+        """I don't know what that is."""
+        mightyneed = ["http://www.reactiongifs.us/index.html"]
+        await self.bot.say(randchoice(mightyneed)) 
+        
+    @commands.command()
+    async def joel(self):
+        """..."""
+        joel = ["WHOSE BEEN DRAWIN' DICKS?!"]
+        await self.bot.say(randchoice(joel)) 
+        
+    @commands.command()
+    async def tidesofchaos(self):
+        """Shameless advertising for fanfiction galore!"""
+        sonic = ["```LITERALLY the only good modern SonicxFP story series that makes SonicxSash work```\n-Sonic", 
+                "```Literally the only Sonic fanfic that uses the LakeFeperd canon!```\n-Sonic",
+                "```The one where Sonic wears pants```\n-RedScarf"]
+        await self.bot.say(randchoice(sonic)) 
+        
+    @commands.command()
     async def badjoke(self):
         """A lot of bad jokes."""
-        nego = ["```What chatting client let's you go to other worlds? No man's Skype```\n-GigaLem",
+        badjoke = ["```What chatting client let's you go to other worlds? No man's Skype```\n-GigaLem",
                 "```What do you call a tuckered out dragon? Crashed Lilac.```\n-GigaLem",
-                "```Sash: How do the hell do I dodge bullets?!\nSpade: When the time comes, you won't need to.\nSash: …have you been watching 'The Matrix' again?```\n-GigaLem",
-                "```The Good, The Bad, And The Ugly & Knuckles```\n-GigaLem"
+                "```Sash: How do the hell do I dodge bullets?!\nSpade: When the time comes, you won't need to.\nSash: …have you been watching 'The Matrix' again?```\n-RedScarf",
+                "```The Good, The Bad, And The Ugly & Knuckles```\n-RedScarf"
                 ]
-        await self.bot.say(randchoice(nego)) 
+        await self.bot.say(randchoice(badjoke)) 
         
     @commands.command()
     async def irquotes(self):
