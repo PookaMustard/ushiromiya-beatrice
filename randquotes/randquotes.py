@@ -156,7 +156,7 @@ class randquotes:
     async def tidesofchaos(self):
         """Shameless advertising for fanfiction galore!"""
         sonic = ["```LITERALLY the only good modern SonicxFP story series that makes SonicxSash work```\n-Sonic", 
-                "```Literally the only Sonic fanfic that uses the LakeFeperd canon!```\n-Sonic",
+                "```Literally the only Sonic fanfic that uses the LakeFeperd canon!```\n-ElectricSparx",
                 "```The one where Sonic wears pants```\n-RedScarf"]
         await self.bot.say(randchoice(sonic)) 
         
