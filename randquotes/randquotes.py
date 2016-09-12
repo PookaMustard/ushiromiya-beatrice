@@ -24,7 +24,7 @@ class randquotes:
         await self.bot.say("But nobody came.")
 
     @commands.command()
-    async def badtime(self): 
+    async def badtime(self):
         """Sans Strikes Back.""" 
         badtime = ["You don't really want to click this link!\nhttps://jcw87.github.io/c2-sans-fight/",
                    "You don't really want to click this link!\nhttps://joezeng.github.io/endless-sans/"]
@@ -44,6 +44,11 @@ class randquotes:
     async def pokemonuranium(self):
         """It's a titanium fangame!"""
         await self.bot.say("https://1drv.ms/f/s!Ar6sDvz1zhVkqH4Yk5CX69DoDPKN")
+        
+    @commands.command()
+    async def sm2du(self):
+        """Oh Nintendo, why do you have to force me to keep doing this!"""
+        await self.bot.say("https://www.mediafire.com/?ur6c8cfa42pz1g5")
 
     @commands.command()
     async def ia(self): 
