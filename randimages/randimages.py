@@ -605,6 +605,11 @@ class randimages:
     async def tumbleweed(self):
         """Pure abandonement."""
         await self.bot.say('https://brittnyhabibti.files.wordpress.com/2014/10/tumbleweed.jpg')
+        
+    @commands.command()
+    async def lordstrife(self):
+        """Two abominations merged into one."""
+        await self.bot.say('https://cdn.discordapp.com/attachments/173965999744221185/224702731846156288/Lord_Strife.png')
 
     @commands.command()
     async def lenny(self):
