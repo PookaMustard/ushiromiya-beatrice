@@ -471,7 +471,9 @@ class randimages:
     @commands.command()
     async def throwyourselfout(self):
         """Why not?"""
-        await self.bot.say('https://cdn.discordapp.com/attachments/173967012123377664/199952050312839170/Throw_Yourself_Out.png')
+        throwyourselfout = ["https://cdn.discordapp.com/attachments/173967012123377664/199952050312839170/Throw_Yourself_Out.png",
+                "https://cdn.discordapp.com/attachments/151670525205282825/225783877480742913/Jumping-Out-of-Window.gif"]
+        await self.bot.say(randchoice(throwyourselfout))
         
     @commands.command()
     async def second(self):
@@ -1307,6 +1309,151 @@ class randimages:
     async def shitpost(self):
         """Only the finest quality!"""
         await self.bot.say("https://cdn.discordapp.com/attachments/110373943822540800/192833561873743874/shit.gif")
+
+    @commands.command()
+    async def stahp(self):
+        """Stahp it Penders!"""
+        stahp = ["http://weknowmemes.com/generator/uploads/generated/g1379092610384759364.jpg",
+                "http://s2.quickmeme.com/img/54/54b4ef9552fc06ca35b9297534b3ad8df2bccbf8b9da8d09c7d014f26947b788.jpg",
+                "https://cdn.meme.am/instances/400x/55275802.jpg",
+                "https://cdn.meme.am/instances/35884590.jpg",
+                "http://s.quickmeme.com/img/78/7835258a77bff1ef34a7e9220c05c46c2297ae2548c5f90aac0c41facb534639.jpg"]
+        return await self.bot.say(randchoice(stahp))
+        
+    @commands.command()
+    async def justright(self):
+        """In the Goldilocks zone"""
+        await self.bot.say("https://cdn.discordapp.com/attachments/173967012123377664/225688671943262218/when_you_dragon_boost_just_right_by_wyviryn-da47yb2.png")
+
+    @commands.command()
+    async def juststrife(self):
+        """In the Strifilocks zone"""
+        await self.bot.say("https://cdn.discordapp.com/attachments/173967012123377664/225682792497938432/just_strife.png")
+
+    @commands.command()
+    async def twinsatcannon(self):
+        """When you want something done right, overdo it"""
+        await self.bot.say("https://cdn.discordapp.com/attachments/205815814316752897/225717296209985536/TwinSatelliteCannon2.gif")
+
+    @commands.command()
+    async def offensive(self):
+        """When you want something done right, overdo it"""
+        await self.bot.say("https://cdn.discordapp.com/attachments/205815814316752897/225975861772288000/YOUR_POST_IS_TOO_OFFENSIVE.jpg")
+
+    @commands.command()
+    async def winner(self):
+        """Your worth it!"""
+        winner = ["https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "https://cdn.discordapp.com/attachments/173967012123377664/226089036706611200/latest.png",
+                "http://d.ibtimes.co.uk/en/full/337429/michael-winner.jpg"]
+        return await self.bot.say(randchoice(winner))
+        
+    @commands.command()
+    async def loser(self):
+        """I'm a loser baby, so why don't you kill me?"""
+        await self.bot.say("https://cdn.discordapp.com/attachments/173967012123377664/226095352338579467/037.png")
+
+    @commands.command()
+    async def butthurt(self):
+        """Do you want a cushion to sit on?"""
+        await self.bot.say("https://cdn.discordapp.com/attachments/205815814316752897/226095936370114561/7600a831b4089d435e6410a8199f1f2e.png")
 
 def setup(bot):
     bot.add_cog(randimages(bot))

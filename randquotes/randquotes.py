@@ -118,7 +118,11 @@ class randquotes:
                    "Bubsy, the only game that makes you want to play MN9",
                    "I'd rather spend a millenium playing MN9 than an hour playing Bubsy",
                    "I deleted this game because I'd rather have nothing.",
-                   "Expect your delivery time to be 3 years, that'll be 4 million dollars."
+                   "Expect your delivery time to be 3 years, that'll be 4 million dollars.",
+                   "https://scontent.xx.fbcdn.net/v/t1.0-9/14322309_1220766991297729_4294358163529659816_n.jpg?oh=50bf5f6fa73d5631e7305da8ba51199f&oe=587855B9",
+                   "Mighty No. $9",
+                   "Mighty No. 99 cents",
+                   "Beck's got 99 problems and his game is one."
                    ]
             return await self.bot.say(randchoice(mn9))
 
@@ -177,7 +181,10 @@ class randquotes:
         badjoke = ["```What chatting client let's you go to other worlds? No man's Skype```\n-GigaLem",
                 "```What do you call a tuckered out dragon? Crashed Lilac.```\n-GigaLem",
                 "```Sash: How do the hell do I dodge bullets?!\nSpade: When the time comes, you won't need to.\nSash: …have you been watching 'The Matrix' again?```\n-RedScarf",
-                "```The Good, The Bad, And The Ugly & Knuckles```\n-RedScarf"
+                "```The Good, The Bad, And The Ugly & Knuckles```\n-RedScarf",
+                "```What happens when Sam makes her own faction? you get Sam's Club```\n-GigaLem",
+                "```why wasn't anyone worried about the junkyard burglary last night?  Because all the thieves did was jack shit```\n-GigaLem",
+                "```did you hear about the psychopathic midget that escaped from jail? He's a small medium at large```\n-GigaLem"
                 ]
         await self.bot.say(randchoice(badjoke)) 
         
@@ -230,7 +237,9 @@ class randquotes:
                   "```If it isn't Sash Lilac I'm not c*mming.```\n-Sonic",
                   "```look, I can't ass, okay?```\n-Sonic",
                   "```and no, it doesnt have a usb port i can stick my dick into, so dont even make that joke```\n-Sonic",
-                  "https://cdn.discordapp.com/attachments/172098189388808193/222172716151603204/3.jpg"
+                  "https://cdn.discordapp.com/attachments/172098189388808193/222172716151603204/3.jpg",
+                  "```hmmm.. what about 'Bitchonary'?```\n-Sonic",
+                  "https://pbs.twimg.com/media/CsKrva4WcAABH7m.jpg"
                   ]
         await self.bot.say(randchoice(sonicu)) 
         
@@ -258,6 +267,8 @@ class randquotes:
                 "```Bingo dies of young age.```\n-Plom510",
                 "```What if I take this cow to a strip club?```\n-Plom510",
                 "```I never knew she was a guy``` ~Alex Rivero, talking about the first time he met his girlfriend Sam.",
+                "```No thanks```\n-Plom510 in response to Fuck 'X'",
+                "```five nights at crazy grandma stalking me at night```\n-Plom510"
                 ]
         await self.bot.say(randchoice(plom)) 
         
@@ -295,7 +306,8 @@ class randquotes:
                 "https://www.youtube.com/watch?v=P7Bl8us5ngk",
                 "https://www.youtube.com/watch?v=BpumxLulY7M",
                 "https://www.youtube.com/watch?v=r8MjZk_Dw3s",
-                "http://24.media.tumblr.com/3f98895ff432cbec39c1052462f64bec/tumblr_n510iaXH771sk0enuo1_500.gif"
+                "http://24.media.tumblr.com/3f98895ff432cbec39c1052462f64bec/tumblr_n510iaXH771sk0enuo1_500.gif",
+                "https://www.youtube.com/watch?v=LFFvJaMhgDg"
                 ]
         await self.bot.say(randchoice(jtron)) 
 
@@ -474,6 +486,7 @@ class randquotes:
         "```HIITO! ZEARU!```\n-Minha",
         "```but 2 da hed```\n-Minha",
         "```WHY IS IT ALWAYS BUSES FOR FUCK'S SAKE```\n-Minha"
+        "```My cravings have nothing to do with reality!```\n-Minha"
         ]
         await self.bot.say(randchoice(minha))
         
@@ -535,7 +548,9 @@ class randquotes:
               "```You can suck my brick```\n-GigaLem",
               "https://cdn.discordapp.com/attachments/219633993522348032/222174075475197953/unknown.png",
               "https://cdn.discordapp.com/attachments/192833044049166337/222916128282902528/FP_Dude.png",
-              "https://cdn.discordapp.com/attachments/173967012123377664/224620968931229696/2016-09-11_02.55.58.png"
+              "https://cdn.discordapp.com/attachments/173967012123377664/224620968931229696/2016-09-11_02.55.58.png",
+              "```Love is what?```\n-GigaLem",
+              "```btw fuck fascination maxx```\n-GigaLem"
               ]
         await self.bot.say(randchoice(giga))
 
@@ -544,6 +559,18 @@ class randquotes:
         """GOTTAGOFAST"""
         sonic = ["***YOU'RE TOO SLOW!***","Let's do it to it!","Hands off my chilli dogs!","Way past cool!","Catch you later, Eggman!"]
         await self.bot.say(randchoice(sonic))
+
+    @commands.command()
+    async def redquotes(self):
+        """He's so cool he named himself after a guild of ninja assassins!"""
+        redquotes = ["```now i'm just scrolling down to see if there's someone who thinks a non-downloadable guide is a good idea, but i haven't seen her name yet```\n-RedScarfUK"]
+        await self.bot.say(randchoice(redquotes))
+
+    @commands.command()
+    async def insult(self):
+        """Sir, you're a smrrrrrr heeeeee!"""
+        insult = ["https://www.youtube.com/watch?v=NPTIUxbgIBE"]
+        await self.bot.say(randchoice(insult))
 
 def setup(bot):
     bot.add_cog(randquotes(bot))
