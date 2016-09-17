@@ -65,7 +65,9 @@ class randquotes:
                "```too much water not enough Donald Trump looking pokemon```\n-IGN",
                "```The definitive example of the genre 2/10```\n-IGN",
                "```It's good except that it's sonic 0/10```\n-IGN",
-               "`> Sonic was always bad`\n`> Sonic CD is one of our top 100 games`\n-IGN"
+               "`> Sonic was always bad`\n`> Sonic CD is one of our top 100 games`\n-IGN",
+               "```REMOVE ALL WATER```\n-IGN",
+               "```splatoon is awesome -no team speak- splatoon sucks```\n-IGN"
                ]
         await self.bot.say(randchoice(ign))
 
@@ -563,7 +565,8 @@ class randquotes:
     @commands.command()
     async def redquotes(self):
         """He's so cool he named himself after a guild of ninja assassins!"""
-        redquotes = ["```now i'm just scrolling down to see if there's someone who thinks a non-downloadable guide is a good idea, but i haven't seen her name yet```\n-RedScarfUK"]
+        redquotes = ["```now i'm just scrolling down to see if there's someone who thinks a non-downloadable guide is a good idea, but i haven't seen her name yet```\n-RedScarfUK",
+                    "https://cdn.discordapp.com/attachments/205815814316752897/226806382958084096/unknown.png"]
         await self.bot.say(randchoice(redquotes))
 
     @commands.command()

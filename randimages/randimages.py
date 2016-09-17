@@ -1455,5 +1455,10 @@ class randimages:
         """Do you want a cushion to sit on?"""
         await self.bot.say("https://cdn.discordapp.com/attachments/205815814316752897/226095936370114561/7600a831b4089d435e6410a8199f1f2e.png")
 
+    @commands.command()
+    async def misdirection(self):
+        """Do you want a cushion to sit on?"""
+        await self.bot.say("https://cdn.discordapp.com/attachments/196051622055378953/226802142143447040/IMG_1087.PNG")
+
 def setup(bot):
     bot.add_cog(randimages(bot))
