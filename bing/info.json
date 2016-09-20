@@ -1,6 +1,7 @@
  { 
-     "AUTHOR" : "PookaMustard", 
-     "DESCRIPTION" : "Search Bing, a front-end for py-bing-search made for Red/Discord", 
-     "DISABLED" : false, 
-     "NAME" : "Bing" 
+    "AUTHOR" : "PookaMustard",
+    "INSTALL_MSG" : "Admin cog installed.",
+    "NAME" : "Admin",
+    "SHORT" : "Refactored admin cog.",
+    "DESCRIPTION" : "Refactored admin cog. Credits to original owner."
 } 
