@@ -14,12 +14,9 @@ class nineball:
              "Not a chance in hell!", "I refuse.", "The odds of that happening are...zero!", "The truth of the matter, is no.", "Lambdadelta certainly says no."]
 
     @commands.command(name="9", aliases=["9ball"])
-    async def _9ball(self, *question):
+    async def _9ball(self, *, question):
         """Asks Beatrice's 9-Ball a question
-
-        Question must end with a question mark.
-        """
-        question = " ".join(question)
+        Question must end with a question mark."""
         if question.endswith("?") and question != "?":
             return await self.bot.say("`" + randchoice(self.ball) + "`")
         else:
