@@ -51,7 +51,7 @@ class randimages:
                "https://cdn.discordapp.com/attachments/173967012123377664/196800747067670529/unknown.png",
                "https://cdn.discordapp.com/attachments/173967012123377664/196800992803684353/mellorne_wallpaper.png",
                "https://cdn.discordapp.com/attachments/173967012123377664/196801076781907969/OMEGANOTSERPENTINE.png",
-               "This is my Sonic OC Zonic. He haz tregic bakstory. His mum an dad wer kil in war so he tri to b kil on railroad tracks but doctors sewed leg on head cuz they coudnt find body. He listens to MCR and One Direction. He cri evryday for wut happen to him that day."]
+               "```This is my Sonic OC Zonic. He haz tregic bakstory. His mum an dad wer kil in war so he tri to b kil on railroad tracks but doctors sewed leg on head cuz they coudnt find body. He listens to MCR and One Direction. He cri evryday for wut happen to him that day.```"]
         return await self.bot.say(randchoice(zonic))
         
     @commands.command()
