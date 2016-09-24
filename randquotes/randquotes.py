@@ -271,7 +271,10 @@ class randquotes:
                 "```What if I take this cow to a strip club?```\n-Plom510",
                 "```I never knew she was a guy``` ~Alex Rivero, talking about the first time he met his girlfriend Sam.",
                 "```No thanks```\n-Plom510 in response to Fuck 'X'",
-                "```five nights at crazy grandma stalking me at night```\n-Plom510"
+                "```five nights at crazy grandma stalking me at night```\n-Plom510",
+                "```So I changed my mother's refresh rate to 75 Hertz```\n-Plom510",
+                "```I'm gonna stereo quick!```\n-Plom510",
+                "```see you in my next game```\n-Plom510"
                 ]
         await self.bot.say(randchoice(plom)) 
         
@@ -553,7 +556,14 @@ class randquotes:
               "https://cdn.discordapp.com/attachments/192833044049166337/222916128282902528/FP_Dude.png",
               "https://cdn.discordapp.com/attachments/173967012123377664/224620968931229696/2016-09-11_02.55.58.png",
               "```Love is what?```\n-GigaLem",
-              "```btw fuck fascination maxx```\n-GigaLem"
+              "```btw fuck fascination maxx```\n-GigaLem",
+              "```Discount voice action!```\n-GigaLem",
+              "```they're lucky that nipples mode turned off```\n-GigaLem",
+              "```we're gonna knock out two stones with one bird...wait```\n-GigaLem",
+              "https://cdn.discordapp.com/attachments/173967012123377664/227702671468003328/SkypePhoto_20160920_020755.jpg"
+              "```I thought you were gonna put ketchup in the jello```\n-GigaLem",
+              "```There are many ways to trigger gravity, one of them being the mere mention of lewd milla -shot in the head by graviy-```\n-GigaLem",
+              "```bupper must poop that snoot.....that sounded better in my head```\n-GigaLem"
               ]
         await self.bot.say(randchoice(giga))
 
