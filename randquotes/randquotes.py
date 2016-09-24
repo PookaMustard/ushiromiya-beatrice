@@ -198,7 +198,7 @@ class randquotes:
         """Presented by Impossible Realms!"""
         irq = ["```HOW ABOUT AN AU WHERE SHANTAE IS A MALE.```\nMens Rights Activists complain about how she is an objectification of men.",
                 "```I guess that's the only one then...```\n-Impossible Realms",
-                "```...oh, and every time he says "That's just a Theory, A GAME THEORY" at the end, it needs to be followed by a 30 minute loop of Mogolovonio.```\n-Impossible Realms"]
+                "```...oh, and every time he says \"That's just a Theory, A GAME THEORY\" at the end, it needs to be followed by a 30 minute loop of Mogolovonio.```\n-Impossible Realms"]
         await self.bot.say(randchoice(irq)) 
         
     @commands.command()
