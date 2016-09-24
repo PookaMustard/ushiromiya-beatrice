@@ -148,7 +148,7 @@ class randimages:
                "https://cdn.discordapp.com/attachments/174342349458112512/201461860212408341/OvO-faced_Typhlosion.png",
                "https://cdn.discordapp.com/attachments/174342349458112512/202956906346708992/ovom.png",
                "=)\nhttps://cdn.discordapp.com/attachments/210904321720713217/228231840161464321/IMG_0401.JPG",
-               "https://cdn.discordapp.com/attachments/225788942916517890/227603987841417216/IMG_0499.PNG"]
+               "https://cdn.discordapp.com/attachments/225788942916517890/227603987841417216/IMG_0499.PNG",
                "https://cdn.discordapp.com/attachments/203898055232192512/229325805971308544/unknown.png"]
         return await self.bot.say(randchoice(ovo))
         
