@@ -57,7 +57,9 @@ class randimages:
     async def nope(self):
         """No. Just no."""
         nope = ["https://cdn.discordapp.com/attachments/173967012123377664/192449277249716226/Ck8hjiJUYAA9bKl.png",
-               "https://cdn.discordapp.com/attachments/173967012123377664/192450306016018433/ExtremeNope.gif"]
+               "https://cdn.discordapp.com/attachments/173967012123377664/192450306016018433/ExtremeNope.gif",
+               "http://i1.kym-cdn.com/photos/images/original/000/395/708/630.png",
+               "https://cdn.meme.am/instances/65132365.jpg"]
         return await self.bot.say(randchoice(nope))
         
     @commands.command()
@@ -143,7 +145,8 @@ class randimages:
                "https://cdn.discordapp.com/attachments/173967012123377664/190607662881308683/Bingo_in_FP_CS_Icon_OvO.png",
                "https://cdn.discordapp.com/attachments/173967012123377664/190607776324517890/BstayR_OvO.png",
                "https://cdn.discordapp.com/attachments/174342349458112512/201461860212408341/OvO-faced_Typhlosion.png",
-               "https://cdn.discordapp.com/attachments/174342349458112512/202956906346708992/ovom.png"]
+               "https://cdn.discordapp.com/attachments/174342349458112512/202956906346708992/ovom.png",
+               "=)\nhttps://cdn.discordapp.com/attachments/210904321720713217/228231840161464321/IMG_0401.JPG"]
         return await self.bot.say(randchoice(ovo))
         
     @commands.command()
@@ -619,7 +622,7 @@ class randimages:
         await self.bot.say('https://cdn.discordapp.com/attachments/173967012123377664/212743476285145098/Screenshot_291.png')
         
     @commands.command()
-    async def power(self):
+    async def ihavethepower(self):
         """You have the power!!!!"""
         await self.bot.say('http://s2.quickmeme.com/img/70/7028dd710bc900a57fb7068e7c1f968ce67db1ff908a709ae53ac888bf245ce7.jpg')
         
@@ -1457,8 +1460,45 @@ class randimages:
 
     @commands.command()
     async def misdirection(self):
-        """Do you want a cushion to sit on?"""
+        """The face of being struck by a deadly attack."""
         await self.bot.say("https://cdn.discordapp.com/attachments/196051622055378953/226802142143447040/IMG_1087.PNG")
+        
+    @commands.command()
+    async def noot(self):
+        """Noot noot EXTREME!"""
+        await self.bot.say("http://i0.kym-cdn.com/photos/images/original/001/170/325/910.gif")
+        
+    @commands.command()
+    async def cockblocked(self):
+        """Blocking Crocks"""
+        await self.bot.say("https://cdn.discordapp.com/attachments/172098189388808193/229014327208837120/Crock_Blocked.jpg")
+        
+    @commands.command()
+    async def moonrunes(self):
+        """Konnichi wa! Did you understand this?"""
+        await self.bot.say("http://orig13.deviantart.net/313e/f/2014/212/2/d/moonspeak_by_paulgq-d7t5kur.png")
+        
+    @commands.command()
+    async def sweet(self):
+        """Really sweet!"""
+        await self.bot.say("https://cdn.discordapp.com/attachments/205815814316752897/228612028451913729/2Q.png")
+        
+    @commands.command()
+    async def power(self):
+        """POWERRRRRRRRRRRR SPEED"""
+        await self.bot.say("https://cdn.discordapp.com/attachments/205815814316752897/228611354632650752/2Q.png")
+        
+    @commands.command()
+    async def pikachu(self):
+        """PIKACHUUUUUUUUUUUUUUUUUUUUU"""
+        pikachu = ["https://cdn.discordapp.com/attachments/172098189388808193/227975719546781696/lmao_2.gif",
+                   "http://i3.kym-cdn.com/photos/images/newsfeed/001/172/937/130.gif"]
+        await self.bot.say(randchoice(pikachu))
+        
+    @commands.command()
+    async def sleep(self):
+        """Are you really tired?"""
+        await self.bot.say("https://s-media-cache-ak0.pinimg.com/236x/2e/2d/00/2e2d006790ff573e1e5cab5c14ce74bb.jpg")
 
 def setup(bot):
     bot.add_cog(randimages(bot))
