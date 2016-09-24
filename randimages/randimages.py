@@ -1534,6 +1534,12 @@ class randimages:
     async def spellchecker(self):
         """Better use it before you get shot!"""
         await self.bot.say("https://cdn.discordapp.com/attachments/173967012123377664/227181413127028737/1audmk.jpg")
+        
+    @commands.command()
+    async def easymode(self):
+        """EEEH? EASY MODE?"""
+        easymode = ["https://cdn.discordapp.com/attachments/196051622055378953/228667167506300938/undertale_mode.png"]
+        await self.bot.say(randchoice(easymode))
 
 def setup(bot):
     bot.add_cog(randimages(bot))
