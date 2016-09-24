@@ -146,7 +146,8 @@ class randimages:
                "https://cdn.discordapp.com/attachments/173967012123377664/190607776324517890/BstayR_OvO.png",
                "https://cdn.discordapp.com/attachments/174342349458112512/201461860212408341/OvO-faced_Typhlosion.png",
                "https://cdn.discordapp.com/attachments/174342349458112512/202956906346708992/ovom.png",
-               "=)\nhttps://cdn.discordapp.com/attachments/210904321720713217/228231840161464321/IMG_0401.JPG"]
+               "=)\nhttps://cdn.discordapp.com/attachments/210904321720713217/228231840161464321/IMG_0401.JPG",
+               "https://cdn.discordapp.com/attachments/225788942916517890/227603987841417216/IMG_0499.PNG"]
         return await self.bot.say(randchoice(ovo))
         
     @commands.command()
@@ -1496,9 +1497,42 @@ class randimages:
         await self.bot.say(randchoice(pikachu))
         
     @commands.command()
+    async def sonicmania(self):
+        """Mania?"""
+        smania = ["http://pre13.deviantart.net/77af/th/pre/f/2016/220/a/4/sonimani_poro_by_poroisasaki-dad3k2x.png",
+                   "https://www.youtube.com/watch?v=xtqgkPCEIP8"]
+        await self.bot.say(randchoice(smania))
+        
+    @commands.command()
     async def sleep(self):
         """Are you really tired?"""
         await self.bot.say("https://s-media-cache-ak0.pinimg.com/236x/2e/2d/00/2e2d006790ff573e1e5cab5c14ce74bb.jpg")
+        
+    @commands.command()
+    async def cringefest(self):
+        """Not safe for your sanity!"""
+        cringe = ["https://cdn.discordapp.com/attachments/173966944351944704/227638265719685121/There_it_exists_now.png"]
+        await self.bot.say(randchoice(cringe))
+
+    @commands.command()
+    async def megaman(self):
+        """Why is he a blue 'bomber'?"""
+        await self.bot.say("http://fc02.deviantart.net/fs71/f/2014/098/f/4/ssb_mega_man_final_smash_gif_by_kiradaidohji-d7dpvau.gif")
+        
+    @commands.command()
+    async def tallgeese(self):
+        """The cure for..."""
+        await self.bot.say("https://cdn.discordapp.com/attachments/205815814316752897/227631619429761024/tallgeese.gif")
+        
+    @commands.command()
+    async def trumpcard(self):
+        """I'll activate my trump card!"""
+        await self.bot.say("https://cdn.discordapp.com/attachments/171613498025967616/227302745135251456/DonaldTrump1.png")
+        
+    @commands.command()
+    async def spellchecker(self):
+        """Better use it before you get shot!"""
+        await self.bot.say("https://cdn.discordapp.com/attachments/173967012123377664/227181413127028737/1audmk.jpg")
 
 def setup(bot):
     bot.add_cog(randimages(bot))
