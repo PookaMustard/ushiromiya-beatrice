@@ -319,7 +319,8 @@ class randquotes:
                 "https://www.youtube.com/watch?v=BpumxLulY7M",
                 "https://www.youtube.com/watch?v=r8MjZk_Dw3s",
                 "http://24.media.tumblr.com/3f98895ff432cbec39c1052462f64bec/tumblr_n510iaXH771sk0enuo1_500.gif",
-                "https://www.youtube.com/watch?v=LFFvJaMhgDg"
+                "https://www.youtube.com/watch?v=LFFvJaMhgDg",
+                "https://images-1.discordapp.net/.eJwlxlEKgCAMANC7eADXNGp2GzGxoJy49RXdPSLez7vN1Q-zmE21yQKw7pK4r1aUeyzZFuZy5Nh2sYlPiKoxbWeuKoAUMBDiMIxuJCLvwDmaEMnPNAf_1UPln221mOcFK5AjSQ.Ee0aK-SOd-sBYoYFrN4tZnnMLzc"
                 ]
         await self.bot.say(randchoice(jtron)) 
 
