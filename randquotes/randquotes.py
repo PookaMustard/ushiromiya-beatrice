@@ -387,7 +387,7 @@ class randquotes:
         redrants = ["```well, that's what happens when blah blah blah battleaxe blah blah blah broken promises blah blah blah abuse of power blah blah blah```",
                     "that's not brevon, that's a canned extra from A Bug's Life",
                     "Boom!Sonic: B-\nPlayer: You say 'Bounce Pad' one more time, I'll reach into the screen and tear out all your spines one by one!"]
-        await self.bot.say(")
+        await self.bot.say(randchoice(redrants))
 
     @commands.command()
     async def gametheory(self):
