@@ -182,6 +182,16 @@ class randvideos:
     async def smash4(self):
         """Get smashed."""
         await self.bot.say("https://www.youtube.com/watch?v=RDgUFMf7V0Y")
+        
+    @commands.command()
+    async def duaneside(self):
+        """I don't know."""
+        await self.bot.say("https://www.youtube.com/watch?v=hXGx4CJ1KC0")
+        
+    @commands.command()
+    async def giantrock(self):
+        """Giant rock?"""
+        await self.bot.say("https://www.youtube.com/watch?v=gmqo2eD3wz8")
 
 def setup(bot):
     bot.add_cog(randvideos(bot))
