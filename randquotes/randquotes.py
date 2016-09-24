@@ -384,9 +384,9 @@ class randquotes:
     @commands.command()
     async def redrant(self):
         """Salt, RedScarf-style"""
-        redrants = ["```well, that's what happens when blah blah blah battleaxe blah blah blah broken promises blah blah blah abuse of power blah blah blah```",
-                    "that's not brevon, that's a canned extra from A Bug's Life",
-                    "Boom!Sonic: B-\nPlayer: You say 'Bounce Pad' one more time, I'll reach into the screen and tear out all your spines one by one!"]
+        redrants = ["```well, that's what happens when blah blah blah battleaxe blah blah blah broken promises blah blah blah abuse of power blah blah blah```\n-RedScarf",
+                    "```that's not brevon, that's a canned extra from A Bug's Life```\n-RedScarf",
+                    "```Boom!Sonic: B-\nPlayer: You say 'Bounce Pad' one more time, I'll reach into the screen and tear out all your spines one by one!```\n-RedScarf"]
         await self.bot.say(randchoice(redrants))
 
     @commands.command()
