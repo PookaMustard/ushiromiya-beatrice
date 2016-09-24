@@ -124,7 +124,9 @@ class randquotes:
                    "https://scontent.xx.fbcdn.net/v/t1.0-9/14322309_1220766991297729_4294358163529659816_n.jpg?oh=50bf5f6fa73d5631e7305da8ba51199f&oe=587855B9",
                    "Mighty No. $9",
                    "Mighty No. 99 cents",
-                   "Beck's got 99 problems and his game is one."
+                   "Beck's got 99 problems and his game is one.",
+                   "Here is the coding to the explosions: 3.1415926535 8979323846 2643383279 5028841971 6939937510 5820974944 5923078164 0628620899 8628034825 3421170679",
+                   "I got out pizza dough, sauce and cheese, then I put it in the oven, I forgot about that for three years until I opened the oven and out came Mighty No. 9"
                    ]
             return await self.bot.say(randchoice(mn9))
 
@@ -186,7 +188,8 @@ class randquotes:
                 "```The Good, The Bad, And The Ugly & Knuckles```\n-RedScarf",
                 "```What happens when Sam makes her own faction? you get Sam's Club```\n-GigaLem",
                 "```why wasn't anyone worried about the junkyard burglary last night?  Because all the thieves did was jack shit```\n-GigaLem",
-                "```did you hear about the psychopathic midget that escaped from jail? He's a small medium at large```\n-GigaLem"
+                "```did you hear about the psychopathic midget that escaped from jail? He's a small medium at large```\n-GigaLem",
+                "```What happens if Avalice gets roboticized? Freedom Planet Robobot```\n-GigaLem"
                 ]
         await self.bot.say(randchoice(badjoke)) 
         
@@ -194,7 +197,8 @@ class randquotes:
     async def irquotes(self):
         """Presented by Impossible Realms!"""
         irq = ["```HOW ABOUT AN AU WHERE SHANTAE IS A MALE.```\nMens Rights Activists complain about how she is an objectification of men.",
-                "```I guess that's the only one then...```\n-Impossible Realms"]
+                "```I guess that's the only one then...```\n-Impossible Realms",
+                "```...oh, and every time he says "That's just a Theory, A GAME THEORY" at the end, it needs to be followed by a 30 minute loop of Mogolovonio.```\n-Impossible Realms"]
         await self.bot.say(randchoice(irq)) 
         
     @commands.command()
@@ -242,7 +246,9 @@ class randquotes:
                   "```and no, it doesnt have a usb port i can stick my dick into, so dont even make that joke```\n-Sonic",
                   "https://cdn.discordapp.com/attachments/172098189388808193/222172716151603204/3.jpg",
                   "```hmmm.. what about 'Bitchonary'?```\n-Sonic",
-                  "https://pbs.twimg.com/media/CsKrva4WcAABH7m.jpg"
+                  "https://pbs.twimg.com/media/CsKrva4WcAABH7m.jpg",
+                  "```How about glueing your dick to a girl's vagina?```\n-Sonic",
+                  "```his 'video making' is the equivelent of fucking the usb drive on your laptop```\n-Sonic"
                   ]
         await self.bot.say(randchoice(sonicu)) 
         
@@ -378,7 +384,10 @@ class randquotes:
     @commands.command()
     async def redrant(self):
         """Salt, RedScarf-style"""
-        await self.bot.say("```well, that's what happens when blah blah blah battleaxe blah blah blah broken promises blah blah blah abuse of power blah blah blah```")
+        redrants = ["```well, that's what happens when blah blah blah battleaxe blah blah blah broken promises blah blah blah abuse of power blah blah blah```",
+                    "that's not brevon, that's a canned extra from A Bug's Life",
+                    "Boom!Sonic: B-\nPlayer: You say 'Bounce Pad' one more time, I'll reach into the screen and tear out all your spines one by one!"]
+        await self.bot.say(")
 
     @commands.command()
     async def gametheory(self):
@@ -492,7 +501,8 @@ class randquotes:
         "```HIITO! ZEARU!```\n-Minha",
         "```but 2 da hed```\n-Minha",
         "```WHY IS IT ALWAYS BUSES FOR FUCK'S SAKE```\n-Minha"
-        "```My cravings have nothing to do with reality!```\n-Minha"
+        "```My cravings have nothing to do with reality!```\n-Minha",
+        "```I'm in ur base stealin' ur waifus```\n-Minha"
         ]
         await self.bot.say(randchoice(minha))
         
