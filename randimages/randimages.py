@@ -850,7 +850,11 @@ class randimages:
     @commands.command()
     async def puppy(self):
         """Mood Milla"""
-        puppy = ["http://i.imgur.com/mnI1tkU.png", "https://cdn.discordapp.com/attachments/203898055232192512/204015895519952896/unknown.png", "https://cdn.discordapp.com/attachments/174342349458112512/207727604671840257/Milla_Full-body_-_v1.0.png", "https://cdn.discordapp.com/attachments/192817084789424128/220363274774904832/milla_i_dont_know.png"]
+        puppy = ["http://i.imgur.com/mnI1tkU.png",
+                "https://cdn.discordapp.com/attachments/203898055232192512/204015895519952896/unknown.png",
+                "https://cdn.discordapp.com/attachments/174342349458112512/207727604671840257/Milla_Full-body_-_v1.0.png",
+                "https://cdn.discordapp.com/attachments/192817084789424128/220363274774904832/milla_i_dont_know.png",
+                "https://art.risingslash.net/_images/1cd531178f9ccc250513c74d4d1dcc4d"]
         await self.bot.say(randchoice(puppy))
         
     @commands.command()
@@ -1541,6 +1545,36 @@ class randimages:
         """EEEH? EASY MODE?"""
         easymode = ["https://cdn.discordapp.com/attachments/196051622055378953/228667167506300938/undertale_mode.png"]
         await self.bot.say(randchoice(easymode))
+
+    @commands.command()
+    async def nfkrz(self):
+        """Some dude"""
+        nfkrz = ["http://i0.kym-cdn.com/entries/icons/original/000/020/771/nfkrz.jpg"]
+        await self.bot.say(randchoice(nfkrz))
+
+    @commands.command()
+    async def touhoujack(self):
+        """No-one is safe…"""
+        easymode = ["http://67.media.tumblr.com/tumblr_nabfy2SumS1r7hwaho1_r1_1408053809_cover.jpg"]
+        await self.bot.say(randchoice(easymode))
+
+    @commands.command()
+    async def flynn(self):
+        """Cool under pressure"""
+        flynn = ["http://i.imgur.com/fo9qF4t.gif"]
+        await self.bot.say(randchoice(flynn))
+
+    @commands.command()
+    async def understatement(self):
+        """Because there just aren't enough memes yet, apparently"""
+        understatement = ["https://cdn.discordapp.com/attachments/205815814316752897/229716017826365441/ididanotherthing.png"]
+        await self.bot.say(randchoice(understatement))
+
+    @commands.command()
+    async def nintendont(self):
+        """Sega does"""
+        nintendont = ["https://cdn.discordapp.com/attachments/130541134760902656/229932415861129216/unknown.png"]
+        await self.bot.say(randchoice(nintendont))
 
 def setup(bot):
     bot.add_cog(randimages(bot))

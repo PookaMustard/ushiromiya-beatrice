@@ -126,8 +126,8 @@ class randquotes:
                    "Mighty No. 99 cents",
                    "Beck's got 99 problems and his game is one.",
                    "Here is the coding to the explosions: 3.1415926535 8979323846 2643383279 5028841971 6939937510 5820974944 5923078164 0628620899 8628034825 3421170679",
-                   "I got out pizza dough, sauce and cheese, then I put it in the oven, I forgot about that for three years until I opened the oven and out came Mighty No. 9"
-                   ]
+                   "I got out pizza dough, sauce and cheese, then I put it in the oven, I forgot about that for three years until I opened the oven and out came Mighty No. 9",
+                   "https://cdn.discordapp.com/attachments/219633993522348032/229714836118831105/Screen-Shot-2015-07-14-at-4.png"]
             return await self.bot.say(randchoice(mn9))
 
     @commands.command()
@@ -596,6 +596,14 @@ class randquotes:
         """Sir, you're a smrrrrrr heeeeee!"""
         insult = ["https://www.youtube.com/watch?v=NPTIUxbgIBE"]
         await self.bot.say(randchoice(insult))
+
+    @commands.command()
+    async def sbquotes(self):
+        """Who lives in a pineapple under sea? Someone who is truly insane."""
+        sbquotes = ["Plankton: F is for fire that burns down the whole town! U's for Uranium...BOMBS! N is for no survivors WHEN YOU-",
+                    "remember licking doorknobs is illegal on other planets",
+                    "who put you on the planet?"]
+        await self.bot.say(randchoice(sbquotes))
 
 def setup(bot):
     bot.add_cog(randquotes(bot))
