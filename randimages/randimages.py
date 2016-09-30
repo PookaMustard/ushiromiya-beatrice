@@ -149,7 +149,11 @@ class randimages:
                "https://cdn.discordapp.com/attachments/174342349458112512/202956906346708992/ovom.png",
                "=)\nhttps://cdn.discordapp.com/attachments/210904321720713217/228231840161464321/IMG_0401.JPG",
                "https://cdn.discordapp.com/attachments/225788942916517890/227603987841417216/IMG_0499.PNG",
-               "https://cdn.discordapp.com/attachments/203898055232192512/229325805971308544/unknown.png"]
+               "https://cdn.discordapp.com/attachments/203898055232192512/229325805971308544/unknown.png",
+               "https://cdn.discordapp.com/attachments/158028863513821186/230564256938983424/unknown.png",
+               "https://cdn.discordapp.com/attachments/225788942916517890/231488839812644865/Alexia_OvO.png",
+               "https://cdn.discordapp.com/attachments/225788942916517890/231489195934220290/Shelby_OvO.png"
+               ]
         return await self.bot.say(randchoice(ovo))
         
     @commands.command()
@@ -464,7 +468,8 @@ class randimages:
         """IT'S NO USE!"""
         trig = ["https://cdn.discordapp.com/attachments/173967012123377664/209860253033037825/chompistriggered.gif",
                 "https://cdn.discordapp.com/attachments/173967012123377664/196825883024031747/2c4.png",
-                "https://pbs.twimg.com/media/CpCiJHhW8AApLCL.jpg"]
+                "https://pbs.twimg.com/media/CpCiJHhW8AApLCL.jpg",
+                "https://i.ytimg.com/vi/0Ny-nC3LBWk/hqdefault.jpg"]
         await self.bot.say(randchoice(trig))
         
     @commands.command()
@@ -1549,7 +1554,13 @@ class randimages:
     @commands.command()
     async def nfkrz(self):
         """Some dude"""
-        nfkrz = ["http://i0.kym-cdn.com/entries/icons/original/000/020/771/nfkrz.jpg"]
+        nfkrz = ["http://i0.kym-cdn.com/entries/icons/original/000/020/771/nfkrz.jpg",
+                 "https://ih0.redbubble.net/image.218911146.3367/drawstring_bag,x1404-bg,f8f8f8.u1.jpg",
+                 "https://img.ifcdn.com/images/8dd7409a1446ed08a5db3ea4c974451b4cd5deae3a8fc8e171ab88253d9708c4_1.jpg",
+                 "https://img.ifcdn.com/images/74667adf5461f6ffd345efb63299fc945319463421016cf4207474edb496d5dc_1.jpg",
+                 "https://i.ytimg.com/vi/w8hnS3VE-Ds/maxresdefault.jpg",
+                 "http://i1.kym-cdn.com/photos/images/facebook/001/141/529/a61.png"
+                ]
         await self.bot.say(randchoice(nfkrz))
 
     @commands.command()
