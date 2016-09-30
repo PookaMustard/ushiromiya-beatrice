@@ -200,7 +200,7 @@ class randimages:
                      "https://cdn.discordapp.com/attachments/173967012123377664/200830713556238347/unknown.png",
                      "https://cdn.discordapp.com/attachments/173967012123377664/200831279153938434/unknown.png",
                      "https://cdn.discordapp.com/attachments/173967012123377664/200831638467248129/unknown.png",
-                     "http://orig00.deviantart.net/adb6/f/2016/155/0/2/jkidwng_by_goldenaura2015-da519dl.png\nGreetings! I am Chara. What, you expected Frisk? He sold his soul to me. =)"]
+                     "http://imgur.com/download/DJGxtu7\nGreetings! I am Chara. What, you expected Frisk? He sold his soul to me. =)"]
         return await self.bot.say(randchoice(friskface))
         
     @commands.command(hidden=True)
@@ -1005,8 +1005,8 @@ class randimages:
         
     @commands.command()
     async def boobs(self):
-        """They're actually called 'breasts'."""
-        await self.bot.say("https://images-1.discordapp.net/eyJ1cmwiOiJodHRwczovL2Rpc2NvcmQuc3RvcmFnZS5nb29nbGVhcGlzLmNvbS9hdHRhY2htZW50cy8xOTYwNTE2MjIwNTUzNzg5NTMvMjA2OTYxMTQyODU2Mjg2MjA4L0lNR18wNzA3LkpQRyJ9.e3THm8veQKcypRtpQwDsBxMV-Xk.JPG")
+        """They're actually called 'breasts', by the way."""
+        await self.bot.say("http://imgur.com/download/zLYPDNR")
 
     @commands.command()
     async def panic(self):
@@ -1541,9 +1541,19 @@ class randimages:
         await self.bot.say("https://cdn.discordapp.com/attachments/171613498025967616/227302745135251456/DonaldTrump1.png")
         
     @commands.command()
+    async def pls(self):
+        """Please!"""
+        await self.bot.say("https://cdn.discordapp.com/attachments/196051622055378953/231141348302913537/13442152_251494178558832_2830693608439609956_n.jpg")
+        
+    @commands.command()
     async def spellchecker(self):
         """Better use it before you get shot!"""
         await self.bot.say("https://cdn.discordapp.com/attachments/173967012123377664/227181413127028737/1audmk.jpg")
+        
+    @commands.command()
+    async def ace(self):
+        """...of diamonds!"""
+        await self.bot.say("https://cdn.discordapp.com/attachments/205815814316752897/230804809723281409/Ace_of_Spade.png")
         
     @commands.command()
     async def easymode(self):
@@ -1559,7 +1569,8 @@ class randimages:
                  "https://img.ifcdn.com/images/8dd7409a1446ed08a5db3ea4c974451b4cd5deae3a8fc8e171ab88253d9708c4_1.jpg",
                  "https://img.ifcdn.com/images/74667adf5461f6ffd345efb63299fc945319463421016cf4207474edb496d5dc_1.jpg",
                  "https://i.ytimg.com/vi/w8hnS3VE-Ds/maxresdefault.jpg",
-                 "http://i1.kym-cdn.com/photos/images/facebook/001/141/529/a61.png"
+                 "http://i1.kym-cdn.com/photos/images/facebook/001/141/529/a61.png",
+                 "https://cdn.discordapp.com/attachments/225788942916517890/231204539578056704/nfkrz_star.png"
                 ]
         await self.bot.say(randchoice(nfkrz))
 
