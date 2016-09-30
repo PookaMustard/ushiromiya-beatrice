@@ -189,7 +189,8 @@ class randquotes:
                 "```What happens when Sam makes her own faction? you get Sam's Club```\n-GigaLem",
                 "```why wasn't anyone worried about the junkyard burglary last night?  Because all the thieves did was jack shit```\n-GigaLem",
                 "```did you hear about the psychopathic midget that escaped from jail? He's a small medium at large```\n-GigaLem",
-                "```What happens if Avalice gets roboticized? Freedom Planet Robobot```\n-GigaLem"
+                "```What happens if Avalice gets roboticized? Freedom Planet Robobot```\n-GigaLem",
+                "```how is Kamui so overpowered in smash? High fructose corrin syrup```\n-GigaLem"
                 ]
         await self.bot.say(randchoice(badjoke)) 
         
@@ -251,7 +252,16 @@ class randquotes:
                   "```his 'video making' is the equivelent of fucking the usb drive on your laptop```\n-Sonic"
                   ]
         await self.bot.say(randchoice(sonicu)) 
-        
+
+    @commands.command()
+    async def igb(self):
+        """Indie Game Battle quotes!"""
+        igb = ["```The best indie game fighter ever. If you disagree, you are probably an edgy dual handgun character with scars.```\n-Bas-Makes-Games",
+               "```A good game definitely not surrounded by drama.```\n-Bas-Makes-Games",
+               "```We have 5 upcoming new characters! Take a guess! Probably not Shantae, Shovel Knight or Quote.```\n-Bas-Makes-Games"
+              ]
+        await self.bot.say(randchoice(igb)) 
+                  
     @commands.command()
     async def pokefanquotes(self):
         """From Pokefan!"""
