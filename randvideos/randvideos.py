@@ -41,6 +41,11 @@ class randvideos:
     async def bass(self):
         """What's a TAS?"""
         await self.bot.say('https://youtu.be/sXQcplY1zZQ?t=3m9s')
+        
+    @commands.command()
+    async def wrench(self):
+        """Sky's favorite bird"""
+        await self.bot.say('https://www.youtube.com/watch?v=R142AD2we7c')
 
     @commands.command()
     async def godno(self):
