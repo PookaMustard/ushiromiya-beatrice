@@ -58,7 +58,7 @@ class randvideos:
         await self.bot.say('https://www.youtube.com/watch?v=umDr0mPuyQc')
         
     @commands.command()
-    async def gameover(self):
+    async def sonicgameover(self):
         """You died thrice to a Motobug? Seriously?"""
         await self.bot.say('https://www.youtube.com/watch?v=l_Uo0VJihCU')
         
