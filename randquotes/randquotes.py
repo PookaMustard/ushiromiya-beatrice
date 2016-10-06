@@ -194,7 +194,8 @@ class randquotes:
                 "```did you hear about the psychopathic midget that escaped from jail? He's a small medium at large```\n-GigaLem",
                 "```What happens if Avalice gets roboticized? Freedom Planet Robobot```\n-GigaLem",
                 "```how is Kamui so overpowered in smash? High fructose corrin syrup```\n-GigaLem",
-                "```The Copyright In The Woods```\n-Bas-Makes-Games"
+                "```The Copyright In The Woods```\n-Bas-Makes-Games",
+                "```Dracula actually took the first selfie, too bad he could never prove it```\n-GigaLem"
                 ]
         await self.bot.say(randchoice(badjoke)) 
         
