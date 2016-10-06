@@ -60,6 +60,7 @@ class randimages:
         nope = ["https://cdn.discordapp.com/attachments/173967012123377664/192449277249716226/Ck8hjiJUYAA9bKl.png",
                "https://cdn.discordapp.com/attachments/173967012123377664/192450306016018433/ExtremeNope.gif",
                "http://i1.kym-cdn.com/photos/images/original/000/395/708/630.png",
+               "http://i.imgur.com/vTTIoc6.gif",
                "https://cdn.meme.am/instances/65132365.jpg"]
         return await self.bot.say(randchoice(nope))
         
@@ -198,6 +199,7 @@ class randimages:
                      "https://cdn.discordapp.com/attachments/173967012123377664/200829527960715266/unknown.png",
                      "https://cdn.discordapp.com/attachments/173967012123377664/200830183924695042/unknown.png",
                      "https://cdn.discordapp.com/attachments/173967012123377664/200830713556238347/unknown.png",
+                     "https://cdn.discordapp.com/attachments/225788942916517890/231544812799524864/Technic_Frisk_Face.png",
                      "https://cdn.discordapp.com/attachments/173967012123377664/200831279153938434/unknown.png",
                      "https://cdn.discordapp.com/attachments/173967012123377664/200831638467248129/unknown.png",
                      "http://imgur.com/download/DJGxtu7\nGreetings! I am Chara. What, you expected Frisk? He sold his soul to me. =)"]
@@ -696,6 +698,41 @@ class randimages:
         await self.bot.say('http://imgur.com/HuoQG53')
         
     @commands.command()
+    async def pokerface(self):
+        """Your tension is about to lower."""
+        await self.bot.say('https://cdn.discordapp.com/attachments/196051622055378953/233266445671202816/unknown.png')
+        
+    @commands.command()
+    async def hammer(self):
+        """Your life ends thirty minutes from now."""
+        await self.bot.say('https://cdn.discordapp.com/attachments/196051622055378953/233321606124929024/unknown.png')
+        
+    @commands.command()
+    async def gameover(self):
+        """Another lun- *bloody explosion, game over music*"""
+        await self.bot.say('http://imgur.com/download/bYB80Cu')
+        
+    @commands.command()
+    async def wat(self):
+        """Huh"""
+        await self.bot.say('http://i.ytimg.com/vi/hEfa0C897H4/maxresdefault.jpg')
+        
+    @commands.command()
+    async def waa(self):
+        """It's time to cry"""
+        await self.bot.say('http://i.imgur.com/gJgoKdK.gifv')
+        
+    @commands.command()
+    async def gottam(self):
+        """Eyes are going to pop out hard"""
+        await self.bot.say('https://cdn.discordapp.com/attachments/228634072572887040/231191724561661966/Engie.png')
+        
+    @commands.command()
+    async def sadneptune(self):
+        """Neptune is sad."""
+        await self.bot.say('`You managed to make NEPTUNE sad! How could you even...`\nhttps://cdn.discordapp.com/attachments/196051622055378953/231935403974852609/IMG_1197.PNG')
+        
+    @commands.command()
     async def plutia(self):
         """She looks cute. Or is she...?"""
         plutia = ["https://cdn.discordapp.com/attachments/196051622055378953/196067801033605121/IMG_0504.JPG",
@@ -942,6 +979,11 @@ class randimages:
     async def doublefacepalm(self):
         """When the fail is even stronger."""
         await self.bot.say("http://robinbrown.co.uk/wp-content/uploads/2012/02/double-facepalm1.jpg")
+
+    @commands.command()
+    async def quadfacepalm(self):
+        """When the fail is stronger than ever."""
+        await self.bot.say("https://cdn.discordapp.com/attachments/225788942916517890/233190758922846208/CTHkwdBUAAE-k6r.jpg")        
         
     @commands.command()
     async def facepaw(self):
