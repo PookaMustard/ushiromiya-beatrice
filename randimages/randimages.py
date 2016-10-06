@@ -1564,7 +1564,8 @@ class randimages:
     @commands.command()
     async def cringefest(self):
         """Not safe for your sanity!"""
-        cringe = ["https://cdn.discordapp.com/attachments/173966944351944704/227638265719685121/There_it_exists_now.png"]
+        cringe = ["https://cdn.discordapp.com/attachments/173966944351944704/227638265719685121/There_it_exists_now.png",
+                  "Sticker Star is better than Super Paper Mario anyways."]
         await self.bot.say(randchoice(cringe))
 
     @commands.command()
