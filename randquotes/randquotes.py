@@ -476,7 +476,7 @@ class randquotes:
     @commands.command()
     async def rquotes(self):
         """U.N. Owen quotes"""
-        unowen = ["well, that's strange... first me and Flandre, and now Pooka and Remilia?"]
+        unowen = ["```well, that's strange... first me and Flandre, and now Pooka and Remilia?```\n-U.N. Owen."]
         await self.bot.say(randchoice(unowen))
         
     @commands.command()
