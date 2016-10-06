@@ -67,7 +67,10 @@ class randquotes:
                "```It's good except that it's sonic 0/10```\n-IGN",
                "`> Sonic was always bad`\n`> Sonic CD is one of our top 100 games`\n-IGN",
                "```REMOVE ALL WATER```\n-IGN",
-               "```splatoon is awesome -no team speak- splatoon sucks```\n-IGN"
+               "```splatoon is awesome -no team speak- splatoon sucks```\n-IGN",
+               "```Roxas is a garbage character no one cares about```\n-IGN",
+               "```7.8 Too much water. Too much HM's.```\n-IGN",
+               "```We need to admit that this was never really a great franchise.```\n-IGN"
                ]
         await self.bot.say(randchoice(ign))
 
@@ -190,7 +193,8 @@ class randquotes:
                 "```why wasn't anyone worried about the junkyard burglary last night?  Because all the thieves did was jack shit```\n-GigaLem",
                 "```did you hear about the psychopathic midget that escaped from jail? He's a small medium at large```\n-GigaLem",
                 "```What happens if Avalice gets roboticized? Freedom Planet Robobot```\n-GigaLem",
-                "```how is Kamui so overpowered in smash? High fructose corrin syrup```\n-GigaLem"
+                "```how is Kamui so overpowered in smash? High fructose corrin syrup```\n-GigaLem",
+                "```The Copyright In The Woods```\n-Bas-Makes-Games"
                 ]
         await self.bot.say(randchoice(badjoke)) 
         
@@ -464,10 +468,17 @@ class randquotes:
                  "```Must resist urge to bake breaks```\n-Pooka",
                  "```%dictoonary irreconciliable ```\n-Pooka",
                  "```Your brickfast is ready```\n-Pooka",
-                 "```It was then I realized that you asked for %dick!```\n-Pooka"
+                 "```It was then I realized that you asked for %dick!```\n-Pooka",
+                 "```How about you drink a bear?```\n-Pooka"
                  ]
         await self.bot.say(randchoice(pooka))
 
+    @commands.command()
+    async def rquotes(self):
+        """U.N. Owen quotes"""
+        unowen = ["well, that's strange... first me and Flandre, and now Pooka and Remilia?"]
+        await self.bot.say(randchoice(unowen))
+        
     @commands.command()
     async def minha(self):
         """Provided to you by Minha Vida Ordinaria""" 
