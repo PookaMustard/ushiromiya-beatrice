@@ -482,13 +482,6 @@ class randimages:
         await self.bot.say(randchoice(trig))
         
     @commands.command()
-    async def throwyourselfout(self):
-        """Why not?"""
-        throwyourselfout = ["https://cdn.discordapp.com/attachments/173967012123377664/199952050312839170/Throw_Yourself_Out.png",
-                "https://cdn.discordapp.com/attachments/151670525205282825/225783877480742913/Jumping-Out-of-Window.gif"]
-        await self.bot.say(randchoice(throwyourselfout))
-        
-    @commands.command()
     async def second(self):
         """First, then Second."""
         await self.bot.say('https://i.imgur.com/7lWjDiH.png')
@@ -1592,12 +1585,6 @@ class randimages:
     async def ace(self):
         """...of diamonds!"""
         await self.bot.say("https://cdn.discordapp.com/attachments/205815814316752897/230804809723281409/Ace_of_Spade.png")
-        
-    @commands.command()
-    async def easymode(self):
-        """EEEH? EASY MODE?"""
-        easymode = ["https://cdn.discordapp.com/attachments/196051622055378953/228667167506300938/undertale_mode.png"]
-        await self.bot.say(randchoice(easymode))
 
     @commands.command()
     async def nfkrz(self):
