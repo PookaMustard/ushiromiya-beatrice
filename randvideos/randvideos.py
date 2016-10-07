@@ -98,12 +98,6 @@ class randvideos:
         await self.bot.say('https://www.youtube.com/watch?v=1WXtUisumn8')
         
     @commands.command()
-    async def grand(self):
-        """Is this a bootleg?"""
-        grand = ['https://soundcloud.com/arlobo-loquendero/grand-dads-high-quality-rips-machine', 'https://soundcloud.com/epicrpgremixes/a-battle-of-grand-proportions']
-        await self.bot.say(randchoice(grand))
-        
-    @commands.command()
     async def grandestmenu(self):
         """Now invading your Start Menu! Who the hell uses a Start Menu anyways?"""
         await self.bot.say('https://soundcloud.com/asdfghjklqwweee/grand-dad-in-the-style-of-start-menu')
