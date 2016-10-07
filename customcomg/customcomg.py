@@ -8,14 +8,15 @@ import os
 import re
 
 class GlobalCustomCommands:
-    """Global custom commands."""
+    """Global custom commands.
+       Based off the built-in Custom Commands cog."""
 
     def __init__(self, bot):
         self.bot = bot
         self.c_commands = fileIO("data/customcomg/commands.json", "load")
 
     @commands.command(pass_context=True, no_pm=True)
-    @checks.mod_or_permissions(administrator=True)
+    @checks.admin_or_permissions()
     async def gaddcom(self, ctx, command : str, *, text):
         """Adds a global custom command
 
@@ -39,8 +40,8 @@ class GlobalCustomCommands:
             #await self.bot.say("This command already exists. Use editcom to edit it.")
 
     @commands.command(pass_context=True, no_pm=True)
-    @checks.mod_or_permissions(administrator=True)
-    async def geditcom(self, ctx, command : str, *, text):
+    @checks.admin_or_permissions()
+    async def geditcom(self, ctx, command : str):
         """Edits a global custom command
 
         Example:
@@ -53,7 +54,7 @@ class GlobalCustomCommands:
             if len(cmdlist[command])==1:
                 await self.bot.say("Enter the new contents of the command.")
                 response = await self.bot.wait_for_message(author=message.author)
-                cmdlist[command] = response
+                cmdlist[command] = [response.content]
                 self.c_commands = cmdlist
                 fileIO("data/customcomg/commands.json", "save", self.c_commands)
                 return await self.bot.say("Custom command successfully edited.")
@@ -74,13 +75,14 @@ class GlobalCustomCommands:
                 await self.bot.say("Enter the new contents of the command.")
                 text = await self.bot.wait_for_message(author=message.author)
                 cmdlist[command][number] = text.content
+                self.c_commands = cmdlist
                 fileIO("data/customcomg/commands.json", "save", self.c_commands)
                 return await self.bot.say("Custom command successfully edited.")
         else:
             await self.bot.say("That command doesn't exist. Use addcom [command] [text]")
 
     @commands.command(pass_context=True, no_pm=True)
-    @checks.mod_or_permissions(administrator=True)
+    @checks.admin_or_permissions()
     async def gdelcom(self, ctx, command : str):
         """Deletes a global custom command
 
