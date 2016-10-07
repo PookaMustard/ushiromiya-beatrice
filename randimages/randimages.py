@@ -708,11 +708,6 @@ class randimages:
         await self.bot.say('https://cdn.discordapp.com/attachments/196051622055378953/233321606124929024/unknown.png')
         
     @commands.command()
-    async def gameover(self):
-        """Another lun- *bloody explosion, game over music*"""
-        await self.bot.say('http://imgur.com/download/bYB80Cu')
-        
-    @commands.command()
     async def wat(self):
         """Huh"""
         await self.bot.say('http://i.ytimg.com/vi/hEfa0C897H4/maxresdefault.jpg')
@@ -1616,12 +1611,6 @@ class randimages:
                  "https://cdn.discordapp.com/attachments/225788942916517890/231204539578056704/nfkrz_star.png"
                 ]
         await self.bot.say(randchoice(nfkrz))
-
-    @commands.command()
-    async def touhoujack(self):
-        """No-one is safe…"""
-        easymode = ["http://67.media.tumblr.com/tumblr_nabfy2SumS1r7hwaho1_r1_1408053809_cover.jpg"]
-        await self.bot.say(randchoice(easymode))
 
     @commands.command()
     async def flynn(self):
