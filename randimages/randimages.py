@@ -721,15 +721,6 @@ class randimages:
         await self.bot.say('`You managed to make NEPTUNE sad! How could you even...`\nhttps://cdn.discordapp.com/attachments/196051622055378953/231935403974852609/IMG_1197.PNG')
         
     @commands.command()
-    async def plutia(self):
-        """She looks cute. Or is she...?"""
-        plutia = ["https://cdn.discordapp.com/attachments/196051622055378953/196067801033605121/IMG_0504.JPG",
-                  "https://cdn.discordapp.com/attachments/196051622055378953/196069013082734593/IMG_0511.JPG",
-                  "https://cdn.discordapp.com/attachments/196051622055378953/196067951948857346/IMG_0482.JPG",
-                  "https://cdn.discordapp.com/attachments/196051622055378953/196069413848350721/IMG_0512.JPG"]
-        await self.bot.say(randchoice(plutia))
-        
-    @commands.command()
     async def objection(self):
         """Cool pose."""
         await self.bot.say('https://cdn.discordapp.com/attachments/167706685715120129/189796749420789763/objection.jpg')
@@ -1610,12 +1601,6 @@ class randimages:
         """Because there just aren't enough memes yet, apparently"""
         understatement = ["https://cdn.discordapp.com/attachments/205815814316752897/229716017826365441/ididanotherthing.png"]
         await self.bot.say(randchoice(understatement))
-
-    @commands.command()
-    async def nintendont(self):
-        """Sega does"""
-        nintendont = ["https://cdn.discordapp.com/attachments/130541134760902656/229932415861129216/unknown.png"]
-        await self.bot.say(randchoice(nintendont))
 
 def setup(bot):
     bot.add_cog(randimages(bot))
