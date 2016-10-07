@@ -211,6 +211,6 @@ def check_files():
 def setup(bot):
     check_folders()
     check_files()
-    n = CustomCommands(bot)
+    n = GlobalCustomCommands(bot)
     bot.add_listener(n.checkCC, "on_message")
     bot.add_cog(n)
