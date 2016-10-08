@@ -8,8 +8,7 @@ import os
 import re
 
 class GlobalCustomCommands:
-    """Global custom commands.
-       Based off the built-in Custom Commands cog."""
+    """Global custom commands."""
 
     def __init__(self, bot):
         self.bot = bot
@@ -120,6 +119,16 @@ class GlobalCustomCommands:
                     return await self.bot.say("Chosen number invalid.")
         else:
             await self.bot.say("That command doesn't exist.")
+
+    @commands.command(pass_context=True, no_pm=True)
+    @checks.admin_or_permissions()
+    async def guploadcom(self, ctx):
+        """Uploads JSON of all commands"""
+        channel = self.bot.get_channel(str(ctx.message.channel.id))
+        object = open("data/customcomg/commands.json", "rb")
+        await self.bot.send_file(channel, object, filename='commands.json', content=None, tts=False)
+        return object.close()
+        
 
     @commands.command(pass_context=True, no_pm=True)
     async def gcustomcommands(self, ctx):
