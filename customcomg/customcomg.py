@@ -30,13 +30,10 @@ class GlobalCustomCommands:
         if command not in cmdlist:
             cmdlist[command] = [text]
             self.c_commands = cmdlist
-            fileIO("data/customcomg/commands.json", "save", self.c_commands)
-            await self.bot.say("Custom command successfully added.")
         else:
             cmdlist[command].append(text)
-            fileIO("data/customcomg/commands.json", "save", self.c_commands)
-            await self.bot.say("Custom command successfully added.")
-            #await self.bot.say("This command already exists. Use editcom to edit it.")
+        fileIO("data/customcomg/commands.json", "save", self.c_commands)
+        await self.bot.say("Global custom command successfully added.")
 
     @commands.command(pass_context=True, no_pm=True)
     @checks.admin_or_permissions()
@@ -51,34 +48,42 @@ class GlobalCustomCommands:
         cmdlist = self.c_commands
         if command in cmdlist:
             if len(cmdlist[command])==1:
-                await self.bot.say("Enter the new contents of the command.")
+                await self.bot.say("Enter the new contents of the global command. Type ``cancel` to cancel operation.")
                 response = await self.bot.wait_for_message(author=message.author)
+                if response.content.lower() == "`cancel":
+                    return await self.bot.say("Operation cancelled.")
                 cmdlist[command] = [response.content]
-                self.c_commands = cmdlist
-                fileIO("data/customcomg/commands.json", "save", self.c_commands)
-                return await self.bot.say("Custom command successfully edited.")
             else:
-                retries = 0
-                body = ''
+                retries, bodyretries, textretries = 0, 0, 0
+                body = []
+                body.append("")
                 while retries <= len(cmdlist[command])-1:
-                    body = body + str(retries) + ". " + cmdlist[command][retries] + "\n"
+                    if len(body[bodyretries] + str(retries) + ". " + cmdlist[command][retries] + "\n") + 20 >= 2000:
+                        body.append("") 
+                        bodyretries = bodyretries + 1
+                    body[bodyretries] = body[bodyretries] + str(retries) + ". " + cmdlist[command][retries] + "\n"
                     retries = retries + 1
-                await self.bot.say(body + "\nWhich entry do you wish to edit?")
+                while textretries <= bodyretries:
+                    await self.bot.say(body[textretries])
+                    textretries = textretries + 1
+                await self.bot.say("\nWhich entry do you wish to edit? Type ``cancel` to cancel operation.")
                 number = await self.bot.wait_for_message(author=message.author)
+                if number.content.lower() == "`cancel":
+                    return await self.bot.say("Operation cancelled.")
                 try:
                     if int(number.content) < 0 or int(number.content) > len(cmdlist[command])-1:
                         return await self.bot.say("Chosen number invalid.")
                     number = int(number.content)
                 except:
                     return await self.bot.say("Chosen number invalid.")
-                await self.bot.say("Enter the new contents of the command.")
+                await self.bot.say("Enter the new contents of the global command.")
                 text = await self.bot.wait_for_message(author=message.author)
                 cmdlist[command][number] = text.content
-                self.c_commands = cmdlist
-                fileIO("data/customcomg/commands.json", "save", self.c_commands)
-                return await self.bot.say("Custom command successfully edited.")
+            self.c_commands = cmdlist
+            fileIO("data/customcomg/commands.json", "save", self.c_commands)
+            return await self.bot.say("Global custom command successfully edited.")
         else:
-            await self.bot.say("That command doesn't exist. Use addcom [command] [text]")
+            await self.bot.say("That global command doesn't exist. Use [p]gaddcom [command] [text]")
 
     @commands.command(pass_context=True, no_pm=True)
     @checks.admin_or_permissions()
@@ -94,31 +99,38 @@ class GlobalCustomCommands:
             if len(cmdlist[command])==1:
                 cmdlist.pop(command, None)
                 self.c_commands = cmdlist
-                fileIO("data/customcomg/commands.json", "save", self.c_commands)
-                await self.bot.say("Custom command successfully deleted.")
             else:
-                retries = 0
-                body = ''
+                retries, bodyretries, textretries = 0, 0, 0
+                body = []
+                body.append("")
                 while retries <= len(cmdlist[command])-1:
-                    body = body + str(retries) + ". " + cmdlist[command][retries] + "\n"
+                    if len(body[bodyretries] + str(retries) + ". " + cmdlist[command][retries] + "\n") + 20 >= 2000:
+                        body.append("") 
+                        bodyretries = bodyretries + 1
+                    body[bodyretries] = body[bodyretries] + str(retries) + ". " + cmdlist[command][retries] + "\n"
                     retries = retries + 1
-                await self.bot.say(body + "\nWhich entry do you wish to delete? (Type 'all' for all entries)")
+                while textretries <= bodyretries:
+                    await self.bot.say(body[textretries])
+                    textretries = textretries + 1
+                await self.bot.say("\nWhich entry do you wish to delete? Type `all` for all entries or ``cancel` to cancel.")
                 response = await self.bot.wait_for_message(author=message.author)
+                if response.content.lower() == "`cancel":
+                    return await self.bot.say("Operation cancelled.")
                 try:
                     if response.content.lower() == 'all':
                         cmdlist.pop(command, None)
                         self.c_commands = cmdlist
-                        fileIO("data/customcomg/commands.json", "save", self.c_commands)
-                        return await self.bot.say("Custom command successfully deleted.")
-                    if int(response.content) < 0 or int(response.content) > len(cmdlist[command])-1:
+                    elif int(response.content) >= 0 or int(response.content) < len(cmdlist[command])-1:
+                        cmdlist[command].pop(int(response.content))
+                        self.c_commands = cmdlist
+                    else:
                         return await self.bot.say("Chosen number invalid.")
-                    cmdlist[command].pop(int(response.content))
-                    fileIO("data/customcomg/commands.json", "save", self.c_commands)
-                    await self.bot.say("Custom command successfully deleted.")
                 except:
                     return await self.bot.say("Chosen number invalid.")
+            fileIO("data/customcomg/commands.json", "save", self.c_commands)
+            return await self.bot.say("Global custom command successfully deleted.")
         else:
-            await self.bot.say("That command doesn't exist.")
+            await self.bot.say("That global command doesn't exist.")
 
     @commands.command(pass_context=True, no_pm=True)
     @checks.admin_or_permissions()
