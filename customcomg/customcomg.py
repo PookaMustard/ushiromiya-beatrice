@@ -1,164 +1,108 @@
 import discord
 from discord.ext import commands
-from random import choice as randchoice
 from .utils.dataIO import fileIO
 from .utils import checks
 from __main__ import user_allowed, send_cmd_help
 import os
 import re
 
-class GlobalCustomCommands:
-    """Global custom commands."""
+class CustomCommands:
+    """Custom commands."""
 
     def __init__(self, bot):
         self.bot = bot
-        self.c_commands = fileIO("data/customcomg/commands.json", "load")
+        self.c_commands = fileIO("data/customcom/commands.json", "load")
 
     @commands.command(pass_context=True, no_pm=True)
-    @checks.admin_or_permissions()
-    async def gaddcom(self, ctx, command : str, *, text):
-        """Adds a global custom command
+    @checks.mod_or_permissions(administrator=True)
+    async def addcom(self, ctx, command : str, *, text):
+        """Adds a custom command
 
         Example:
         !addcom yourcommand Text you want
         """
+        server = ctx.message.server
         command = command.lower()
-        cmdlist = self.c_commands
         if command in self.bot.commands.keys():
             await self.bot.say("That command is already a standard command.")
             return
+        if not server.id in self.c_commands:
+            self.c_commands[server.id] = {}
+        cmdlist = self.c_commands[server.id]
         if command not in cmdlist:
-            cmdlist[command] = [text]
-            self.c_commands = cmdlist
+            cmdlist[command] = text
+            self.c_commands[server.id] = cmdlist
+            fileIO("data/customcom/commands.json", "save", self.c_commands)
+            await self.bot.say("Custom command successfully added.")
         else:
-            cmdlist[command].append(text)
-        fileIO("data/customcomg/commands.json", "save", self.c_commands)
-        await self.bot.say("Global custom command successfully added.")
+            await self.bot.say("This command already exists. Use editcom to edit it.")
 
     @commands.command(pass_context=True, no_pm=True)
-    @checks.admin_or_permissions()
-    async def geditcom(self, ctx, command : str):
-        """Edits a global custom command
+    @checks.mod_or_permissions(administrator=True)
+    async def editcom(self, ctx, command : str, *, text):
+        """Edits a custom command
 
         Example:
         !editcom yourcommand Text you want
         """
-        message = ctx.message
+        server = ctx.message.server
         command = command.lower()
-        cmdlist = self.c_commands
-        if command in cmdlist:
-            if len(cmdlist[command])==1:
-                await self.bot.say("Enter the new contents of the global command. Type ``cancel` to cancel operation.")
-                response = await self.bot.wait_for_message(author=message.author)
-                if response.content.lower() == "`cancel":
-                    return await self.bot.say("Operation cancelled.")
-                cmdlist[command] = [response.content]
+        if server.id in self.c_commands:
+            cmdlist = self.c_commands[server.id]
+            if command in cmdlist:
+                cmdlist[command] = text
+                self.c_commands[server.id] = cmdlist
+                fileIO("data/customcom/commands.json", "save", self.c_commands)
+                await self.bot.say("Custom command successfully edited.")
             else:
-                retries, bodyretries, textretries = 0, 0, 0
-                body = []
-                body.append("")
-                while retries <= len(cmdlist[command])-1:
-                    if len(body[bodyretries] + str(retries) + ". " + cmdlist[command][retries] + "\n") + 20 >= 2000:
-                        body.append("") 
-                        bodyretries = bodyretries + 1
-                    body[bodyretries] = body[bodyretries] + str(retries) + ". " + cmdlist[command][retries] + "\n"
-                    retries = retries + 1
-                while textretries <= bodyretries:
-                    await self.bot.say(body[textretries])
-                    textretries = textretries + 1
-                await self.bot.say("\nWhich entry do you wish to edit? Type ``cancel` to cancel operation.")
-                number = await self.bot.wait_for_message(author=message.author)
-                if number.content.lower() == "`cancel":
-                    return await self.bot.say("Operation cancelled.")
-                try:
-                    if int(number.content) < 0 or int(number.content) > len(cmdlist[command])-1:
-                        return await self.bot.say("Chosen number invalid.")
-                    number = int(number.content)
-                except:
-                    return await self.bot.say("Chosen number invalid.")
-                await self.bot.say("Enter the new contents of the global command.")
-                text = await self.bot.wait_for_message(author=message.author)
-                cmdlist[command][number] = text.content
-            self.c_commands = cmdlist
-            fileIO("data/customcomg/commands.json", "save", self.c_commands)
-            return await self.bot.say("Global custom command successfully edited.")
+                await self.bot.say("That command doesn't exist. Use addcom [command] [text]")
         else:
-            await self.bot.say("That global command doesn't exist. Use [p]gaddcom [command] [text]")
+             await self.bot.say("There are no custom commands in this server. Use addcom [command] [text]")
 
     @commands.command(pass_context=True, no_pm=True)
-    @checks.admin_or_permissions()
-    async def gdelcom(self, ctx, command : str):
-        """Deletes a global custom command
+    @checks.mod_or_permissions(administrator=True)
+    async def delcom(self, ctx, command : str):
+        """Deletes a custom command
 
         Example:
         !delcom yourcommand"""
-        message = ctx.message
+        server = ctx.message.server
         command = command.lower()
-        cmdlist = self.c_commands
-        if command in cmdlist:
-            if len(cmdlist[command])==1:
+        if server.id in self.c_commands:
+            cmdlist = self.c_commands[server.id]
+            if command in cmdlist:
                 cmdlist.pop(command, None)
-                self.c_commands = cmdlist
+                self.c_commands[server.id] = cmdlist
+                fileIO("data/customcom/commands.json", "save", self.c_commands)
+                await self.bot.say("Custom command successfully deleted.")
             else:
-                retries, bodyretries, textretries = 0, 0, 0
-                body = []
-                body.append("")
-                while retries <= len(cmdlist[command])-1:
-                    if len(body[bodyretries] + str(retries) + ". " + cmdlist[command][retries] + "\n") + 20 >= 2000:
-                        body.append("") 
-                        bodyretries = bodyretries + 1
-                    body[bodyretries] = body[bodyretries] + str(retries) + ". " + cmdlist[command][retries] + "\n"
-                    retries = retries + 1
-                while textretries <= bodyretries:
-                    await self.bot.say(body[textretries])
-                    textretries = textretries + 1
-                await self.bot.say("\nWhich entry do you wish to delete? Type `all` for all entries or ``cancel` to cancel.")
-                response = await self.bot.wait_for_message(author=message.author)
-                if response.content.lower() == "`cancel":
-                    return await self.bot.say("Operation cancelled.")
-                try:
-                    if response.content.lower() == 'all':
-                        cmdlist.pop(command, None)
-                        self.c_commands = cmdlist
-                    elif int(response.content) >= 0 or int(response.content) < len(cmdlist[command])-1:
-                        cmdlist[command].pop(int(response.content))
-                        self.c_commands = cmdlist
-                    else:
-                        return await self.bot.say("Chosen number invalid.")
-                except:
-                    return await self.bot.say("Chosen number invalid.")
-            fileIO("data/customcomg/commands.json", "save", self.c_commands)
-            return await self.bot.say("Global custom command successfully deleted.")
+                await self.bot.say("That command doesn't exist.")
         else:
-            await self.bot.say("That global command doesn't exist.")
+            await self.bot.say("There are no custom commands in this server. Use addcom [command] [text]")
 
     @commands.command(pass_context=True, no_pm=True)
-    @checks.admin_or_permissions()
-    async def guploadcom(self, ctx):
-        """Uploads JSON of all commands"""
-        channel = self.bot.get_channel(str(ctx.message.channel.id))
-        object = open("data/customcomg/commands.json", "rb")
-        await self.bot.send_file(channel, object, filename='commands.json', content=None, tts=False)
-        return object.close()
-        
-
-    @commands.command(pass_context=True, no_pm=True)
-    async def gcustomcommands(self, ctx):
-        """Shows global custom commands list"""
-        cmdlist = self.c_commands
-        if cmdlist:
-            i = 0
-            msg = ["```Custom commands:\n"]
-            for cmd in sorted([cmd for cmd in cmdlist.keys()]):
-                if len(msg[i]) + len(ctx.prefix) + len(cmd) + 5 > 2000:
-                    msg[i] += "```"
-                    i += 1
-                    msg.append("``` {}{}\n".format(ctx.prefix, cmd))
-                else:
-                    msg[i] += " {}{}\n".format(ctx.prefix, cmd)
-            msg[i] += "```"
-            for cmds in msg:
-                await self.bot.whisper(cmds)
+    async def customcommands(self, ctx):
+        """Shows custom commands list"""
+        server = ctx.message.server
+        if server.id in self.c_commands:
+            cmdlist = self.c_commands[server.id]
+            if cmdlist:
+                i = 0
+                msg = ["```Custom commands:\n"]
+                for cmd in sorted([cmd for cmd in cmdlist.keys()]):
+                    if len(msg[i]) + len(ctx.prefix) + len(cmd) + 5 > 2000:
+                        msg[i] += "```"
+                        i += 1
+                        msg.append("``` {}{}\n".format(ctx.prefix, cmd))
+                    else:
+                        msg[i] += " {}{}\n".format(ctx.prefix, cmd)
+                msg[i] += "```"
+                for cmds in msg:
+                    await self.bot.whisper(cmds)
+            else:
+                await self.bot.say("There are no custom commands in this server. Use addcom [command] [text]")
+        else:
+            await self.bot.say("There are no custom commands in this server. Use addcom [command] [text]")
 
     async def checkCC(self, message):
         if message.author.id == self.bot.user.id or len(message.content) < 2 or message.channel.is_private:
@@ -169,18 +113,19 @@ class GlobalCustomCommands:
 
         msg = message.content
         server = message.server
-        prefix = str(self.get_prefix(msg))
+        prefix = self.get_prefix(msg)
 
-        cmdlist = self.c_commands
-        cmd = msg[len(prefix):]
-        if cmd in cmdlist.keys():
-            cmd = randchoice(cmdlist[cmd])
-            cmd = self.format_cc(cmd, message)
-            await self.bot.send_message(message.channel, cmd)
-        elif cmd.lower() in cmdlist.keys():
-            cmd = randchoice(cmdlist[cmd.lower()])
-            cmd = self.format_cc(cmd, message)
-            await self.bot.send_message(message.channel, cmd)
+        if prefix and server.id in self.c_commands.keys():
+            cmdlist = self.c_commands[server.id]
+            cmd = msg[len(prefix):]
+            if cmd in cmdlist.keys():
+                cmd = cmdlist[cmd]
+                cmd = self.format_cc(cmd, message)
+                await self.bot.send_message(message.channel, cmd)
+            elif cmd.lower() in cmdlist.keys():
+                cmd = cmdlist[cmd.lower()]
+                cmd = self.format_cc(cmd, message)
+                await self.bot.send_message(message.channel, cmd)
 
     def get_prefix(self, msg):
         for p in self.bot.command_prefix:
@@ -221,12 +166,12 @@ class GlobalCustomCommands:
 
 
 def check_folders():
-    if not os.path.exists("data/customcomg"):
-        print("Creating data/customcomg folder...")
-        os.makedirs("data/customcomg")
+    if not os.path.exists("data/customcom"):
+        print("Creating data/customcom folder...")
+        os.makedirs("data/customcom")
 
 def check_files():
-    f = "data/customcomg/commands.json"
+    f = "data/customcom/commands.json"
     if not fileIO(f, "check"):
         print("Creating empty commands.json...")
         fileIO(f, "save", {})
@@ -234,6 +179,6 @@ def check_files():
 def setup(bot):
     check_folders()
     check_files()
-    n = GlobalCustomCommands(bot)
+    n = CustomCommands(bot)
     bot.add_listener(n.checkCC, "on_message")
     bot.add_cog(n)
