@@ -170,10 +170,11 @@ class GlobalCustomCommands:
         msg = message.content
         server = message.server
         prefix = self.get_prefix(msg)
+        cmdend = self.command_detect(msg)
 
         cmdlist = self.c_commands
         try:
-            cmd = msg[len(prefix):]
+            cmd = msg[len(prefix):cmdend]
         except TypeError:
             return
         if cmd in cmdlist.keys():
@@ -197,6 +198,11 @@ class GlobalCustomCommands:
             param = self.transform_parameter(result, message)
             command = command.replace("{" + result + "}", param)
         return command
+
+    def command_detect(self, msg):
+        for num, letter in enumerate(msg):
+            if letter == ' ':
+                return num
 
     def transform_parameter(self, result, message):
         """
