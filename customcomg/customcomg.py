@@ -15,7 +15,7 @@ class GlobalCustomCommands:
         self.c_commands = fileIO("data/customcomg/commands.json", "load")
 
     @commands.command(pass_context=True, no_pm=True)
-    @checks.admin_or_permissions()
+    @checks.admin_or_permissions(administrator=True)
     async def gaddcom(self, ctx, command : str, *, text):
         """Adds a global custom command
 
@@ -36,7 +36,7 @@ class GlobalCustomCommands:
         await self.bot.say("Global custom command successfully added.")
 
     @commands.command(pass_context=True, no_pm=True)
-    @checks.admin_or_permissions()
+    @checks.admin_or_permissions(administrator=True)
     async def geditcom(self, ctx, command : str):
         """Edits a global custom command
 
@@ -86,7 +86,7 @@ class GlobalCustomCommands:
             await self.bot.say("That global command doesn't exist. Use [p]gaddcom [command] [text]")
 
     @commands.command(pass_context=True, no_pm=True)
-    @checks.admin_or_permissions()
+    @checks.admin_or_permissions(administrator=True)
     async def gdelcom(self, ctx, command : str):
         """Deletes a global custom command
 
@@ -133,7 +133,7 @@ class GlobalCustomCommands:
             await self.bot.say("That global command doesn't exist.")
 
     @commands.command(pass_context=True, no_pm=True)
-    @checks.admin_or_permissions()
+    @checks.admin_or_permissions(administrator=True)
     async def guploadcom(self, ctx):
         """Uploads JSON of all commands"""
         channel = self.bot.get_channel(str(ctx.message.channel.id))
