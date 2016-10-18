@@ -1,5 +1,6 @@
 from discord.ext import commands
 import json
+import datetime
 import re
 from random import randint
 from urllib.request import urlopen
@@ -158,6 +159,11 @@ class GOG:
             forumurl = "<https://www.gog.com" + \
                        data['products'][gamenum]['forumUrl'] + ">"
 
+            timeraw = data['products'][gamenum]['releaseDate']
+            #reldate = time.strftime("%d %B, %Y", timeraw)
+            reldate = datetime.datetime.fromtimestamp(int(timeraw)) \
+                      .strftime("%B %d, %Y")
+
             if isfree:
                 pricetext = 'Free'
             else:
@@ -185,6 +191,7 @@ class GOG:
                         "View at your own discretion.**" + "\n"
             bottext = bottext + "Title: " + title + "\nGame URL: " + url + \
                 "\nGame Image URL: " + image + "\nForum URL: " + forumurl + \
+                "\nRelease Date: " +reldate + \
                 "\nGenre: " + genre + "\nPlatforms: " + platformtext + \
                 "\nRating: " + rating + "\nPrice: " + pricetext
             return await self.bot.say(bottext)
