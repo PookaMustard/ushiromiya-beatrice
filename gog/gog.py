@@ -154,6 +154,9 @@ class GOG:
                 data['products'][gamenum]['price']['finalAmount']
             pricesymbol = data['products'][gamenum]['price']['symbol']
             buyable = data['products'][gamenum]['buyable']
+            rating = str(data['products'][gamenum]['rating']) + "/50"
+            forumurl = "<https://www.gog.com" + \
+                       data['products'][gamenum]['forumUrl'] + ">"
 
             if isfree:
                 pricetext = 'Free'
@@ -181,9 +184,9 @@ class GOG:
                         "work and family unfriendly due to adult content. " + \
                         "View at your own discretion.**" + "\n"
             bottext = bottext + "Title: " + title + "\nGame URL: " + url + \
-                "\nGame Image URL: " + image + "\nGenre: " + \
-                genre + "\nPlatforms: " + platformtext + "\nPrice: " + \
-                pricetext
+                "\nGame Image URL: " + image + "\nForum URL: " + forumurl + \
+                "\nGenre: " + genre + "\nPlatforms: " + platformtext + \
+                "\nRating: " + rating + "\nPrice: " + pricetext
             return await self.bot.say(bottext)
 
     def get_game_count(self):
